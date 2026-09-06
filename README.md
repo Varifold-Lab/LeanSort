@@ -33,7 +33,7 @@ Ten implemented algorithms; the table distinguishes full and partial verificatio
 | Quick sort | proved | not instrumented |
 | Heap sort | regression checks only | not instrumented |
 | Shell sort | permutation proved; sortedness pending | not instrumented |
-| Counting sort | sortedness proved; permutation pending | not instrumented |
+| Counting sort | proved | histogram updates; checked replay |
 | Radix sort | permutation proved; sortedness pending | not instrumented |
 
 Quick sort uses a deterministic first pivot and a single partition pass.
@@ -50,7 +50,17 @@ so it is intended for small key ranges.
 
 Shell, counting, and radix sort each have edge-case checks and exhaustive
 checks of all 364 lists of length at most five over `{0, 1, 2}`.
-These checks supplement, but do not replace, the missing universal proofs.
+Counting's full sortedness and permutation proofs are provided; its checks also
+cover trace replay and malformed traces. Shell and radix still have the proof
+gaps listed above; exhaustive checks do not replace universal proofs.
+
+Counting's verification follows the same six-module layout as the established
+algorithms: `Equations`, `Correctness`, `Trace`, `Cost`, `Complexity`, and `Checks`.
+Its correctness proof establishes that every histogram bucket equals the input
+multiplicity. Each trace event records a key and its updated counter value;
+replay checks the input order and counter updates before expanding the histogram.
+Both generated-trace acceptance and arbitrary accepted-trace correctness are
+proved. These are histogram events, not position swaps.
 
 ## Complexity
 
@@ -70,7 +80,7 @@ results already proved in this repository.
 | Quick sort | `O(n²)` | pending | not yet proved |
 | Heap sort | `O(n log n)` | pending | not yet proved |
 | Shell sort | `O(n²)` for halving gaps | pending | not yet proved |
-| Counting sort | `O(n + k)` | pending | not yet proved |
+| Counting sort | `O(n + k)` | input visits, bucket initialization/enumeration, output entries | `Θ(n + k)` |
 | Radix sort | `O(n b)` for binary passes | pending | not yet proved |
 
 Parameters:
@@ -99,7 +109,11 @@ Implementation-specific details:
   Bounds for other increment sequences do not automatically apply here.
 - **Counting sort:** finding the maximum and counting take `O(n)` logical work;
   initializing/enumerating buckets takes `O(k)`, and producing the output takes
-  `O(n)`. A large maximum key can therefore dominate the cost.
+  `O(n)`. The formal model charges one unit per input visit, initialized bucket,
+  histogram update, enumerated bucket, and emitted entry: exactly `3*n + 2*k`.
+  Its `Θ(n + k)` theorem allows either length or key range to grow. Trace storage,
+  runtime allocation/copying, and arbitrary-precision arithmetic are excluded.
+  A large maximum key can therefore dominate the cost.
 - **Radix sort:** each binary partition and concatenation scans at most
   `O(n)` elements, repeated for `b` bits, in addition to the initial maximum
   scan. Division and exponentiation on Lean's unbounded `Nat` keys are outside
@@ -110,7 +124,7 @@ swaps do not include finding minima, and pancake's `O(n)` flips do not include
 finding maxima or moving the elements of a reversed prefix. Neither is a
 linear-time sorting claim.
 
-Quick, heap, shell, counting, and radix sort still need formal cost definitions,
+Quick, heap, shell, and radix sort still need formal cost definitions,
 a connection to their executable algorithms, concrete bounds, and asymptotic
 proofs. No total-runtime or space-complexity theorem is currently claimed.
 
