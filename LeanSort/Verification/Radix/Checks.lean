@@ -32,6 +32,14 @@ namespace LeanSort.Radix
 #guard replay [0, 0] (radixSortTrace [0, 0]) = some [0, 0]
 #guard replay [3, 2, 1, 0] (radixSortTrace [3, 2, 1, 0]) = some [0, 1, 2, 3]
 
+-- Distinguish digit tests from scan/partition/append work.
+#guard passesWithWork [0, 1] [3, 2, 1, 0] = ([0, 1, 2, 3], 12)
+#guard sortWithWork [3, 2, 1, 0] = ([0, 1, 2, 3], 16)
+#guard radixWorkCost [] = 0 -- no charged element visits, not zero elapsed time
+#guard radixWorkCost [0, 0] = 6
+#guard radixWorkCost [7] = 4
+#guard radixWorkCost [8] = 8
+
 -- Reject a wrong bit, wrong bucket, truncated choices, and surplus choices.
 #guard replayDigit 0 [2, 1] ⟨1, [true, false]⟩ = none
 #guard replayDigit 0 [2, 1] ⟨0, [false, false]⟩ = none
@@ -46,12 +54,25 @@ namespace LeanSort.Radix
 example (xs : List ℕ) : LeanSort.IsSortingResult (· ≤ ·) xs (radixSortResult xs) :=
   radixSortResult_spec xs
 
+-- Output correctness and work bounds refer to the same costed execution.
+example (xs : List ℕ) :
+    LeanSort.IsSortingResult (· ≤ ·) xs (sortWithWork xs).1 ∧
+      xs.length * radixBits xs ≤ radixWorkCost xs ∧
+      radixWorkCost xs ≤ 3 * (xs.length * radixBits xs) := by
+  constructor
+  · rw [sortWithWork_result]
+    exact radixSortResult_spec xs
+  · exact radixWorkCost_bounds xs
+
 #guard (List.range 6).all fun len =>
   (List.range (3 ^ len)).all fun code =>
     let xs := (List.range len).map (fun i => code / 3 ^ i % 3)
     radixSortResult xs == xs.mergeSort &&
       (sortTrace xs).1 == radixSortResult xs &&
       replay xs (radixSortTrace xs) == some (radixSortResult xs) &&
-      digitTests xs == xs.length * radixBits xs
+      digitTests xs == xs.length * radixBits xs &&
+      (sortWithWork xs).1 == radixSortResult xs &&
+      decide (xs.length * radixBits xs ≤ radixWorkCost xs ∧
+        radixWorkCost xs ≤ 3 * (xs.length * radixBits xs))
 
 end LeanSort.Radix

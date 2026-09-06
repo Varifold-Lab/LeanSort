@@ -1,7 +1,13 @@
 import Mathlib.Data.List.Sort
 import Mathlib.Data.Nat.Log
 
-/-! Binary least-significant-digit radix sort for natural numbers. -/
+/-!
+Binary least-significant-digit radix sort for natural numbers.
+For `n = xs.length` and `b = radixBits xs`, each of the `b` passes visits all `n`
+elements. `Verification/Radix/Complexity.lean` is the reading entry point for the
+Theta(n * b) proof; `Verification/Radix/Cost.lean` defines the charged operations
+and proves the finite bounds. Algorithm definitions remain separate from proofs.
+-/
 
 namespace LeanSort.Radix
 

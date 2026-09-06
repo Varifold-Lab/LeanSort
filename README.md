@@ -72,7 +72,7 @@ reconstructs a sorted permutation of its input.
 
 The time bounds below are algorithmic reference bounds under a unit-cost model:
 key comparisons, array access, and digit extraction cost constant time. They
-exclude trace construction, runtime allocation/copying overhead, and the bit cost
+exclude trace construction, runtime memory-management overhead, and the bit cost
 of arithmetic on unbounded natural numbers. The last two columns report only
 results already proved in this repository.
 
@@ -87,7 +87,7 @@ results already proved in this repository.
 | Heap sort | `O(n log n)` | pending | not yet proved |
 | Shell sort | `O(n²)` for halving gaps | pending | not yet proved |
 | Counting sort | `O(n + k)` | input visits, bucket initialization/enumeration, output entries | `Θ(n + k)` |
-| Radix sort | `O(n b)` for binary passes | digit tests | exact `n * b`; `Θ(n b)` |
+| Radix sort | `O(n b)` for binary passes | digit tests; scan/partition/append work | exact tests `n * b`; work `Θ(n b)` |
 
 Parameters:
 
@@ -120,13 +120,13 @@ Implementation-specific details:
   Its `Θ(n + k)` theorem allows either length or key range to grow. Trace storage,
   runtime allocation/copying, and arbitrary-precision arithmetic are excluded.
   A large maximum key can therefore dominate the cost.
-- **Radix sort:** each binary partition and concatenation scans at most
-  `O(n)` elements, repeated for `b` bits, in addition to the initial maximum
-  scan. The formal counter counts the generated trace's bucket decisions:
-  exactly one digit test per input element per pass, hence exactly `n * b`.
-  Its `Θ(n b)` theorem counts those tests, excluding the maximum scan,
-  concatenation, trace construction/checking, and allocation. Division and
-  exponentiation on Lean's unbounded `Nat` keys are outside the unit-cost model.
+- **Radix sort:** the digit-test counter is exactly `n * b`. A separate
+  algorithm-level work model charges one unit per maximum-scan visit, partition
+  visit (digit test and bucket placement), and node copied by list append.
+  The proved bound is `n*b ≤ W ≤ n + 2*n*b ≤ 3*n*b`, hence `Θ(n b)`.
+  The costed execution is proved to return the original algorithm's output.
+  Bit arithmetic, pass-index construction, runtime allocation overhead, and
+  instrumentation are outside this model.
 
 The proved swap and flip bounds count whole operations: selection's `O(n)`
 swaps do not include finding minima, and pancake's `O(n)` flips do not include
@@ -136,6 +136,26 @@ linear-time sorting claim.
 Quick, heap, and shell sort still need formal cost definitions,
 a connection to their executable algorithms, concrete bounds, and asymptotic
 proofs. No total-runtime or space-complexity theorem is currently claimed.
+
+### Reading the Radix time-complexity proof
+
+Start with [Radix/Complexity.lean](LeanSort/Verification/Radix/Complexity.lean).
+It states the mathematical argument before the Lean proof:
+
+```text
+n = number of elements; b = number of binary passes (at least 1)
+one pass:       n visits + at most n copied nodes
+after b passes: n*b ≤ pass work ≤ 2*n*b
+maximum scan:   n ≤ n*b
+therefore:      n*b ≤ W ≤ 3*n*b, so W = Θ(n*b)
+```
+
+[Radix/Cost.lean](LeanSort/Verification/Radix/Cost.lean) defines the work units
+and proves each bound. For `[3, 2, 1, 0]`, `n = 4`, `b = 2`: there are exactly
+8 digit tests, while the scan/partition/append model counts 16 units of work.
+Both are formal cost claims, not measurements of elapsed time. The main theorem
+uses mathlib's `Θ`; its input filter means `n*b` grows without bound, not an
+average-case input distribution or an assumption that `b` is fixed.
 
 ## Dependencies
 
