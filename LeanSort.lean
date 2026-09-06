@@ -7,6 +7,11 @@ import LeanSort.Algorithm.Bubble
 import LeanSort.Algorithm.Selection
 import LeanSort.Algorithm.Merge
 import LeanSort.Algorithm.Pancake
+import LeanSort.Algorithm.Quick
+import LeanSort.Algorithm.Heap
+import LeanSort.Algorithm.Shell
+import LeanSort.Algorithm.Counting
+import LeanSort.Algorithm.Radix
 
 import LeanSort.Verification.Shared.RearrangementLemmas
 import LeanSort.Verification.Shared.InversionBounds
@@ -45,3 +50,18 @@ import LeanSort.Verification.Pancake.Correctness
 import LeanSort.Verification.Pancake.Trace
 import LeanSort.Verification.Pancake.Cost
 import LeanSort.Verification.Pancake.Complexity
+
+import LeanSort.Verification.Quick.Equations
+import LeanSort.Verification.Quick.Checks
+import LeanSort.Verification.Quick.Correctness
+
+import LeanSort.Verification.Heap.Checks
+
+import LeanSort.Verification.Shell.Checks
+import LeanSort.Verification.Shell.Permutation
+
+import LeanSort.Verification.Counting.Checks
+import LeanSort.Verification.Counting.Sortedness
+
+import LeanSort.Verification.Radix.Checks
+import LeanSort.Verification.Radix.Permutation
