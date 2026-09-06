@@ -52,19 +52,67 @@ Shell, counting, and radix sort each have edge-case checks and exhaustive
 checks of all 364 lists of length at most five over `{0, 1, 2}`.
 These checks supplement, but do not replace, the missing universal proofs.
 
-## Formalized complexity
+## Complexity
 
-| Algorithm | Cost model | Result |
-| --- | --- | --- |
-| Insertion sort | adjacent swaps, worst case | `Θ(n²)` |
-| Bubble sort | adjacent swaps, worst case | `Θ(n²)` |
-| Selection sort | arbitrary-position swaps | `O(n)` |
-| Merge sort | comparisons | `O(n log n)` |
-| Pancake sort | prefix reversals | `O(n)` |
+The time bounds below are algorithmic reference bounds under a unit-cost model:
+key comparisons, array access, and digit extraction cost constant time. They
+exclude trace construction, runtime allocation/copying overhead, and the bit cost
+of arithmetic on unbounded natural numbers. The last two columns report only
+results already proved in this repository.
 
-Each statement concerns the indicated trace events, not an implicit machine-time model.
-Quick, heap, shell, counting, and radix sort do not yet have formalized cost
-or complexity results.
+| Algorithm | Reference worst-case time | Formalized cost model | Proved result |
+| --- | --- | --- | --- |
+| Insertion sort | `O(n²)` | adjacent swaps, worst case | `Θ(n²)` |
+| Bubble sort | `O(n²)` | adjacent swaps, worst case | `Θ(n²)` |
+| Selection sort | `O(n²)` | arbitrary-position swaps | `O(n)` |
+| Merge sort | `O(n log n)` | comparisons | `O(n log n)` |
+| Pancake sort | `O(n²)` | prefix reversals | `O(n)` |
+| Quick sort | `O(n²)` | pending | not yet proved |
+| Heap sort | `O(n log n)` | pending | not yet proved |
+| Shell sort | `O(n²)` for halving gaps | pending | not yet proved |
+| Counting sort | `O(n + k)` | pending | not yet proved |
+| Radix sort | `O(n b)` for binary passes | pending | not yet proved |
+
+Parameters:
+
+- `n`: number of input elements.
+- `k = max(input, default 0) + 1`: counting sort's allocated key range.
+- `b = Nat.log2(max(input, default 0)) + 1`: radix sort's number of binary passes.
+  This implementation uses one pass even when all keys are zero.
+
+These parameters describe different aspects of the input: a short list can have
+a large `k` or `b`. Counting sort is `O(n)` when `k = O(n)`;
+radix sort is `O(n)` when `b = O(1)` in this model. See
+[MIT's counting and radix sort notes](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/mit6_006f11_lec07/)
+for the parameter-dependent analysis.
+
+Implementation-specific details:
+
+- **Quick sort:** the pivot is always the first element. Sorted, reverse-sorted,
+  and all-equal inputs can produce quadratic work. The usual expected
+  `O(n log n)` comparison bound assumes a uniformly random ordering of distinct
+  keys or randomized pivots; this implementation does not randomize its pivot.
+- **Heap sort:** the reference bound includes building the heap and extracting
+  all elements. Batteries collects the result in a separate array, so the usual
+  in-place heapsort space claim does not apply to this implementation.
+- **Shell sort:** the bound is for the implemented `n/2, n/4, ..., 1` gaps.
+  Bounds for other increment sequences do not automatically apply here.
+- **Counting sort:** finding the maximum and counting take `O(n)` logical work;
+  initializing/enumerating buckets takes `O(k)`, and producing the output takes
+  `O(n)`. A large maximum key can therefore dominate the cost.
+- **Radix sort:** each binary partition and concatenation scans at most
+  `O(n)` elements, repeated for `b` bits, in addition to the initial maximum
+  scan. Division and exponentiation on Lean's unbounded `Nat` keys are outside
+  the unit-cost reference model.
+
+The proved swap and flip bounds count whole operations: selection's `O(n)`
+swaps do not include finding minima, and pancake's `O(n)` flips do not include
+finding maxima or moving the elements of a reversed prefix. Neither is a
+linear-time sorting claim.
+
+Quick, heap, shell, counting, and radix sort still need formal cost definitions,
+a connection to their executable algorithms, concrete bounds, and asymptotic
+proofs. No total-runtime or space-complexity theorem is currently claimed.
 
 ## Dependencies
 
