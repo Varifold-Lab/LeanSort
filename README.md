@@ -34,7 +34,7 @@ Ten implemented algorithms; the table distinguishes full and partial verificatio
 | Heap sort | regression checks only | not instrumented |
 | Shell sort | permutation proved; sortedness pending | not instrumented |
 | Counting sort | sortedness proved; permutation pending | not instrumented |
-| Radix sort | permutation proved; sortedness pending | not instrumented |
+| Radix sort | proved | binary partition choices |
 
 Quick sort uses a deterministic first pivot and a single partition pass.
 Heap sort reuses Batteries' array-backed binary heap, with a separate output
@@ -50,7 +50,12 @@ so it is intended for small key ranges.
 
 Shell, counting, and radix sort each have edge-case checks and exhaustive
 checks of all 364 lists of length at most five over `{0, 1, 2}`.
-These checks supplement, but do not replace, the missing universal proofs.
+These checks supplement universal proofs where available. Radix sort also proves
+that each pass orders the processed low bits, yielding a sorted permutation after
+all passes. Its instrumented implementation agrees with the original result;
+trace replay validates bit order and every bucket choice, rejecting missing,
+extra, or incorrect decisions and rounds. Every accepted trace reconstructs a
+sorted permutation of its input.
 
 ## Complexity
 
@@ -71,7 +76,7 @@ results already proved in this repository.
 | Heap sort | `O(n log n)` | pending | not yet proved |
 | Shell sort | `O(n²)` for halving gaps | pending | not yet proved |
 | Counting sort | `O(n + k)` | pending | not yet proved |
-| Radix sort | `O(n b)` for binary passes | pending | not yet proved |
+| Radix sort | `O(n b)` for binary passes | digit tests | exact `n * b`; `Θ(n b)` |
 
 Parameters:
 
@@ -102,15 +107,18 @@ Implementation-specific details:
   `O(n)`. A large maximum key can therefore dominate the cost.
 - **Radix sort:** each binary partition and concatenation scans at most
   `O(n)` elements, repeated for `b` bits, in addition to the initial maximum
-  scan. Division and exponentiation on Lean's unbounded `Nat` keys are outside
-  the unit-cost reference model.
+  scan. The formal counter counts the generated trace's bucket decisions:
+  exactly one digit test per input element per pass, hence exactly `n * b`.
+  Its `Θ(n b)` theorem counts those tests, excluding the maximum scan,
+  concatenation, trace construction/checking, and allocation. Division and
+  exponentiation on Lean's unbounded `Nat` keys are outside the unit-cost model.
 
 The proved swap and flip bounds count whole operations: selection's `O(n)`
 swaps do not include finding minima, and pancake's `O(n)` flips do not include
 finding maxima or moving the elements of a reversed prefix. Neither is a
 linear-time sorting claim.
 
-Quick, heap, shell, counting, and radix sort still need formal cost definitions,
+Quick, heap, shell, and counting sort still need formal cost definitions,
 a connection to their executable algorithms, concrete bounds, and asymptotic
 proofs. No total-runtime or space-complexity theorem is currently claimed.
 

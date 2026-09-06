@@ -64,4 +64,8 @@ import LeanSort.Verification.Counting.Checks
 import LeanSort.Verification.Counting.Sortedness
 
 import LeanSort.Verification.Radix.Checks
-import LeanSort.Verification.Radix.Permutation
+import LeanSort.Verification.Radix.Equations
+import LeanSort.Verification.Radix.Correctness
+import LeanSort.Verification.Radix.Trace
+import LeanSort.Verification.Radix.Cost
+import LeanSort.Verification.Radix.Complexity
