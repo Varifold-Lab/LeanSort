@@ -58,7 +58,11 @@ import LeanSort.Verification.Quick.Correctness
 import LeanSort.Verification.Heap.Checks
 
 import LeanSort.Verification.Shell.Checks
-import LeanSort.Verification.Shell.Permutation
+import LeanSort.Verification.Shell.Equations
+import LeanSort.Verification.Shell.Correctness
+import LeanSort.Verification.Shell.Trace
+import LeanSort.Verification.Shell.Cost
+import LeanSort.Verification.Shell.Complexity
 
 import LeanSort.Verification.Counting.Checks
 import LeanSort.Verification.Counting.Sortedness
