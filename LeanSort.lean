@@ -60,8 +60,12 @@ import LeanSort.Verification.Heap.Checks
 import LeanSort.Verification.Shell.Checks
 import LeanSort.Verification.Shell.Permutation
 
+import LeanSort.Verification.Counting.Equations
 import LeanSort.Verification.Counting.Checks
-import LeanSort.Verification.Counting.Sortedness
+import LeanSort.Verification.Counting.Correctness
+import LeanSort.Verification.Counting.Trace
+import LeanSort.Verification.Counting.Cost
+import LeanSort.Verification.Counting.Complexity
 
 import LeanSort.Verification.Radix.Checks
 import LeanSort.Verification.Radix.Equations
