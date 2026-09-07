@@ -33,8 +33,8 @@ Ten implemented algorithms; the table distinguishes full and partial verificatio
 | Quick sort | proved | not instrumented |
 | Heap sort | regression checks only | not instrumented |
 | Shell sort | proved | gapped transpositions |
-| Counting sort | sortedness proved; permutation pending | not instrumented |
-| Radix sort | permutation proved; sortedness pending | not instrumented |
+| Counting sort | proved | histogram updates; checked replay |
+| Radix sort | proved | binary partition choices |
 
 Quick sort uses a deterministic first pivot and a single partition pass.
 Heap sort reuses Batteries' array-backed binary heap, with a separate output
@@ -50,18 +50,35 @@ so it is intended for small key ranges.
 
 Shell, counting, and radix sort each have edge-case checks and exhaustive
 checks of all 364 lists of length at most five over `{0, 1, 2}`.
+Shell, Counting, and Radix have full sortedness and permutation proofs.
+Their exhaustive checks supplement these universal proofs and exercise trace
+behavior and cost bounds.
+
 Shell sort additionally proves that each positive-gap pass orders its columns,
 and that the final gap of one produces a sorted permutation. Its instrumented
 implementation agrees with the original result, and replaying its generated
 transpositions reconstructs that result. Exhaustive checks also cover trace
-agreement and the swap bound. Counting and radix still need their missing
-universal proofs.
+agreement and the swap bound.
+
+Counting's verification follows the same six-module layout as the established
+algorithms: `Equations`, `Correctness`, `Trace`, `Cost`, `Complexity`, and `Checks`.
+Its correctness proof establishes that every histogram bucket equals the input
+multiplicity. Each trace event records a key and its updated counter value;
+replay checks the input order and counter updates before expanding the histogram.
+Both generated-trace acceptance and arbitrary accepted-trace correctness are
+proved. These are histogram events, not position swaps.
+
+Radix sort proves that each pass orders the processed low bits, yielding a sorted
+permutation after all passes. Its instrumented implementation agrees with the
+original result; trace replay validates bit order and every bucket choice,
+rejecting missing, extra, or incorrect decisions and rounds. Every accepted trace
+reconstructs a sorted permutation of its input.
 
 ## Complexity
 
 The time bounds below are algorithmic reference bounds under a unit-cost model:
 key comparisons, array access, and digit extraction cost constant time. They
-exclude trace construction, runtime allocation/copying overhead, and the bit cost
+exclude trace construction, runtime memory-management overhead, and the bit cost
 of arithmetic on unbounded natural numbers. The last two columns report only
 results already proved in this repository.
 
@@ -75,8 +92,8 @@ results already proved in this repository.
 | Quick sort | `O(n²)` | pending | not yet proved |
 | Heap sort | `O(n log n)` | pending | not yet proved |
 | Shell sort | `O(n²)` for halving gaps | gapped swaps | `≤ 2n²`; `O(n²)` |
-| Counting sort | `O(n + k)` | pending | not yet proved |
-| Radix sort | `O(n b)` for binary passes | pending | not yet proved |
+| Counting sort | `O(n + k)` | input visits, bucket initialization/enumeration, output entries | `Θ(n + k)` |
+| Radix sort | `O(n b)` for binary passes | digit tests; scan/partition/append work | exact tests `n * b`; work `Θ(n b)` |
 
 Parameters:
 
@@ -108,20 +125,47 @@ Implementation-specific details:
   Bounds for other increment sequences do not automatically apply here.
 - **Counting sort:** finding the maximum and counting take `O(n)` logical work;
   initializing/enumerating buckets takes `O(k)`, and producing the output takes
-  `O(n)`. A large maximum key can therefore dominate the cost.
-- **Radix sort:** each binary partition and concatenation scans at most
-  `O(n)` elements, repeated for `b` bits, in addition to the initial maximum
-  scan. Division and exponentiation on Lean's unbounded `Nat` keys are outside
-  the unit-cost reference model.
+  `O(n)`. The formal model charges one unit per input visit, initialized bucket,
+  histogram update, enumerated bucket, and emitted entry: exactly `3*n + 2*k`.
+  Its `Θ(n + k)` theorem allows either length or key range to grow. Trace storage,
+  runtime allocation/copying, and arbitrary-precision arithmetic are excluded.
+  A large maximum key can therefore dominate the cost.
+- **Radix sort:** the digit-test counter is exactly `n * b`. A separate
+  algorithm-level work model charges one unit per maximum-scan visit, partition
+  visit (digit test and bucket placement), and node copied by list append.
+  The proved bound is `n*b ≤ W ≤ n + 2*n*b ≤ 3*n*b`, hence `Θ(n b)`.
+  The costed execution is proved to return the original algorithm's output.
+  Bit arithmetic, pass-index construction, runtime allocation overhead, and
+  instrumentation are outside this model.
 
 The proved swap and flip bounds count whole operations: selection's `O(n)`
 swaps do not include finding minima, and pancake's `O(n)` flips do not include
 finding maxima or moving the elements of a reversed prefix. Neither is a
 linear-time sorting claim.
 
-Quick, heap, counting, and radix sort still need formal cost definitions,
+Quick and heap sort still need formal cost definitions,
 a connection to their executable algorithms, concrete bounds, and asymptotic
 proofs. No total-runtime or space-complexity theorem is currently claimed.
+
+### Reading the Radix time-complexity proof
+
+Start with [Radix/Complexity.lean](LeanSort/Verification/Radix/Complexity.lean).
+It states the mathematical argument before the Lean proof:
+
+```text
+n = number of elements; b = number of binary passes (at least 1)
+one pass:       n visits + at most n copied nodes
+after b passes: n*b ≤ pass work ≤ 2*n*b
+maximum scan:   n ≤ n*b
+therefore:      n*b ≤ W ≤ 3*n*b, so W = Θ(n*b)
+```
+
+[Radix/Cost.lean](LeanSort/Verification/Radix/Cost.lean) defines the work units
+and proves each bound. For `[3, 2, 1, 0]`, `n = 4`, `b = 2`: there are exactly
+8 digit tests, while the scan/partition/append model counts 16 units of work.
+Both are formal cost claims, not measurements of elapsed time. The main theorem
+uses mathlib's `Θ`; its input filter means `n*b` grows without bound, not an
+average-case input distribution or an assumption that `b` is fixed.
 
 ## Dependencies
 
