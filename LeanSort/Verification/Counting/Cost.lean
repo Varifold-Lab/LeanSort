@@ -17,9 +17,8 @@ def countingWorkCost (xs : List ℕ) : ℕ :=
 /-- Three input/output passes and two passes over the key range. -/
 theorem countingWorkCost_eq (xs : List ℕ) :
     countingWorkCost xs = 3 * xs.length + 2 * keyRange xs := by
-  simp only [countingWorkCost, histogram_size, countingSortTrace_length,
-    List.length_range, countingSortResult_length]
-  omega
+  simp [countingWorkCost, countingSortTrace_length, Nat.succ_mul,
+    Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
 
 theorem countingWorkCost_le (xs : List ℕ) :
     countingWorkCost xs ≤ 3 * (xs.length + keyRange xs) := by

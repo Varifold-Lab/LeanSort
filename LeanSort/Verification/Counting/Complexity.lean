@@ -14,15 +14,9 @@ theorem countingWorkCost_isTheta_length_add_keyRange :
     (fun xs : List ℕ => (countingWorkCost xs : ℝ)) =Θ[
       Filter.comap (fun xs : List ℕ => xs.length + keyRange xs) Filter.atTop]
       (fun xs : List ℕ => (xs.length : ℝ) + (keyRange xs : ℝ)) := by
-  constructor
-  · apply IsBigO.of_bound 3
-    apply Filter.Eventually.of_forall
-    intro xs
-    rw [Real.norm_natCast, Real.norm_of_nonneg (by positivity)]
-    exact_mod_cast countingWorkCost_le xs
-  · apply isBigO_of_le
-    intro xs
-    rw [Real.norm_natCast, Real.norm_of_nonneg (by positivity)]
-    exact_mod_cast length_add_keyRange_le_countingWorkCost xs
+  refine ⟨isBigO_of_le' (c := 3) _ ?_, isBigO_of_le _ ?_⟩ <;>
+    intro xs <;> simp only [← Nat.cast_add, Real.norm_natCast]
+  · exact_mod_cast countingWorkCost_le xs
+  · exact_mod_cast length_add_keyRange_le_countingWorkCost xs
 
 end LeanSort.Counting

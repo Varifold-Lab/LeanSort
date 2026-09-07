@@ -31,13 +31,11 @@ def histogramTraceAux : List ℕ → Array ℕ → Array ℕ × List CountStep
   | [], counts => (counts, [])
   | x :: xs, counts =>
       let next := counts.modify x (· + 1)
-      let rest := histogramTraceAux xs next
-      (rest.1, ⟨x, next[x]?.getD 0⟩ :: rest.2)
+      (histogramTraceAux xs next).map id (⟨x, next[x]?.getD 0⟩ :: ·)
 
 /-- Counting sort together with its histogram-update trace. -/
 def sortTrace (xs : List ℕ) : List ℕ × List CountStep :=
-  let result := histogramTraceAux xs (Array.replicate (keyRange xs) 0)
-  (histogramOutput result.1, result.2)
+  (histogramTraceAux xs (Array.replicate (keyRange xs) 0)).map histogramOutput id
 
 def countingSortTrace (xs : List ℕ) : List CountStep := (sortTrace xs).2
 

@@ -5,18 +5,16 @@ import LeanSort.Algorithm.Counting
 namespace LeanSort.Counting
 
 theorem histogramFold_size (xs : List ℕ) (counts : Array ℕ) :
-    (xs.foldl (fun counts x => counts.modify x (· + 1)) counts).size = counts.size := by
-  induction xs generalizing counts with
-  | nil => rfl
-  | cons x xs ih => simpa using ih (counts.modify x (· + 1))
+    (xs.foldl (fun counts x => counts.modify x (· + 1)) counts).size = counts.size :=
+  List.foldlRecOn (motive := fun cs : Array ℕ => cs.size = counts.size) xs _ rfl
+    fun _ h _ _ => Array.size_modify.trans h
 
 @[simp] theorem histogram_size (xs : List ℕ) : (histogram xs).size = keyRange xs := by
-  simp [histogram, histogramFold_size, keyRange]
+  simp [histogram, histogramFold_size]
 
 @[simp] theorem histogram_nil : histogram [] = #[0] := rfl
 
-@[simp] theorem countingSortResult_nil : countingSortResult [] = [] := by
-  decide
+@[simp] theorem countingSortResult_nil : countingSortResult [] = [] := rfl
 
 theorem countingSortResult_eq (xs : List ℕ) :
     countingSortResult xs = (List.range (keyRange xs)).flatMap
