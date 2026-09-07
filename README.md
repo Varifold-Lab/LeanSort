@@ -32,7 +32,7 @@ Ten implemented algorithms; the table distinguishes full and partial verificatio
 | Pancake sort | proved | prefix reversals |
 | Quick sort | proved | not instrumented |
 | Heap sort | regression checks only | not instrumented |
-| Shell sort | permutation proved; sortedness pending | not instrumented |
+| Shell sort | proved | gapped transpositions |
 | Counting sort | proved | histogram updates; checked replay |
 | Radix sort | proved | binary partition choices |
 
@@ -50,9 +50,15 @@ so it is intended for small key ranges.
 
 Shell, counting, and radix sort each have edge-case checks and exhaustive
 checks of all 364 lists of length at most five over `{0, 1, 2}`.
-Counting and Radix have full sortedness and permutation proofs; their checks also
-cover trace replay and malformed traces. Shell still has the proof gap listed
-above; exhaustive checks do not replace universal proofs.
+Shell, Counting, and Radix have full sortedness and permutation proofs.
+Their exhaustive checks supplement these universal proofs and exercise trace
+behavior and cost bounds.
+
+Shell sort additionally proves that each positive-gap pass orders its columns,
+and that the final gap of one produces a sorted permutation. Its instrumented
+implementation agrees with the original result, and replaying its generated
+transpositions reconstructs that result. Exhaustive checks also cover trace
+agreement and the swap bound.
 
 Counting's verification follows the same six-module layout as the established
 algorithms: `Equations`, `Correctness`, `Trace`, `Cost`, `Complexity`, and `Checks`.
@@ -85,7 +91,7 @@ results already proved in this repository.
 | Pancake sort | `O(n²)` | prefix reversals | `O(n)` |
 | Quick sort | `O(n²)` | pending | not yet proved |
 | Heap sort | `O(n log n)` | pending | not yet proved |
-| Shell sort | `O(n²)` for halving gaps | pending | not yet proved |
+| Shell sort | `O(n²)` for halving gaps | gapped swaps | `≤ 2n²`; `O(n²)` |
 | Counting sort | `O(n + k)` | input visits, bucket initialization/enumeration, output entries | `Θ(n + k)` |
 | Radix sort | `O(n b)` for binary passes | digit tests; scan/partition/append work | exact tests `n * b`; work `Θ(n b)` |
 
@@ -112,6 +118,10 @@ Implementation-specific details:
   all elements. Batteries collects the result in a separate array, so the usual
   in-place heapsort space claim does not apply to this implementation.
 - **Shell sort:** the bound is for the implemented `n/2, n/4, ..., 1` gaps.
+  The formal counter is the number of transpositions in the generated trace.
+  Each insertion at index `i` makes at most `i / gap` swaps; summing over the
+  halving gaps gives at most `2n²` swaps and a formal `O(n²)` bound. This counts
+  swaps, excluding comparisons, array copying, and trace construction/replay.
   Bounds for other increment sequences do not automatically apply here.
 - **Counting sort:** finding the maximum and counting take `O(n)` logical work;
   initializing/enumerating buckets takes `O(k)`, and producing the output takes
@@ -133,7 +143,7 @@ swaps do not include finding minima, and pancake's `O(n)` flips do not include
 finding maxima or moving the elements of a reversed prefix. Neither is a
 linear-time sorting claim.
 
-Quick, heap, and shell sort still need formal cost definitions,
+Quick and heap sort still need formal cost definitions,
 a connection to their executable algorithms, concrete bounds, and asymptotic
 proofs. No total-runtime or space-complexity theorem is currently claimed.
 
