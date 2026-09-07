@@ -4,15 +4,12 @@ import LeanSort.Verification.Counting.Cost
 
 namespace LeanSort.Counting
 
-#guard countingSortResult ([] : List Nat) = []
-#guard countingSortResult [7] = [7]
-#guard countingSortResult [0, 0, 0] = [0, 0, 0]
-#guard countingSortResult [1, 2, 3, 4] = [1, 2, 3, 4]
-#guard countingSortResult [4, 3, 2, 1] = [1, 2, 3, 4]
-#guard countingSortResult [2, 1, 2, 1] = [1, 1, 2, 2]
+#guard [([], []), ([7], [7]), ([0, 0, 0], [0, 0, 0]),
+    ([1, 2, 3, 4], [1, 2, 3, 4]), ([4, 3, 2, 1], [1, 2, 3, 4]),
+    ([2, 1, 2, 1], [1, 1, 2, 2]), ([1000, 0, 1000, 1], [0, 1, 1000, 1000])].all
+  fun (xs, expected) => countingSortResult xs == expected
 
 #guard histogram [2, 1, 2, 0] = #[1, 1, 2]
-#guard countingSortResult [1000, 0, 1000, 1] = [0, 1, 1000, 1000]
 
 -- The trace records each input key's new bucket value in input order.
 #guard countingSortTrace [2, 1, 2, 0] = [⟨2, 1⟩, ⟨1, 1⟩, ⟨2, 2⟩, ⟨0, 1⟩]
@@ -31,15 +28,12 @@ namespace LeanSort.Counting
 #guard replayHistogram? [1, 1] [⟨1, 3⟩, ⟨1, 4⟩] #[0, 2] = some #[0, 4]
 
 -- Cost cases distinguish list length from the allocated key range.
-#guard countingWorkCost [] = 2
-#guard countingWorkCost [7] = 19
-#guard countingWorkCost [0, 0, 0] = 11
-#guard countingWorkCost [2, 1, 2, 0] = 18
-#guard countingWorkCost [1000, 0, 1000, 1] = 2014
+#guard [([], 2), ([7], 19), ([0, 0, 0], 11),
+    ([2, 1, 2, 0], 18), ([1000, 0, 1000, 1], 2014)].all
+  fun (xs, expected) => countingWorkCost xs == expected
 
 #guard (List.range 6).all fun len =>
-  (List.range (3 ^ len)).all fun code =>
-    let xs := (List.range len).map (fun i => code / 3 ^ i % 3)
+  (List.replicate len [0, 1, 2]).sections.all fun xs =>
     countingSortResult xs == xs.mergeSort &&
       (sortTrace xs).1 == countingSortResult xs &&
       replay? xs (countingSortTrace xs) == some (countingSortResult xs)
