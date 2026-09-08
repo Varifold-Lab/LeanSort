@@ -1,0 +1,172 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "local_descent_permille",
+    "local_equal_permille",
+    "cross_descent_permille",
+    "sampled_left_range"
+  ],
+  "feature_version": "spread-adjacent16-v1",
+  "hyperparameters": {
+    "depth": 4,
+    "min_leaf": 4
+  },
+  "kind": "classifier",
+  "schema_version": 1,
+  "target": "epsilon-tied fastest candidate ID",
+  "training_hash": "84475a70c4fe00c31d4b5104eabf01f377c336a3fa6994b48ea02f19b1920304",
+  "training_inputs": 320,
+  "training_ns": 14059042,
+  "training_preferred_id": 5,
+  "tree": {
+    "feature": 2,
+    "kind": "branch",
+    "left": {
+      "feature": 4,
+      "kind": "branch",
+      "left": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "feature": 5,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              2
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              2
+            ]
+          },
+          "threshold": 1200
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            5
+          ]
+        },
+        "threshold": 0
+      },
+      "right": {
+        "feature": 5,
+        "kind": "branch",
+        "left": {
+          "feature": 5,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "threshold": 357
+        },
+        "right": {
+          "feature": 5,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "threshold": 7499
+        },
+        "threshold": 3745
+      },
+      "threshold": 0
+    },
+    "right": {
+      "feature": 2,
+      "kind": "branch",
+      "left": {
+        "feature": 5,
+        "kind": "branch",
+        "left": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "threshold": 24
+        },
+        "right": {
+          "feature": 4,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              6
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "threshold": 200
+        },
+        "threshold": 3022
+      },
+      "right": {
+        "feature": 4,
+        "kind": "branch",
+        "left": {
+          "feature": 2,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "threshold": 312
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1
+          ]
+        },
+        "threshold": 333
+      },
+      "threshold": 187
+    },
+    "threshold": 125
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_kind": "length",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "descent_permille",
+    "unused_0",
+    "unused_1",
+    "unused_2"
+  ],
+  "feature_version": "budget-length-v1",
+  "hyperparameters": {
+    "depth": 4,
+    "min_leaf": 8
+  },
+  "kind": "cost_ranking",
+  "schema_version": 1,
+  "target": "relative latency time/input-oracle; integer scale 1000000",
+  "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+  "training_inputs": 32,
+  "training_ns": 200000,
+  "training_preferred_id": 1,
+  "tree": {
+    "feature": 0,
+    "kind": "branch",
+    "left": {
+      "kind": "leaf",
+      "values": [
+        1692130,
+        1123081,
+        1295849,
+        1452953,
+        1232043,
+        1221391,
+        1981370
+      ]
+    },
+    "right": {
+      "kind": "leaf",
+      "values": [
+        1910250,
+        1386032,
+        1665287,
+        1542228,
+        1432220,
+        1202283,
+        1827642
+      ]
+    },
+    "threshold": 32
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "audit_only_source_changes": [
+    "experiments/learned-merge-search/audit_saved.py"
+  ],
+  "executed_trees_rechecked": 26,
+  "inputs": 26,
+  "label_rows": 1034,
+  "note": "Saved evidence only, no timing/retraining/reselection. Lean proof logs remain separate.",
+  "original_files_unchanged": 1113,
+  "passed": true,
+  "search_requests": 156,
+  "source_and_model_unchanged": false,
+  "split": {
+    "base_groups": 40,
+    "canonical_groups": 70,
+    "caveat": "No guarantee against coincidental structural similarity across independently generated groups; scale/reversal identity and explicit perturbation lineage checked.",
+    "inputs": 70,
+    "passed": true,
+    "unique_hashes": 70
+  },
+  "statuses": {
+    "ok": 156
+  },
+  "trees_rechecked": 45
+}

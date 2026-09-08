@@ -1,0 +1,621 @@
+{
+  "extension_matched": {},
+  "extension_status_counts": {},
+  "smoke": {
+    "ablation_ratios": {
+      "runs_count": {
+        "full_counted_over_staged_direct": 1.0073918377711897,
+        "merge_only_over_staged_reference": 0.6790138308734798,
+        "scan_only_over_staged_reference": 0.6882639933166249,
+        "staged_direct_over_staged_reference": 0.36407351712614866,
+        "staging_over_reference": 0.9752710444172457
+      },
+      "runs_length": {
+        "full_counted_over_staged_direct": 1.0113774867046612,
+        "merge_only_over_staged_reference": 0.7155382230082792,
+        "scan_only_over_staged_reference": 0.701336435414059,
+        "staged_direct_over_staged_reference": 0.4097908769307941,
+        "staging_over_reference": 0.963186021332947
+      }
+    },
+    "algorithms": {
+      "fixed_four": {
+        "comparisons": 1324,
+        "count": 28,
+        "counted_over_reference": 0.5467264844281039,
+        "plain_over_counted": 0.3169388913359488,
+        "plain_over_reference": 0.17327888583864412,
+        "plain_wins_vs_reference": 28,
+        "times_ms": {
+          "counted": 1.1646629999999996,
+          "plain": 0.36912700000000004,
+          "reference": 2.1302480000000004
+        }
+      },
+      "hybrid_8": {
+        "comparisons": 1363,
+        "count": 28,
+        "counted_over_reference": 0.44352979869577547,
+        "plain_over_counted": 0.29188426786784566,
+        "plain_over_reference": 0.12945937056988938,
+        "plain_wins_vs_reference": 28,
+        "times_ms": {
+          "counted": 0.9777060000000001,
+          "plain": 0.28537699999999994,
+          "reference": 2.204375
+        }
+      },
+      "merge": {
+        "comparisons": 1295,
+        "count": 28,
+        "counted_over_reference": 0.5644604358166162,
+        "plain_over_counted": 0.3337889287901898,
+        "plain_over_reference": 0.188410644215672,
+        "plain_wins_vs_reference": 28,
+        "times_ms": {
+          "counted": 1.2489150000000002,
+          "plain": 0.41687399999999997,
+          "reference": 2.212582
+        }
+      },
+      "runs_count": {
+        "comparisons": 1235,
+        "count": 28,
+        "counted_over_reference": 0.35769498178552556,
+        "plain_over_counted": 0.32281590501615215,
+        "plain_over_reference": 0.11546962926483048,
+        "plain_wins_vs_reference": 28,
+        "times_ms": {
+          "counted": 0.9877890000000001,
+          "merge_only": 1.8287539999999995,
+          "plain": 0.31887399999999994,
+          "reference": 2.7615399999999997,
+          "scan_only": 1.8536670000000002,
+          "staged_direct": 0.980541,
+          "staged_reference": 2.6932500000000004
+        }
+      },
+      "runs_length": {
+        "comparisons": 1198,
+        "count": 28,
+        "counted_over_reference": 0.39919559344813527,
+        "plain_over_counted": 0.4304854624482062,
+        "plain_over_reference": 0.1718478996528066,
+        "plain_wins_vs_reference": 28,
+        "times_ms": {
+          "counted": 1.1625410000000003,
+          "merge_only": 2.007084,
+          "plain": 0.5004570000000002,
+          "reference": 2.9122089999999994,
+          "scan_only": 1.9672479999999997,
+          "staged_direct": 1.1494630000000003,
+          "staged_reference": 2.8049989999999996
+        }
+      }
+    },
+    "by_shape_ms": {
+      "duplicates": {
+        "fixed_four": {
+          "counted": 0.131834,
+          "plain": 0.042167,
+          "reference": 0.240417
+        },
+        "hybrid_8": {
+          "counted": 0.095292,
+          "plain": 0.027084,
+          "reference": 0.237
+        },
+        "merge": {
+          "counted": 0.120333,
+          "plain": 0.038875,
+          "reference": 0.226833
+        },
+        "runs_count": {
+          "counted": 0.111125,
+          "plain": 0.034833,
+          "reference": 0.297958
+        },
+        "runs_length": {
+          "counted": 0.13275,
+          "plain": 0.057875,
+          "reference": 0.319958
+        }
+      },
+      "edge_duplicates": {
+        "fixed_four": {
+          "counted": 0.014542,
+          "plain": 0.005541,
+          "reference": 0.016375
+        },
+        "hybrid_8": {
+          "counted": 0.00975,
+          "plain": 0.003375,
+          "reference": 0.01275
+        },
+        "merge": {
+          "counted": 0.014125,
+          "plain": 0.005792,
+          "reference": 0.015458
+        },
+        "runs_count": {
+          "counted": 0.014333,
+          "plain": 0.005542,
+          "reference": 0.019209
+        },
+        "runs_length": {
+          "counted": 0.01675,
+          "plain": 0.008583,
+          "reference": 0.022625
+        }
+      },
+      "edge_empty": {
+        "fixed_four": {
+          "counted": 0.004791,
+          "plain": 0.002125,
+          "reference": 0.003916
+        },
+        "hybrid_8": {
+          "counted": 0.000875,
+          "plain": 0.00075,
+          "reference": 0.000792
+        },
+        "merge": {
+          "counted": 0.00075,
+          "plain": 0.000542,
+          "reference": 0.000709
+        },
+        "runs_count": {
+          "counted": 0.001042,
+          "plain": 0.000666,
+          "reference": 0.000959
+        },
+        "runs_length": {
+          "counted": 0.000958,
+          "plain": 0.000666,
+          "reference": 0.001
+        }
+      },
+      "edge_equal": {
+        "fixed_four": {
+          "counted": 0.013958,
+          "plain": 0.004458,
+          "reference": 0.0145
+        },
+        "hybrid_8": {
+          "counted": 0.01,
+          "plain": 0.00375,
+          "reference": 0.01175
+        },
+        "merge": {
+          "counted": 0.015292,
+          "plain": 0.006167,
+          "reference": 0.016083
+        },
+        "runs_count": {
+          "counted": 0.007333,
+          "plain": 0.003042,
+          "reference": 0.013584
+        },
+        "runs_length": {
+          "counted": 0.007166,
+          "plain": 0.002875,
+          "reference": 0.013125
+        }
+      },
+      "edge_length_witness": {
+        "fixed_four": {
+          "counted": 0.034833,
+          "plain": 0.010917,
+          "reference": 0.062958
+        },
+        "hybrid_8": {
+          "counted": 0.035,
+          "plain": 0.010958,
+          "reference": 0.067125
+        },
+        "merge": {
+          "counted": 0.045125,
+          "plain": 0.015541,
+          "reference": 0.073209
+        },
+        "runs_count": {
+          "counted": 0.036166,
+          "plain": 0.010708,
+          "reference": 0.1075
+        },
+        "runs_length": {
+          "counted": 0.029833,
+          "plain": 0.011208,
+          "reference": 0.0765
+        }
+      },
+      "edge_not_aligned": {
+        "fixed_four": {
+          "counted": 0.027291,
+          "plain": 0.009334,
+          "reference": 0.0355
+        },
+        "hybrid_8": {
+          "counted": 0.020416,
+          "plain": 0.006083,
+          "reference": 0.030292
+        },
+        "merge": {
+          "counted": 0.026083,
+          "plain": 0.0095,
+          "reference": 0.033167
+        },
+        "runs_count": {
+          "counted": 0.022042,
+          "plain": 0.007875,
+          "reference": 0.036
+        },
+        "runs_length": {
+          "counted": 0.025792,
+          "plain": 0.011375,
+          "reference": 0.040542
+        }
+      },
+      "edge_odd": {
+        "fixed_four": {
+          "counted": 0.011291,
+          "plain": 0.004375,
+          "reference": 0.011458
+        },
+        "hybrid_8": {
+          "counted": 0.007791,
+          "plain": 0.003,
+          "reference": 0.009334
+        },
+        "merge": {
+          "counted": 0.010584,
+          "plain": 0.004458,
+          "reference": 0.010792
+        },
+        "runs_count": {
+          "counted": 0.012292,
+          "plain": 0.004875,
+          "reference": 0.014542
+        },
+        "runs_length": {
+          "counted": 0.01425,
+          "plain": 0.00725,
+          "reference": 0.01625
+        }
+      },
+      "edge_pair": {
+        "fixed_four": {
+          "counted": 0.006166,
+          "plain": 0.002833,
+          "reference": 0.005167
+        },
+        "hybrid_8": {
+          "counted": 0.002958,
+          "plain": 0.001584,
+          "reference": 0.002333
+        },
+        "merge": {
+          "counted": 0.003166,
+          "plain": 0.001833,
+          "reference": 0.002541
+        },
+        "runs_count": {
+          "counted": 0.005125,
+          "plain": 0.002542,
+          "reference": 0.004708
+        },
+        "runs_length": {
+          "counted": 0.006,
+          "plain": 0.003459,
+          "reference": 0.005792
+        }
+      },
+      "edge_singleton": {
+        "fixed_four": {
+          "counted": 0.004959,
+          "plain": 0.002417,
+          "reference": 0.004208
+        },
+        "hybrid_8": {
+          "counted": 0.001667,
+          "plain": 0.001042,
+          "reference": 0.001208
+        },
+        "merge": {
+          "counted": 0.000833,
+          "plain": 0.00075,
+          "reference": 0.000833
+        },
+        "runs_count": {
+          "counted": 0.001625,
+          "plain": 0.001083,
+          "reference": 0.0015
+        },
+        "runs_length": {
+          "counted": 0.001583,
+          "plain": 0.001083,
+          "reference": 0.001417
+        }
+      },
+      "long_runs": {
+        "fixed_four": {
+          "counted": 0.102916,
+          "plain": 0.031792,
+          "reference": 0.208458
+        },
+        "hybrid_8": {
+          "counted": 0.092916,
+          "plain": 0.026417,
+          "reference": 0.223208
+        },
+        "merge": {
+          "counted": 0.116083,
+          "plain": 0.037708,
+          "reference": 0.216
+        },
+        "runs_count": {
+          "counted": 0.073708,
+          "plain": 0.023374,
+          "reference": 0.2485
+        },
+        "runs_length": {
+          "counted": 0.082584,
+          "plain": 0.029958,
+          "reference": 0.253291
+        }
+      },
+      "perturbed": {
+        "fixed_four": {
+          "counted": 0.072291,
+          "plain": 0.023334,
+          "reference": 0.119124
+        },
+        "hybrid_8": {
+          "counted": 0.063584,
+          "plain": 0.020209,
+          "reference": 0.121959
+        },
+        "merge": {
+          "counted": 0.099917,
+          "plain": 0.031626,
+          "reference": 0.149584
+        },
+        "runs_count": {
+          "counted": 0.060166,
+          "plain": 0.020292,
+          "reference": 0.191083
+        },
+        "runs_length": {
+          "counted": 0.067792,
+          "plain": 0.025292,
+          "reference": 0.203875
+        }
+      },
+      "random": {
+        "fixed_four": {
+          "counted": 0.138625,
+          "plain": 0.043584,
+          "reference": 0.26875
+        },
+        "hybrid_8": {
+          "counted": 0.108875,
+          "plain": 0.030376,
+          "reference": 0.274166
+        },
+        "merge": {
+          "counted": 0.128458,
+          "plain": 0.040875,
+          "reference": 0.25425
+        },
+        "runs_count": {
+          "counted": 0.126208,
+          "plain": 0.039417,
+          "reference": 0.333208
+        },
+        "runs_length": {
+          "counted": 0.159459,
+          "plain": 0.069875,
+          "reference": 0.376792
+        }
+      },
+      "random_boundaries": {
+        "fixed_four": {
+          "counted": 0.104959,
+          "plain": 0.031709,
+          "reference": 0.237917
+        },
+        "hybrid_8": {
+          "counted": 0.093333,
+          "plain": 0.026292,
+          "reference": 0.238042
+        },
+        "merge": {
+          "counted": 0.121208,
+          "plain": 0.038333,
+          "reference": 0.253042
+        },
+        "runs_count": {
+          "counted": 0.088125,
+          "plain": 0.026375,
+          "reference": 0.290916
+        },
+        "runs_length": {
+          "counted": 0.096416,
+          "plain": 0.033541,
+          "reference": 0.300917
+        }
+      },
+      "reverse": {
+        "fixed_four": {
+          "counted": 0.112,
+          "plain": 0.03775,
+          "reference": 0.166459
+        },
+        "hybrid_8": {
+          "counted": 0.113167,
+          "plain": 0.030291,
+          "reference": 0.239916
+        },
+        "merge": {
+          "counted": 0.102417,
+          "plain": 0.035125,
+          "reference": 0.155333
+        },
+        "runs_count": {
+          "counted": 0.131417,
+          "plain": 0.044875,
+          "reference": 0.278833
+        },
+        "runs_length": {
+          "counted": 0.192083,
+          "plain": 0.108375,
+          "reference": 0.323125
+        }
+      },
+      "short_runs": {
+        "fixed_four": {
+          "counted": 0.129833,
+          "plain": 0.040874,
+          "reference": 0.246583
+        },
+        "hybrid_8": {
+          "counted": 0.103458,
+          "plain": 0.028041,
+          "reference": 0.245417
+        },
+        "merge": {
+          "counted": 0.123041,
+          "plain": 0.039458,
+          "reference": 0.242291
+        },
+        "runs_count": {
+          "counted": 0.119458,
+          "plain": 0.036792,
+          "reference": 0.325042
+        },
+        "runs_length": {
+          "counted": 0.141541,
+          "plain": 0.061833,
+          "reference": 0.342
+        }
+      },
+      "skewed_runs": {
+        "fixed_four": {
+          "counted": 0.107958,
+          "plain": 0.0315,
+          "reference": 0.186751
+        },
+        "hybrid_8": {
+          "counted": 0.079833,
+          "plain": 0.023833,
+          "reference": 0.173792
+        },
+        "merge": {
+          "counted": 0.109834,
+          "plain": 0.036583,
+          "reference": 0.190791
+        },
+        "runs_count": {
+          "counted": 0.069958,
+          "plain": 0.022,
+          "reference": 0.221625
+        },
+        "runs_length": {
+          "counted": 0.076125,
+          "plain": 0.028083,
+          "reference": 0.230042
+        }
+      },
+      "sorted": {
+        "fixed_four": {
+          "counted": 0.052708,
+          "plain": 0.016834,
+          "reference": 0.090208
+        },
+        "hybrid_8": {
+          "counted": 0.055875,
+          "plain": 0.018125,
+          "reference": 0.099917
+        },
+        "merge": {
+          "counted": 0.094833,
+          "plain": 0.035916,
+          "reference": 0.13625
+        },
+        "runs_count": {
+          "counted": 0.03375,
+          "plain": 0.012,
+          "reference": 0.118582
+        },
+        "runs_length": {
+          "counted": 0.033083,
+          "plain": 0.011834,
+          "reference": 0.118833
+        }
+      },
+      "unequal_runs": {
+        "fixed_four": {
+          "counted": 0.093708,
+          "plain": 0.027583,
+          "reference": 0.211499
+        },
+        "hybrid_8": {
+          "counted": 0.082916,
+          "plain": 0.024167,
+          "reference": 0.215374
+        },
+        "merge": {
+          "counted": 0.116833,
+          "plain": 0.037792,
+          "reference": 0.235416
+        },
+        "runs_count": {
+          "counted": 0.073916,
+          "plain": 0.022583,
+          "reference": 0.257791
+        },
+        "runs_length": {
+          "counted": 0.078376,
+          "plain": 0.027292,
+          "reference": 0.266125
+        }
+      }
+    },
+    "plain_algorithm_pairs": {
+      "runs_count": {
+        "fixed_four": {
+          "aggregate_ratio": 0.8638598639492638,
+          "total": 28,
+          "wins": 23
+        },
+        "hybrid_8": {
+          "aggregate_ratio": 1.117378064805503,
+          "total": 28,
+          "wins": 12
+        },
+        "merge": {
+          "aggregate_ratio": 0.7649169773120894,
+          "total": 28,
+          "wins": 21
+        }
+      },
+      "runs_length": {
+        "fixed_four": {
+          "aggregate_ratio": 1.3557854071904794,
+          "total": 28,
+          "wins": 11
+        },
+        "hybrid_8": {
+          "aggregate_ratio": 1.7536697070892198,
+          "total": 28,
+          "wins": 5
+        },
+        "merge": {
+          "aggregate_ratio": 1.2004994314828945,
+          "total": 28,
+          "wins": 11
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "a_total_seconds": 360,
+  "b_lengths": [
+    32,
+    96
+  ],
+  "b_total_seconds": 600,
+  "excluded_lengths": [],
+  "frozen_at": "2026-09-08T02:30:14.760704+00:00",
+  "lengths": [
+    32,
+    96
+  ],
+  "pilot_request_seconds_by_length": {
+    "32": 0.008625208999994527,
+    "96": 0.0161818750000009
+  },
+  "request_seconds": 10,
+  "rounds": 3,
+  "rss_limit_mib": 2816,
+  "selection_basis": "request wall/RSS only, never relative candidate/selector performance",
+  "stack_mib": 8
+}

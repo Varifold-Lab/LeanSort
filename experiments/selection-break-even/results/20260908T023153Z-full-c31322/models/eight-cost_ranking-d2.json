@@ -1,0 +1,87 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_kind": "eight",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "descent_permille",
+    "unused_0",
+    "unused_1",
+    "unused_2"
+  ],
+  "feature_version": "budget-eight-v1",
+  "hyperparameters": {
+    "depth": 2,
+    "min_leaf": 8
+  },
+  "kind": "cost_ranking",
+  "schema_version": 1,
+  "target": "relative latency time/input-oracle; integer scale 1000000",
+  "training_hash": "c3fda1269a1fc5cd02a71b142804faee352721eefa9ebda4b57996850719ca32",
+  "training_inputs": 172,
+  "training_ns": 4236625,
+  "training_preferred_id": 5,
+  "tree": {
+    "feature": 2,
+    "kind": "branch",
+    "left": {
+      "feature": 0,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "values": [
+          2485042,
+          1597498,
+          1901234,
+          1886577,
+          1513813,
+          1100405,
+          1249098
+        ]
+      },
+      "right": {
+        "kind": "leaf",
+        "values": [
+          2816851,
+          2014407,
+          2069769,
+          2232680,
+          1575565,
+          1078005,
+          1207371
+        ]
+      },
+      "threshold": 256
+    },
+    "right": {
+      "feature": 2,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "values": [
+          1290693,
+          1028063,
+          1295438,
+          1312414,
+          1296145,
+          1156171,
+          1898261
+        ]
+      },
+      "right": {
+        "kind": "leaf",
+        "values": [
+          1064720,
+          1000996,
+          1063446,
+          1113229,
+          1076886,
+          1470140,
+          3922074
+        ]
+      },
+      "threshold": 875
+    },
+    "threshold": 0
+  }
+}

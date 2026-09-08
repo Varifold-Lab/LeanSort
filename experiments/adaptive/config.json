@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "train_lengths": [16, 32, 64, 128, 256],
+  "test_lengths": [23, 39, 71, 135, 263],
+  "families": ["sorted", "reverse", "nearly_sorted", "random", "duplicates", "runs", "organ_pipe", "skewed"],
+  "train_seeds_per_shape": 4,
+  "test_seeds_per_shape": 2,
+  "rounds": 5,
+  "inner": 3,
+  "tree_max_depth": 3,
+  "tree_min_leaf": 8,
+  "tree_min_relative_gain": 0.01,
+  "tree_max_split_candidates": 16,
+  "bootstrap_resamples": 2000,
+  "primary_comparison": "decision_tree versus training-selected best_fixed, sum of per-input median end-to-end latency",
+  "test_policy": "freeze configuration and final model before measuring held-out inputs; no test-based tuning",
+  "manual_rule": "all features; insertion if length <= 32 or no descents; hybrid-64 if descent_permille <= 50; otherwise hybrid-24"
+}

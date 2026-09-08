@@ -1,0 +1,9 @@
+{
+  "error": "RuntimeError(\"failed ['/Users/moqian/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean', '-R', '/Users/moqian/LeanSort', '-o', '/Users/moqian/LeanSort/experiments/dynamic-runs/results/20260907T043752Z-smoke-9dbe70/Replay/LeanSort/Model/MergeTree.olean', '/Users/moqian/LeanSort/LeanSort/Model/MergeTree.lean']; /Users/moqian/LeanSort/experiments/dynamic-runs/results/20260907T043752Z-smoke-9dbe70/fresh-proof-Model.MergeTree.log\\n/Users/moqian/LeanSort/LeanSort/Model/MergeTree.lean:1:0: error: object file '/Users/moqian/LeanSort/experiments/dynamic-runs/results/20260907T043752Z-smoke-9dbe70/Replay/LeanSort/Model/SortingResult.olean' of module LeanSort.Model.SortingResult does not exist\\n\")",
+  "phases_ns": {
+    "fresh_module_proof_checks": 0,
+    "lake_build": 2354007292,
+    "python_checks": 243375583,
+    "related_build": 1885538792
+  }
+}

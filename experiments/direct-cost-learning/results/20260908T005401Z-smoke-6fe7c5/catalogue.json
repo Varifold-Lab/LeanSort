@@ -1,0 +1,137 @@
+[
+  {
+    "algorithm_id": "merge",
+    "certificate": "LeanSort.LearnedSelection.certificate 0",
+    "correctness": "LeanSort.LearnedSelection.dispatch_correct",
+    "cost": "LeanSort.LearnedSelection.kernel_bound",
+    "cost_formula": "ComparisonBounds.mergeSort n",
+    "cost_unit": "key <= comparison; traversal/allocation/metadata/time not charged",
+    "executable": "LearnedSelection.dispatch (some 0) xs",
+    "input_precondition": "arbitrary finite List with LinearOrder; experiments and learned features use Nat",
+    "numeric_id": 0,
+    "parameters": {},
+    "versions": {
+      "candidate_version": "verified-direct-seven-v1",
+      "executor_version": "bc61312857365c7105a2bd53070ad0660cce8295623d93bde49ecc96698bf888",
+      "feature_source_sha256": "02860aeb454a20fe945939487016b12b880cca0e28d4ef43d1b2afd2f9bcd36d",
+      "feature_version": "spread-adjacent16-v1",
+      "worker_source_sha256": "a1705ad841e3db67b6a02e9b29bc15d46d3759b87999c956bbb7c0679632e1de"
+    }
+  },
+  {
+    "algorithm_id": "hybrid_8",
+    "certificate": "LeanSort.LearnedSelection.certificate 1",
+    "correctness": "LeanSort.LearnedSelection.dispatch_correct",
+    "cost": "LeanSort.LearnedSelection.kernel_bound",
+    "cost_formula": "ComparisonBounds.hybrid 8 n",
+    "cost_unit": "key <= comparison; traversal/allocation/metadata/time not charged",
+    "executable": "LearnedSelection.dispatch (some 1) xs",
+    "input_precondition": "arbitrary finite List with LinearOrder; experiments and learned features use Nat",
+    "numeric_id": 1,
+    "parameters": {
+      "threshold": 8
+    },
+    "versions": {
+      "candidate_version": "verified-direct-seven-v1",
+      "executor_version": "bc61312857365c7105a2bd53070ad0660cce8295623d93bde49ecc96698bf888",
+      "feature_source_sha256": "02860aeb454a20fe945939487016b12b880cca0e28d4ef43d1b2afd2f9bcd36d",
+      "feature_version": "spread-adjacent16-v1",
+      "worker_source_sha256": "a1705ad841e3db67b6a02e9b29bc15d46d3759b87999c956bbb7c0679632e1de"
+    }
+  },
+  {
+    "algorithm_id": "fixed_two",
+    "certificate": "LeanSort.LearnedSelection.certificate 2",
+    "correctness": "LeanSort.LearnedSelection.dispatch_correct",
+    "cost": "LeanSort.LearnedSelection.kernel_bound",
+    "cost_formula": "Direct.fixedTwo.upper n",
+    "cost_unit": "key <= comparison; traversal/allocation/metadata/time not charged",
+    "executable": "LearnedSelection.dispatch (some 2) xs",
+    "input_precondition": "arbitrary finite List with LinearOrder; experiments and learned features use Nat",
+    "numeric_id": 2,
+    "parameters": {},
+    "versions": {
+      "candidate_version": "verified-direct-seven-v1",
+      "executor_version": "bc61312857365c7105a2bd53070ad0660cce8295623d93bde49ecc96698bf888",
+      "feature_source_sha256": "02860aeb454a20fe945939487016b12b880cca0e28d4ef43d1b2afd2f9bcd36d",
+      "feature_version": "spread-adjacent16-v1",
+      "worker_source_sha256": "a1705ad841e3db67b6a02e9b29bc15d46d3759b87999c956bbb7c0679632e1de"
+    }
+  },
+  {
+    "algorithm_id": "fixed_three",
+    "certificate": "LeanSort.LearnedSelection.certificate 3",
+    "correctness": "LeanSort.LearnedSelection.dispatch_correct",
+    "cost": "LeanSort.LearnedSelection.kernel_bound",
+    "cost_formula": "LearnedSelection.fixedThree.upper n",
+    "cost_unit": "key <= comparison; traversal/allocation/metadata/time not charged",
+    "executable": "LearnedSelection.dispatch (some 3) xs",
+    "input_precondition": "arbitrary finite List with LinearOrder; experiments and learned features use Nat",
+    "numeric_id": 3,
+    "parameters": {},
+    "versions": {
+      "candidate_version": "verified-direct-seven-v1",
+      "executor_version": "bc61312857365c7105a2bd53070ad0660cce8295623d93bde49ecc96698bf888",
+      "feature_source_sha256": "02860aeb454a20fe945939487016b12b880cca0e28d4ef43d1b2afd2f9bcd36d",
+      "feature_version": "spread-adjacent16-v1",
+      "worker_source_sha256": "a1705ad841e3db67b6a02e9b29bc15d46d3759b87999c956bbb7c0679632e1de"
+    }
+  },
+  {
+    "algorithm_id": "fixed_four",
+    "certificate": "LeanSort.LearnedSelection.certificate 4",
+    "correctness": "LeanSort.LearnedSelection.dispatch_correct",
+    "cost": "LeanSort.LearnedSelection.kernel_bound",
+    "cost_formula": "Direct.fixedFour.upper n",
+    "cost_unit": "key <= comparison; traversal/allocation/metadata/time not charged",
+    "executable": "LearnedSelection.dispatch (some 4) xs",
+    "input_precondition": "arbitrary finite List with LinearOrder; experiments and learned features use Nat",
+    "numeric_id": 4,
+    "parameters": {},
+    "versions": {
+      "candidate_version": "verified-direct-seven-v1",
+      "executor_version": "bc61312857365c7105a2bd53070ad0660cce8295623d93bde49ecc96698bf888",
+      "feature_source_sha256": "02860aeb454a20fe945939487016b12b880cca0e28d4ef43d1b2afd2f9bcd36d",
+      "feature_version": "spread-adjacent16-v1",
+      "worker_source_sha256": "a1705ad841e3db67b6a02e9b29bc15d46d3759b87999c956bbb7c0679632e1de"
+    }
+  },
+  {
+    "algorithm_id": "runs_count",
+    "certificate": "LeanSort.LearnedSelection.certificate 5",
+    "correctness": "LeanSort.LearnedSelection.dispatch_correct",
+    "cost": "LeanSort.LearnedSelection.kernel_bound",
+    "cost_formula": "n - 1 + n * Nat.clog 2 (Direct.scan xs).length",
+    "cost_unit": "key <= comparison; traversal/allocation/metadata/time not charged",
+    "executable": "LearnedSelection.dispatch (some 5) xs",
+    "input_precondition": "arbitrary finite List with LinearOrder; experiments and learned features use Nat",
+    "numeric_id": 5,
+    "parameters": {},
+    "versions": {
+      "candidate_version": "verified-direct-seven-v1",
+      "executor_version": "bc61312857365c7105a2bd53070ad0660cce8295623d93bde49ecc96698bf888",
+      "feature_source_sha256": "02860aeb454a20fe945939487016b12b880cca0e28d4ef43d1b2afd2f9bcd36d",
+      "feature_version": "spread-adjacent16-v1",
+      "worker_source_sha256": "a1705ad841e3db67b6a02e9b29bc15d46d3759b87999c956bbb7c0679632e1de"
+    }
+  },
+  {
+    "algorithm_id": "runs_length",
+    "certificate": "LeanSort.LearnedSelection.certificate 6",
+    "correctness": "LeanSort.LearnedSelection.dispatch_correct",
+    "cost": "LeanSort.LearnedSelection.kernel_bound",
+    "cost_formula": "n - 1 + (lengthPlan (Direct.scan xs)).budget",
+    "cost_unit": "key <= comparison; traversal/allocation/metadata/time not charged",
+    "executable": "LearnedSelection.dispatch (some 6) xs",
+    "input_precondition": "arbitrary finite List with LinearOrder; experiments and learned features use Nat",
+    "numeric_id": 6,
+    "parameters": {},
+    "versions": {
+      "candidate_version": "verified-direct-seven-v1",
+      "executor_version": "bc61312857365c7105a2bd53070ad0660cce8295623d93bde49ecc96698bf888",
+      "feature_source_sha256": "02860aeb454a20fe945939487016b12b880cca0e28d4ef43d1b2afd2f9bcd36d",
+      "feature_version": "spread-adjacent16-v1",
+      "worker_source_sha256": "a1705ad841e3db67b6a02e9b29bc15d46d3759b87999c956bbb7c0679632e1de"
+    }
+  }
+]

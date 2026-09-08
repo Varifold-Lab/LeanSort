@@ -1,0 +1,51 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "local_descent_permille",
+    "local_equal_permille",
+    "cross_descent_permille",
+    "sampled_left_range"
+  ],
+  "feature_version": "spread-adjacent16-v1",
+  "hyperparameters": {
+    "depth": 2,
+    "min_leaf": 4
+  },
+  "kind": "classifier",
+  "schema_version": 1,
+  "target": "epsilon-tied fastest candidate ID",
+  "training_hash": "85d339fe73ded0325a0813a024adac0944d5ad4e953f8a29795b19a42fc7ca7e",
+  "training_inputs": 80,
+  "training_ns": 1966000,
+  "training_preferred_id": 5,
+  "tree": {
+    "feature": 2,
+    "kind": "branch",
+    "left": {
+      "feature": 4,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "values": [
+          2
+        ]
+      },
+      "right": {
+        "kind": "leaf",
+        "values": [
+          5
+        ]
+      },
+      "threshold": 0
+    },
+    "right": {
+      "kind": "leaf",
+      "values": [
+        1
+      ]
+    },
+    "threshold": 250
+  }
+}

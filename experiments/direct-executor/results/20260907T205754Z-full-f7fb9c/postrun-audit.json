@@ -1,0 +1,22 @@
+{
+  "complete_returned_timing_repetitions": 21914,
+  "extension_empty_pairings_are_missing_not_zero": true,
+  "extension_status_counts": {
+    "not_run_total_budget": 15,
+    "ok": 98,
+    "request_timeout": 22
+  },
+  "frozen_sources_and_config_unchanged": true,
+  "independent_confirmation_no_input_overlap": true,
+  "original_files_unchanged": 354,
+  "paired_counts_match_previous_phase": {
+    "fixed_four": 54730,
+    "hybrid_8": 58471,
+    "merge": 58166,
+    "runs_count": 49887,
+    "runs_length": 47797
+  },
+  "passed": true,
+  "saved_rows_reconstructed": 4422,
+  "timeout_partial_round_times_unavailable": true
+}

@@ -1,0 +1,243 @@
+{
+  "feature_names": [
+    "runs",
+    "left_count_per_mille",
+    "left_weight_per_mille",
+    "weight_imbalance",
+    "count_imbalance",
+    "max_share",
+    "concentration",
+    "left_max_share",
+    "right_max_share",
+    "boundary_share"
+  ],
+  "fit_ns": 76859500,
+  "hyperparameters": {
+    "depth": 4,
+    "min_leaf": 16
+  },
+  "model_bytes": 1607,
+  "nodes": [
+    [
+      9,
+      132,
+      1,
+      8
+    ],
+    [
+      9,
+      51,
+      2,
+      7
+    ],
+    [
+      3,
+      957,
+      3,
+      6
+    ],
+    [
+      3,
+      890,
+      4,
+      5
+    ],
+    [
+      -1,
+      867624,
+      0,
+      0
+    ],
+    [
+      -1,
+      889361,
+      0,
+      0
+    ],
+    [
+      -1,
+      948397,
+      0,
+      0
+    ],
+    [
+      -1,
+      763486,
+      0,
+      0
+    ],
+    [
+      3,
+      473,
+      9,
+      16
+    ],
+    [
+      3,
+      328,
+      10,
+      13
+    ],
+    [
+      9,
+      470,
+      11,
+      12
+    ],
+    [
+      -1,
+      32969,
+      0,
+      0
+    ],
+    [
+      -1,
+      4193,
+      0,
+      0
+    ],
+    [
+      9,
+      635,
+      14,
+      15
+    ],
+    [
+      -1,
+      125354,
+      0,
+      0
+    ],
+    [
+      -1,
+      18905,
+      0,
+      0
+    ],
+    [
+      9,
+      571,
+      17,
+      20
+    ],
+    [
+      3,
+      717,
+      18,
+      19
+    ],
+    [
+      -1,
+      277545,
+      0,
+      0
+    ],
+    [
+      -1,
+      526138,
+      0,
+      0
+    ],
+    [
+      9,
+      750,
+      21,
+      22
+    ],
+    [
+      -1,
+      159919,
+      0,
+      0
+    ],
+    [
+      -1,
+      12180,
+      0,
+      0
+    ]
+  ],
+  "schema_version": 1,
+  "target": "optimal continuation regret / interval weight * 1000000",
+  "training_rows": 1034,
+  "tree": {
+    "feature": 9,
+    "left": {
+      "feature": 9,
+      "left": {
+        "feature": 3,
+        "left": {
+          "feature": 3,
+          "left": {
+            "value": 867624
+          },
+          "right": {
+            "value": 889361
+          },
+          "threshold": 890
+        },
+        "right": {
+          "value": 948397
+        },
+        "threshold": 957
+      },
+      "right": {
+        "value": 763486
+      },
+      "threshold": 51
+    },
+    "right": {
+      "feature": 3,
+      "left": {
+        "feature": 3,
+        "left": {
+          "feature": 9,
+          "left": {
+            "value": 32969
+          },
+          "right": {
+            "value": 4193
+          },
+          "threshold": 470
+        },
+        "right": {
+          "feature": 9,
+          "left": {
+            "value": 125354
+          },
+          "right": {
+            "value": 18905
+          },
+          "threshold": 635
+        },
+        "threshold": 328
+      },
+      "right": {
+        "feature": 9,
+        "left": {
+          "feature": 3,
+          "left": {
+            "value": 277545
+          },
+          "right": {
+            "value": 526138
+          },
+          "threshold": 717
+        },
+        "right": {
+          "feature": 9,
+          "left": {
+            "value": 159919
+          },
+          "right": {
+            "value": 12180
+          },
+          "threshold": 750
+        },
+        "threshold": 571
+      },
+      "threshold": 473
+    },
+    "threshold": 132
+  }
+}

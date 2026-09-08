@@ -1,0 +1,14 @@
+test_hoisting_rejected (test_codegen.CodegenTests) ... ok
+test_valid_placement (test_codegen.CodegenTests) ... ok
+test_catalogue (test_experiment.ExperimentTests) ... ok
+test_clipped_and_degenerate_parameters (test_experiment.ExperimentTests) ... ok
+test_data_premises (test_experiment.ExperimentTests) ... ok
+test_emission (test_experiment.ExperimentTests) ... ok
+test_envelope_not_dominance (test_experiment.ExperimentTests) ... ok
+test_independent_operation_oracle (test_experiment.ExperimentTests) ... ok
+test_sufficient_asymptotic_rules_not_false_labels (test_experiment.ExperimentTests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.035s
+
+OK

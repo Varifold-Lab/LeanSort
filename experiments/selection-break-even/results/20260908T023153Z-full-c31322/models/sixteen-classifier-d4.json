@@ -1,0 +1,140 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_kind": "sixteen",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "descent_permille",
+    "unused_0",
+    "unused_1",
+    "unused_2"
+  ],
+  "feature_version": "budget-sixteen-v1",
+  "hyperparameters": {
+    "depth": 4,
+    "min_leaf": 8
+  },
+  "kind": "classifier",
+  "schema_version": 1,
+  "target": "epsilon-tied fastest candidate ID",
+  "training_hash": "c3fda1269a1fc5cd02a71b142804faee352721eefa9ebda4b57996850719ca32",
+  "training_inputs": 172,
+  "training_ns": 2361750,
+  "training_preferred_id": 5,
+  "tree": {
+    "feature": 2,
+    "kind": "branch",
+    "left": {
+      "feature": 2,
+      "kind": "branch",
+      "left": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              2
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              4
+            ]
+          },
+          "threshold": 32
+        },
+        "right": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "threshold": 768
+        },
+        "threshold": 96
+      },
+      "right": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              3
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "threshold": 96
+        },
+        "right": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "threshold": 256
+        },
+        "threshold": 62
+      },
+      "threshold": 0
+    },
+    "right": {
+      "feature": 2,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "values": [
+          1
+        ]
+      },
+      "right": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            1
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1
+          ]
+        },
+        "threshold": 256
+      },
+      "threshold": 750
+    },
+    "threshold": 187
+  }
+}

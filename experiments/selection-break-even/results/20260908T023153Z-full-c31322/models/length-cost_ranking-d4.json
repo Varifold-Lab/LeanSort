@@ -1,0 +1,104 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_kind": "length",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "descent_permille",
+    "unused_0",
+    "unused_1",
+    "unused_2"
+  ],
+  "feature_version": "budget-length-v1",
+  "hyperparameters": {
+    "depth": 4,
+    "min_leaf": 8
+  },
+  "kind": "cost_ranking",
+  "schema_version": 1,
+  "target": "relative latency time/input-oracle; integer scale 1000000",
+  "training_hash": "c3fda1269a1fc5cd02a71b142804faee352721eefa9ebda4b57996850719ca32",
+  "training_inputs": 172,
+  "training_ns": 2478542,
+  "training_preferred_id": 5,
+  "tree": {
+    "feature": 0,
+    "kind": "branch",
+    "left": {
+      "kind": "leaf",
+      "values": [
+        1693932,
+        1166437,
+        1352836,
+        1416676,
+        1241961,
+        1225996,
+        1968703
+      ]
+    },
+    "right": {
+      "feature": 0,
+      "kind": "branch",
+      "left": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            1928189,
+            1396382,
+            1686408,
+            1523626,
+            1452228,
+            1189540,
+            1801425
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            2016755,
+            1358513,
+            1684046,
+            1827224,
+            1457241,
+            1131683,
+            1714044
+          ]
+        },
+        "threshold": 96
+      },
+      "right": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            2068387,
+            1586179,
+            1684606,
+            1749391,
+            1423350,
+            1132461,
+            1698991
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            2258351,
+            1649168,
+            1753098,
+            1886217,
+            1420254,
+            1117201,
+            1685225
+          ]
+        },
+        "threshold": 768
+      },
+      "threshold": 256
+    },
+    "threshold": 32
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "a_total_seconds": 360,
+  "b_lengths": [
+    32,
+    96,
+    256,
+    768,
+    2048
+  ],
+  "b_total_seconds": 600,
+  "excluded_lengths": [
+    {
+      "estimated_a_seconds": 325.2097354860001,
+      "n": 4096,
+      "status": "not_executed_pilot_budget_forecast"
+    },
+    {
+      "estimated_a_seconds": 646.5186656819997,
+      "n": 8192,
+      "status": "not_executed_pilot_budget_forecast"
+    },
+    {
+      "estimated_a_seconds": 646.5186656819997,
+      "n": 16384,
+      "status": "not_executed_pilot_budget_forecast"
+    }
+  ],
+  "frozen_at": "2026-09-08T02:33:03.047894+00:00",
+  "lengths": [
+    32,
+    64,
+    96,
+    128,
+    256,
+    384,
+    512,
+    768,
+    1024,
+    2048
+  ],
+  "pilot_request_seconds_by_length": {
+    "32": 0.008148165999998014,
+    "1024": 0.2295369590000007,
+    "4096": 1.085245583999999,
+    "16384": 5.0520224999999925
+  },
+  "request_seconds": 46,
+  "rounds": 3,
+  "rss_limit_mib": 2816,
+  "selection_basis": "request wall/RSS only, never relative candidate/selector performance",
+  "stack_mib": 8
+}

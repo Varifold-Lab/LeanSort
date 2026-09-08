@@ -1,0 +1,61 @@
+{
+  "calibration_seeds": [
+    101
+  ],
+  "calibration_sizes": [
+    11,
+    25
+  ],
+  "comparison_scope": "key <= only; metadata arithmetic/traversal/allocation unmodeled",
+  "control": "Peeksort Algorithm 1 eager ascending-run split-policy port; not original optimized implementation",
+  "excluded": "generation, JSON, correctness replays, offline proofs, calibration selection, diagnostics",
+  "metrics": [
+    "key comparisons (including scan/checks)",
+    "per-input median full deployment ns",
+    "paired wins/losses",
+    "by-shape totals",
+    "non-additive diagnostic replays"
+  ],
+  "no_test_tuning": true,
+  "reference": "https://www.wild-inter.net/publications/munro-wild-2018.pdf",
+  "rounds": 3,
+  "selection": "minimize sum of per-input median end-to-end ns on calibration; numeric threshold tie break",
+  "shapes": [
+    "random",
+    "sorted",
+    "reverse",
+    "duplicates",
+    "unequal_runs",
+    "random_boundaries",
+    "short_runs",
+    "long_runs",
+    "perturbed",
+    "skewed_runs"
+  ],
+  "smoke": true,
+  "test_seeds": [
+    501
+  ],
+  "test_sizes": [
+    23,
+    47
+  ],
+  "test_strategies": [
+    "merge",
+    "frozen_hybrid",
+    "fixed_two",
+    "fixed_three",
+    "fixed_four",
+    "runs_count",
+    "runs_length"
+  ],
+  "thresholds": [
+    1,
+    4,
+    8,
+    16,
+    24,
+    64
+  ],
+  "timing": "clock, IO input read, scan/build/execute, full output checksum/sink, clock"
+}

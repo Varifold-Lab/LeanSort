@@ -1,0 +1,10 @@
+if local_descent_permille <= 125:
+  if cross_descent_permille <= 0:
+    return fixed_two
+  else:
+    return runs_count
+else:
+  if cross_descent_permille <= 266:
+    return runs_count
+  else:
+    return hybrid_8

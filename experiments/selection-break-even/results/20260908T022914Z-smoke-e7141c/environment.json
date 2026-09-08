@@ -1,0 +1,12 @@
+{
+  "branch": "experiment/selection-break-even",
+  "cpu": "Apple M4 Pro",
+  "cpus": 14,
+  "head": "086c581604b626101006b9dbfaa1e78e26247afa",
+  "lean": "Lean (version 4.34.0-rc2, arm64-apple-darwin24.6.0, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+  "main": "086c581604b626101006b9dbfaa1e78e26247afa",
+  "memory_bytes": "25769803776",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "python": "3.9.6",
+  "stash": "52d976d4ed8cf6bbf1253cdb92e478db59f15cf6"
+}

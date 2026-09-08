@@ -1,0 +1,176 @@
+{
+  "aggregates": [
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 13513,
+      "ready_cases": 62,
+      "strategy": "single_merge",
+      "sum_case_median_e2e_ns": 48984666
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 61999,
+      "ready_cases": 62,
+      "strategy": "single_insertion",
+      "sum_case_median_e2e_ns": 775401998
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 13315,
+      "ready_cases": 62,
+      "strategy": "single_hybrid_4",
+      "sum_case_median_e2e_ns": 48115997
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 13625,
+      "ready_cases": 62,
+      "strategy": "single_hybrid_8",
+      "sum_case_median_e2e_ns": 49186333
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 16172,
+      "ready_cases": 62,
+      "strategy": "single_hybrid_16",
+      "sum_case_median_e2e_ns": 59485170
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 31681,
+      "ready_cases": 62,
+      "strategy": "p000_two_insertion",
+      "sum_case_median_e2e_ns": 207753044
+    },
+    {
+      "cases": 62,
+      "checks": 1503,
+      "comparisons": 12455,
+      "ready_cases": 21,
+      "strategy": "p001_two_guarded",
+      "sum_case_median_e2e_ns": 45055958
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 13513,
+      "ready_cases": 62,
+      "strategy": "p002_merge_halves",
+      "sum_case_median_e2e_ns": 48855000
+    },
+    {
+      "cases": 62,
+      "checks": 1048,
+      "comparisons": 13012,
+      "ready_cases": 12,
+      "strategy": "p003_guarded_merge",
+      "sum_case_median_e2e_ns": 45990791
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 14196,
+      "ready_cases": 62,
+      "strategy": "p004_prefix_insertion_merge",
+      "sum_case_median_e2e_ns": 56617497
+    },
+    {
+      "cases": 62,
+      "checks": 1683,
+      "comparisons": 12572,
+      "ready_cases": 21,
+      "strategy": "p005_three_guarded",
+      "sum_case_median_e2e_ns": 46775707
+    },
+    {
+      "cases": 62,
+      "checks": 1867,
+      "comparisons": 11774,
+      "ready_cases": 29,
+      "strategy": "p006_four_guarded",
+      "sum_case_median_e2e_ns": 44131373
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 14449,
+      "ready_cases": 62,
+      "strategy": "p007_mixed_hybrid",
+      "sum_case_median_e2e_ns": 52957123
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 13414,
+      "ready_cases": 62,
+      "strategy": "p028_split",
+      "sum_case_median_e2e_ns": 48381625
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 13414,
+      "ready_cases": 62,
+      "strategy": "p031_nested",
+      "sum_case_median_e2e_ns": 48454541
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 13892,
+      "ready_cases": 62,
+      "strategy": "p098_split",
+      "sum_case_median_e2e_ns": 52235464
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 13778,
+      "ready_cases": 62,
+      "strategy": "p024_split",
+      "sum_case_median_e2e_ns": 52363711
+    },
+    {
+      "cases": 62,
+      "checks": 0,
+      "comparisons": 13778,
+      "ready_cases": 62,
+      "strategy": "p027_nested",
+      "sum_case_median_e2e_ns": 52347002
+    }
+  ],
+  "all_outputs_checked": true,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "baseline_certificates": 5,
+  "cases": 62,
+  "comparison_model": "key comparisons, including runtime guards",
+  "composite_certificates": 100,
+  "conclusion_scope": "No pointwise cost dominance, optimality, or native-machine speedup claim.",
+  "conditional_linear_composites": 50,
+  "measured_algorithms": 18,
+  "phases_ns": {
+    "algorithm_and_proof_source_generation": 4968917,
+    "evaluation_wall_including_transport_and_diagnostics": 14543605583,
+    "existing_lake_build": 2352616209,
+    "general_proof_build": 2109884125,
+    "lean_check_algorithms": 1677243000,
+    "lean_check_certificates": 4712883875,
+    "offline_profile_diagnostics": 1810560631,
+    "offline_search_and_selection": 3785458,
+    "python_regression_tests": 74338291,
+    "worker_startup": 1784360625,
+    "worker_typecheck_and_codegen": 3548768833
+  },
+  "structurally_unique": 100,
+  "unconditional_nlog_composites": 66
+}

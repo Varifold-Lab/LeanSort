@@ -1,0 +1,137 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "local_descent_permille",
+    "local_equal_permille",
+    "cross_descent_permille",
+    "sampled_left_range"
+  ],
+  "feature_version": "spread-adjacent16-v1",
+  "hyperparameters": {
+    "depth": 4,
+    "min_leaf": 8
+  },
+  "kind": "cost_ranking",
+  "schema_version": 1,
+  "target": "relative latency time/input-oracle; integer scale 1000000",
+  "training_hash": "85d339fe73ded0325a0813a024adac0944d5ad4e953f8a29795b19a42fc7ca7e",
+  "training_inputs": 80,
+  "training_ns": 7059791,
+  "training_preferred_id": 5,
+  "tree": {
+    "feature": 2,
+    "kind": "branch",
+    "left": {
+      "feature": 4,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "values": [
+          3042943,
+          2025501,
+          1183754,
+          1238023,
+          1408870,
+          1075807,
+          1103959
+        ]
+      },
+      "right": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            2108598,
+            1483833,
+            2062680,
+            1693526,
+            1584026,
+            1006650,
+            1071859
+          ]
+        },
+        "right": {
+          "feature": 4,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1725469,
+              1257193,
+              1636656,
+              1364224,
+              1395054,
+              1048637,
+              1155908
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1356411,
+              1073052,
+              1353004,
+              1374609,
+              1377199,
+              1035573,
+              1397662
+            ]
+          },
+          "threshold": 266
+        },
+        "threshold": 0
+      },
+      "threshold": 0
+    },
+    "right": {
+      "feature": 2,
+      "kind": "branch",
+      "left": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            1242386,
+            1000000,
+            1242731,
+            1274823,
+            1235453,
+            1100226,
+            1736758
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1243919,
+            1000000,
+            1276139,
+            1271945,
+            1272984,
+            1206533,
+            2095124
+          ]
+        },
+        "threshold": 375
+      },
+      "right": {
+        "kind": "leaf",
+        "values": [
+          1094994,
+          1000000,
+          1103959,
+          1140577,
+          1110435,
+          1450649,
+          3871734
+        ]
+      },
+      "threshold": 625
+    },
+    "threshold": 187
+  }
+}

@@ -1,0 +1,5 @@
+2026-09-08T02:29:16.676847+00:00 开始构建、公理和编译检查；不修改旧文件。
+2026-09-08T02:30:14.919129+00:00 正式资源协议已由独立 pilot 冻结：{"frozen_at": "2026-09-08T02:30:14.760704+00:00", "lengths": [32, 96], "excluded_lengths": [], "pilot_request_seconds_by_length": {"32": 0.008625208999994527, "96": 0.0161818750000009}, "request_seconds": 10, "rss_limit_mib": 2816, "stack_mib": 8, "a_total_seconds": 360, "b_total_seconds": 600, "rounds": 3, "selection_basis": "request wall/RSS only, never relative candidate/selector performance", "b_lengths": [32, 96]}
+2026-09-08T02:30:17.133481+00:00 A 完成；只作诊断，数据不用于 B 训练或确认。
+2026-09-08T02:30:21.791237+00:00 B 模型／规则／预算配置全部冻结，现在才生成确认输入。
+2026-09-08T02:30:24.622460+00:00 有界实验完成；不根据确认结果继续调参。

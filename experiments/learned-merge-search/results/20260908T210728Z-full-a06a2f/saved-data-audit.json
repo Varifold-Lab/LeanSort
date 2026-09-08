@@ -1,0 +1,23 @@
+{
+  "audit_only_source_changes": [],
+  "executed_trees_rechecked": 130,
+  "inputs": 162,
+  "label_rows": 34980,
+  "note": "Saved evidence only, no timing/retraining/reselection. Lean proof logs remain separate.",
+  "original_files_unchanged": 1113,
+  "passed": true,
+  "search_requests": 4374,
+  "source_and_model_unchanged": true,
+  "split": {
+    "base_groups": 198,
+    "canonical_groups": 338,
+    "caveat": "No guarantee against coincidental structural similarity across independently generated groups; scale/reversal identity and explicit perturbation lineage checked.",
+    "inputs": 338,
+    "passed": true,
+    "unique_hashes": 338
+  },
+  "statuses": {
+    "ok": 4374
+  },
+  "trees_rechecked": 493
+}

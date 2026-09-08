@@ -1,0 +1,308 @@
+{
+  "frozen_at": "2026-09-08T21:06:06.152075+00:00",
+  "model": {
+    "feature_names": [
+      "runs",
+      "left_count_per_mille",
+      "left_weight_per_mille",
+      "weight_imbalance",
+      "count_imbalance",
+      "max_share",
+      "concentration",
+      "left_max_share",
+      "right_max_share",
+      "boundary_share"
+    ],
+    "fit_ns": 12403583,
+    "hyperparameters": {
+      "depth": 4,
+      "min_leaf": 16
+    },
+    "model_bytes": 1607,
+    "nodes": [
+      [
+        9,
+        132,
+        1,
+        8
+      ],
+      [
+        9,
+        51,
+        2,
+        7
+      ],
+      [
+        3,
+        957,
+        3,
+        6
+      ],
+      [
+        3,
+        890,
+        4,
+        5
+      ],
+      [
+        -1,
+        867624,
+        0,
+        0
+      ],
+      [
+        -1,
+        889361,
+        0,
+        0
+      ],
+      [
+        -1,
+        948397,
+        0,
+        0
+      ],
+      [
+        -1,
+        763486,
+        0,
+        0
+      ],
+      [
+        3,
+        473,
+        9,
+        16
+      ],
+      [
+        3,
+        328,
+        10,
+        13
+      ],
+      [
+        9,
+        470,
+        11,
+        12
+      ],
+      [
+        -1,
+        32969,
+        0,
+        0
+      ],
+      [
+        -1,
+        4193,
+        0,
+        0
+      ],
+      [
+        9,
+        635,
+        14,
+        15
+      ],
+      [
+        -1,
+        125354,
+        0,
+        0
+      ],
+      [
+        -1,
+        18905,
+        0,
+        0
+      ],
+      [
+        9,
+        571,
+        17,
+        20
+      ],
+      [
+        3,
+        717,
+        18,
+        19
+      ],
+      [
+        -1,
+        277545,
+        0,
+        0
+      ],
+      [
+        -1,
+        526138,
+        0,
+        0
+      ],
+      [
+        9,
+        750,
+        21,
+        22
+      ],
+      [
+        -1,
+        159919,
+        0,
+        0
+      ],
+      [
+        -1,
+        12180,
+        0,
+        0
+      ]
+    ],
+    "schema_version": 1,
+    "target": "optimal continuation regret / interval weight * 1000000",
+    "training_rows": 1034,
+    "tree": {
+      "feature": 9,
+      "left": {
+        "feature": 9,
+        "left": {
+          "feature": 3,
+          "left": {
+            "feature": 3,
+            "left": {
+              "value": 867624
+            },
+            "right": {
+              "value": 889361
+            },
+            "threshold": 890
+          },
+          "right": {
+            "value": 948397
+          },
+          "threshold": 957
+        },
+        "right": {
+          "value": 763486
+        },
+        "threshold": 51
+      },
+      "right": {
+        "feature": 3,
+        "left": {
+          "feature": 3,
+          "left": {
+            "feature": 9,
+            "left": {
+              "value": 32969
+            },
+            "right": {
+              "value": 4193
+            },
+            "threshold": 470
+          },
+          "right": {
+            "feature": 9,
+            "left": {
+              "value": 125354
+            },
+            "right": {
+              "value": 18905
+            },
+            "threshold": 635
+          },
+          "threshold": 328
+        },
+        "right": {
+          "feature": 9,
+          "left": {
+            "feature": 3,
+            "left": {
+              "value": 277545
+            },
+            "right": {
+              "value": 526138
+            },
+            "threshold": 717
+          },
+          "right": {
+            "feature": 9,
+            "left": {
+              "value": 159919
+            },
+            "right": {
+              "value": 12180
+            },
+            "threshold": 750
+          },
+          "threshold": 571
+        },
+        "threshold": 473
+      },
+      "threshold": 132
+    }
+  },
+  "model_sha256": "8efead06524bd38781cefef8a8fe72db6aaee2c51117f12079c341156e030e60",
+  "protocol": {
+    "core_rs": [
+      4,
+      8
+    ],
+    "extrapolation_rs": [],
+    "frozen_at": "2026-09-08T21:06:03.953683+00:00",
+    "max_r": 8,
+    "memory_mib": 1024,
+    "node_budgets": [
+      8,
+      16,
+      32
+    ],
+    "not_executed_rs": [
+      16,
+      24,
+      32
+    ],
+    "request_seconds": 5,
+    "rounds": 1,
+    "selection_basis": "pilot time and allocation budget only; no comparison of relative search quality",
+    "total_seconds": 180,
+    "wall_budgets_ns": [
+      1000000
+    ]
+  },
+  "selected_depth": 4,
+  "source_hashes": {
+    "LeanSort/Algorithm/MergeSearch/Certificate.lean": "51296a44bbb86288cf4b1308b206f6bdb4072787ca3f58052d06486fc9293762",
+    "LeanSort/Model/MergeSearch.lean": "42281fe591df43cddd5982fd435878511f24b8e42bd6a8011e86e90e13c91d86",
+    "LeanSort/Verification/MergeSearch/Certificate.lean": "e8307706063ac0bd533d77b9fd44426f5284a1d225f18d24894f7a210f51dbc2",
+    "LeanSort/Verification/MergeSearch/Checks.lean": "87bb96c916f97379231f385f507c83a8d3741885afb418f9ec6773582f67dd62",
+    "experiments/learned-merge-search/README.md": "39aa76b1342f54e54f1b623a02801f69eae0d7edb4dead6bc64cac18f57bdc0a",
+    "experiments/learned-merge-search/Worker.lean": "f181fd47c6f6253fe6d81a50690e4941b642d2d6c588c4c9ac04125a83428e83",
+    "experiments/learned-merge-search/audit_saved.py": "e2da396a830d0ec575271e798e4da2064a6dc841bf4bcf2fea5edde5267e7b5a",
+    "experiments/learned-merge-search/build_checks.py": "53a653f20d3cbd9a5eb0b043c9524d3805159b8d85221143348fc57a9d9f4651",
+    "experiments/learned-merge-search/certificates.py": "f56baa7d1cf7b49dac315ac45335fb1fed7b1e5fb69374b1207718730d0337ef",
+    "experiments/learned-merge-search/config.json": "727ba9a0f876f12c36083d3169df9e0db7481b963103bd1e769b80aca118b493",
+    "experiments/learned-merge-search/core.py": "9517b14dd142f737d09e03b5d84f1a5055ed88f5c55481e9025ca4eb934e52f2",
+    "experiments/learned-merge-search/data.py": "63a4ce57d04706bf1111b9f7c304d03cbee0c96cfefeb9a92e23080cc760ca5a",
+    "experiments/learned-merge-search/learning.py": "f591d7f577823ef1f7f56348208f0825b02948ae22e58601b23984681b37546d",
+    "experiments/learned-merge-search/preformal-notes.json": "8237d15b54bc5bf0138f4132cc044d8680847c0f3f659cf8aac7753c4d3cf39f",
+    "experiments/learned-merge-search/reference.py": "44be30fbfecbc6902b6288c19d1af0c370f33471bd301317c286f79941cb57c0",
+    "experiments/learned-merge-search/reporting.py": "78eb5214172ebc7e6445b4454326e7f487040b4ff2d09c8c6055467a047b721b",
+    "experiments/learned-merge-search/run.py": "9f48793ad9f9f2d64b1a34a7c38a3dbbf2ab8797d6181c1b286cfb7a4a27be53",
+    "experiments/learned-merge-search/test_search.py": "664abd84dac14182af8d40c8d2602d2f9feb42fd88b4a7367293c2ee83b08ee7",
+    "experiments/learned-merge-search/test_serialization.py": "b970f67228ffc0402f5cf31d648540f649668fa17b63c28f5e8b6c41bf7e4ca1"
+  },
+  "validation_scores": [
+    [
+      1.0013786196352294,
+      128183.68181818182,
+      2
+    ],
+    [
+      1.001221010254319,
+      137179.81818181818,
+      4
+    ]
+  ]
+}

@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+# Rebuilt by run.py; keep proofs, logs, hashes and all raw measurements visible.
+results/*/Replay/

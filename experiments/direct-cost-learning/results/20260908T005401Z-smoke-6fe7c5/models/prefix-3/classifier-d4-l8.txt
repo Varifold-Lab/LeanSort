@@ -1,0 +1,13 @@
+if local_descent_permille <= 125:
+  if local_descent_permille <= 0:
+    return fixed_two
+  else:
+    if sampled_left_range <= 594:
+      return hybrid_8
+    else:
+      return runs_count
+else:
+  if cross_descent_permille <= 400:
+    return hybrid_8
+  else:
+    return hybrid_8

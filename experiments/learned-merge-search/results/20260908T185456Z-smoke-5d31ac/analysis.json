@@ -1,0 +1,2310 @@
+{
+  "confirmation": {
+    "dp_memory": {
+      "maximum": 8592,
+      "mean": 5912.363636363636,
+      "median": 5882.0,
+      "n": 22,
+      "p10": 3597.6,
+      "p90": 7940.0
+    },
+    "families": {
+      "alternating": {
+        "fixed": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "learned": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "geometric": {
+        "fixed": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "learned": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "giant": {
+        "fixed": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "learned": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "multipeak": {
+        "fixed": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "learned": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "random": {
+        "fixed": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0010992816907425,
+          "median": 1.000431778929188,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0027325655907284
+        },
+        "heuristic": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0010992816907425,
+          "median": 1.000431778929188,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0027325655907284
+        },
+        "learned": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "real_runs": {
+        "fixed": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 2,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 2,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "learned": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 2,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      }
+    },
+    "instances": 22,
+    "methods": {
+      "count": {
+        "budget_sum": 11660,
+        "exact": 6,
+        "ratios": {
+          "maximum": 1.3771929824561404,
+          "mean": 1.0817290442967407,
+          "median": 1.0192134888610083,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.2975211189585931
+        },
+        "time_ns": {
+          "maximum": 30667,
+          "mean": 4460.181818181818,
+          "median": 3187.5,
+          "n": 22,
+          "p10": 2087.2,
+          "p90": 4775.3
+        }
+      },
+      "dp": {
+        "budget_sum": 11132,
+        "exact": 22,
+        "ratios": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 171625,
+          "mean": 23975.227272727272,
+          "median": 17166.0,
+          "n": 22,
+          "p10": 7213.1,
+          "p90": 28300.0
+        }
+      },
+      "length": {
+        "budget_sum": 11137,
+        "exact": 20,
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001998693983167,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 56917,
+          "mean": 8505.727272727272,
+          "median": 6021.5,
+          "n": 22,
+          "p10": 3625.0,
+          "p90": 9407.7
+        }
+      }
+    },
+    "nodes": {
+      "fixed-16": {
+        "exact_inputs": 20,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 26084,
+          "mean": 11152.05,
+          "median": 8750.0,
+          "n": 20,
+          "p10": 6945.6,
+          "p90": 15132.7
+        },
+        "first_target_ns_full_request": {
+          "maximum": 97875,
+          "mean": 15206.40909090909,
+          "median": 11063.0,
+          "n": 22,
+          "p10": 6966.3,
+          "p90": 15866.300000000003
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001998693983167,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 718250,
+          "mean": 117204.5,
+          "median": 85437.5,
+          "n": 22,
+          "p10": 52370.5,
+          "p90": 134129.40000000002
+        },
+        "unreached_optimal_inputs": 2,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "fixed-32": {
+        "exact_inputs": 20,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 26084,
+          "mean": 11152.05,
+          "median": 8750.0,
+          "n": 20,
+          "p10": 6945.6,
+          "p90": 15132.7
+        },
+        "first_target_ns_full_request": {
+          "maximum": 97875,
+          "mean": 15206.40909090909,
+          "median": 11063.0,
+          "n": 22,
+          "p10": 6966.3,
+          "p90": 15866.300000000003
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001998693983167,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 1590875,
+          "mean": 202617.45454545456,
+          "median": 126854.5,
+          "n": 22,
+          "p10": 52370.5,
+          "p90": 266112.80000000005
+        },
+        "unreached_optimal_inputs": 2,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "fixed-8": {
+        "exact_inputs": 20,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 26084,
+          "mean": 11152.05,
+          "median": 8750.0,
+          "n": 20,
+          "p10": 6945.6,
+          "p90": 15132.7
+        },
+        "first_target_ns_full_request": {
+          "maximum": 97875,
+          "mean": 15206.40909090909,
+          "median": 11063.0,
+          "n": 22,
+          "p10": 6966.3,
+          "p90": 15866.300000000003
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001998693983167,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 451667,
+          "mean": 74967.86363636363,
+          "median": 55375.0,
+          "n": 22,
+          "p10": 34837.2,
+          "p90": 83600.3
+        },
+        "unreached_optimal_inputs": 2,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "heuristic-16": {
+        "exact_inputs": 20,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 17667,
+          "mean": 11364.65,
+          "median": 8146.0,
+          "n": 20,
+          "p10": 7029.5,
+          "p90": 17141.6
+        },
+        "first_target_ns_full_request": {
+          "maximum": 93000,
+          "mean": 15138.318181818182,
+          "median": 10479.5,
+          "n": 22,
+          "p10": 7054.5,
+          "p90": 17274.4
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001998693983167,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 1604250,
+          "mean": 158621.18181818182,
+          "median": 86312.0,
+          "n": 22,
+          "p10": 59349.7,
+          "p90": 134883.6
+        },
+        "unreached_optimal_inputs": 2,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "heuristic-32": {
+        "exact_inputs": 20,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 17667,
+          "mean": 11364.65,
+          "median": 8146.0,
+          "n": 20,
+          "p10": 7029.5,
+          "p90": 17141.6
+        },
+        "first_target_ns_full_request": {
+          "maximum": 93000,
+          "mean": 15138.318181818182,
+          "median": 10479.5,
+          "n": 22,
+          "p10": 7054.5,
+          "p90": 17274.4
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001998693983167,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 2736958,
+          "mean": 254212,
+          "median": 128874.5,
+          "n": 22,
+          "p10": 59349.7,
+          "p90": 240037.2
+        },
+        "unreached_optimal_inputs": 2,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "heuristic-8": {
+        "exact_inputs": 20,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 17667,
+          "mean": 11364.65,
+          "median": 8146.0,
+          "n": 20,
+          "p10": 7029.5,
+          "p90": 17141.6
+        },
+        "first_target_ns_full_request": {
+          "maximum": 93000,
+          "mean": 15138.318181818182,
+          "median": 10479.5,
+          "n": 22,
+          "p10": 7054.5,
+          "p90": 17274.4
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001998693983167,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 876250,
+          "mean": 94066.27272727272,
+          "median": 54646.0,
+          "n": 22,
+          "p10": 39416.7,
+          "p90": 82508.30000000002
+        },
+        "unreached_optimal_inputs": 2,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "learned-16": {
+        "exact_inputs": 20,
+        "feature_ns_full_request": {
+          "maximum": 384962,
+          "mean": 52863.86363636364,
+          "median": 36394.5,
+          "n": 22,
+          "p10": 18103.9,
+          "p90": 62700.5
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 1621334,
+          "mean": 94513.27272727272,
+          "median": 11666.5,
+          "n": 22,
+          "p10": 6883.3,
+          "p90": 42983.40000000004
+        },
+        "first_target_ns_full_request": {
+          "maximum": 139209,
+          "mean": 18893.954545454544,
+          "median": 10895.5,
+          "n": 22,
+          "p10": 6883.3,
+          "p90": 27133.900000000023
+        },
+        "inference_ns_full_request": {
+          "maximum": 308876,
+          "mean": 41386.181818181816,
+          "median": 24062.0,
+          "n": 22,
+          "p10": 11865.3,
+          "p90": 63476.200000000004
+        },
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001998693983167,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 1423959,
+          "mean": 205543.54545454544,
+          "median": 135625.0,
+          "n": 22,
+          "p10": 89999.7,
+          "p90": 259575.30000000008
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "learned-32": {
+        "exact_inputs": 22,
+        "feature_ns_full_request": {
+          "maximum": 384962,
+          "mean": 52863.86363636364,
+          "median": 36394.5,
+          "n": 22,
+          "p10": 18103.9,
+          "p90": 62700.5
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 1621334,
+          "mean": 94513.27272727272,
+          "median": 11666.5,
+          "n": 22,
+          "p10": 6883.3,
+          "p90": 42983.40000000004
+        },
+        "first_target_ns_full_request": {
+          "maximum": 139209,
+          "mean": 18893.954545454544,
+          "median": 10895.5,
+          "n": 22,
+          "p10": 6883.3,
+          "p90": 27133.900000000023
+        },
+        "inference_ns_full_request": {
+          "maximum": 308876,
+          "mean": 41386.181818181816,
+          "median": 24062.0,
+          "n": 22,
+          "p10": 11865.3,
+          "p90": 63476.200000000004
+        },
+        "ratios": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 2517917,
+          "mean": 316503.6818181818,
+          "median": 203354.0,
+          "n": 22,
+          "p10": 89999.7,
+          "p90": 392941.4
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1.0,
+          "mean": 0.9998007300213549,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "learned-8": {
+        "exact_inputs": 20,
+        "feature_ns_full_request": {
+          "maximum": 384962,
+          "mean": 52863.86363636364,
+          "median": 36394.5,
+          "n": 22,
+          "p10": 18103.9,
+          "p90": 62700.5
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 1621334,
+          "mean": 94513.27272727272,
+          "median": 11666.5,
+          "n": 22,
+          "p10": 6883.3,
+          "p90": 42983.40000000004
+        },
+        "first_target_ns_full_request": {
+          "maximum": 139209,
+          "mean": 18893.954545454544,
+          "median": 10895.5,
+          "n": 22,
+          "p10": 6883.3,
+          "p90": 27133.900000000023
+        },
+        "inference_ns_full_request": {
+          "maximum": 308876,
+          "mean": 41386.181818181816,
+          "median": 24062.0,
+          "n": 22,
+          "p10": 11865.3,
+          "p90": 63476.200000000004
+        },
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001998693983167,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 1051375,
+          "mean": 145634.31818181818,
+          "median": 92208.0,
+          "n": 22,
+          "p10": 61591.3,
+          "p90": 192542.0000000001
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      }
+    },
+    "wall": {
+      "fixed-1000000": {
+        "no_timely_result_inputs": 0,
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001998693983167,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "request_time_ns": {
+          "maximum": 1082083,
+          "mean": 531971.5909090909,
+          "median": 529645.5,
+          "n": 22,
+          "p10": 53004.2,
+          "p90": 1004745.9
+        },
+        "step_overrun_ns": {
+          "maximum": 82083,
+          "mean": 5172.318181818182,
+          "median": 83.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 4745.9
+        }
+      },
+      "heuristic-1000000": {
+        "no_timely_result_inputs": 0,
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001606167683905,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "request_time_ns": {
+          "maximum": 1008500,
+          "mean": 532094.5909090909,
+          "median": 532875.0,
+          "n": 22,
+          "p10": 58116.9,
+          "p90": 1005208.3
+        },
+        "step_overrun_ns": {
+          "maximum": 8500,
+          "mean": 2117.4545454545455,
+          "median": 437.5,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 5208.300000000001
+        }
+      },
+      "learned-1000000": {
+        "no_timely_result_inputs": 0,
+        "ratios": {
+          "maximum": 1.0035335689045937,
+          "mean": 1.0001606167683905,
+          "median": 1.0,
+          "n": 22,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "request_time_ns": {
+          "maximum": 1106542,
+          "mean": 552727.2727272727,
+          "median": 549521.0,
+          "n": 22,
+          "p10": 81267.0,
+          "p90": 1010995.5
+        },
+        "step_overrun_ns": {
+          "maximum": 106542,
+          "mean": 9087.136363636364,
+          "median": 625.0,
+          "n": 22,
+          "p10": 0.0,
+          "p90": 10995.500000000002
+        }
+      }
+    }
+  },
+  "extrapolation": {
+    "dp_memory": {
+      "maximum": null,
+      "mean": null,
+      "median": null,
+      "n": 0,
+      "p10": null,
+      "p90": null
+    },
+    "families": {},
+    "instances": 0,
+    "methods": {
+      "count": {
+        "budget_sum": 0,
+        "exact": 0,
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "dp": {
+        "budget_sum": 0,
+        "exact": 0,
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "length": {
+        "budget_sum": 0,
+        "exact": 0,
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      }
+    },
+    "nodes": {
+      "fixed-16": {
+        "exact_inputs": 0,
+        "feature_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_target_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "inference_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "fixed-32": {
+        "exact_inputs": 0,
+        "feature_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_target_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "inference_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "fixed-8": {
+        "exact_inputs": 0,
+        "feature_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_target_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "inference_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "heuristic-16": {
+        "exact_inputs": 0,
+        "feature_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_target_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "inference_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "heuristic-32": {
+        "exact_inputs": 0,
+        "feature_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_target_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "inference_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "heuristic-8": {
+        "exact_inputs": 0,
+        "feature_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_target_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "inference_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "learned-16": {
+        "exact_inputs": 0,
+        "feature_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_target_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "inference_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "learned-32": {
+        "exact_inputs": 0,
+        "feature_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_target_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "inference_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "learned-8": {
+        "exact_inputs": 0,
+        "feature_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "first_target_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "inference_ns_full_request": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      }
+    },
+    "wall": {
+      "fixed-1000000": {
+        "no_timely_result_inputs": 0,
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "request_time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "step_overrun_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "heuristic-1000000": {
+        "no_timely_result_inputs": 0,
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "request_time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "step_overrun_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      },
+      "learned-1000000": {
+        "no_timely_result_inputs": 0,
+        "ratios": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "request_time_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        },
+        "step_overrun_ns": {
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "p10": null,
+          "p90": null
+        }
+      }
+    }
+  },
+  "structural_diagnostic": {
+    "dp_memory": {
+      "maximum": 7120,
+      "mean": 3252,
+      "median": 2404.0,
+      "n": 4,
+      "p10": 1120.8,
+      "p90": 6061.6
+    },
+    "families": {
+      "equal": {
+        "fixed": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "heuristic": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "learned": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      }
+    },
+    "instances": 4,
+    "methods": {
+      "count": {
+        "budget_sum": 224,
+        "exact": 4,
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 3750,
+          "mean": 1843.75,
+          "median": 1500.0,
+          "n": 4,
+          "p10": 625.0,
+          "p90": 3337.5
+        }
+      },
+      "dp": {
+        "budget_sum": 224,
+        "exact": 4,
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 23417,
+          "mean": 9239.75,
+          "median": 5708.5,
+          "n": 4,
+          "p10": 2200.0,
+          "p90": 19104.5
+        }
+      },
+      "length": {
+        "budget_sum": 224,
+        "exact": 4,
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 7583,
+          "mean": 3031.5,
+          "median": 2125.5,
+          "n": 4,
+          "p10": 304.6,
+          "p90": 6483.200000000001
+        }
+      }
+    },
+    "nodes": {
+      "fixed-16": {
+        "exact_inputs": 4,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 13625,
+          "mean": 6562.5,
+          "median": 5687.5,
+          "n": 4,
+          "p10": 1750.1000000000001,
+          "p90": 12074.900000000001
+        },
+        "first_target_ns_full_request": {
+          "maximum": 13625,
+          "mean": 6562.5,
+          "median": 5687.5,
+          "n": 4,
+          "p10": 1750.1000000000001,
+          "p90": 12074.900000000001
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 120667,
+          "mean": 46802,
+          "median": 32458.0,
+          "n": 4,
+          "p10": 2712.5,
+          "p90": 102366.70000000001
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "fixed-32": {
+        "exact_inputs": 4,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 13625,
+          "mean": 6562.5,
+          "median": 5687.5,
+          "n": 4,
+          "p10": 1750.1000000000001,
+          "p90": 12074.900000000001
+        },
+        "first_target_ns_full_request": {
+          "maximum": 13625,
+          "mean": 6562.5,
+          "median": 5687.5,
+          "n": 4,
+          "p10": 1750.1000000000001,
+          "p90": 12074.900000000001
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 216292,
+          "mean": 70708.25,
+          "median": 32458.0,
+          "n": 4,
+          "p10": 2712.5,
+          "p90": 169304.2
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "fixed-8": {
+        "exact_inputs": 4,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 13625,
+          "mean": 6562.5,
+          "median": 5687.5,
+          "n": 4,
+          "p10": 1750.1000000000001,
+          "p90": 12074.900000000001
+        },
+        "first_target_ns_full_request": {
+          "maximum": 13625,
+          "mean": 6562.5,
+          "median": 5687.5,
+          "n": 4,
+          "p10": 1750.1000000000001,
+          "p90": 12074.900000000001
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 74542,
+          "mean": 30729.25,
+          "median": 23375.0,
+          "n": 4,
+          "p10": 2712.5,
+          "p90": 64629.40000000001
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "heuristic-16": {
+        "exact_inputs": 4,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 15459,
+          "mean": 6614.75,
+          "median": 4771.0,
+          "n": 4,
+          "p10": 1620.6,
+          "p90": 13083.900000000001
+        },
+        "first_target_ns_full_request": {
+          "maximum": 15459,
+          "mean": 6614.75,
+          "median": 4771.0,
+          "n": 4,
+          "p10": 1620.6,
+          "p90": 13083.900000000001
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 122042,
+          "mean": 47177,
+          "median": 32395.5,
+          "n": 4,
+          "p10": 2387.4,
+          "p90": 103791.80000000002
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "heuristic-32": {
+        "exact_inputs": 4,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 15459,
+          "mean": 6614.75,
+          "median": 4771.0,
+          "n": 4,
+          "p10": 1620.6,
+          "p90": 13083.900000000001
+        },
+        "first_target_ns_full_request": {
+          "maximum": 15459,
+          "mean": 6614.75,
+          "median": 4771.0,
+          "n": 4,
+          "p10": 1620.6,
+          "p90": 13083.900000000001
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 218667,
+          "mean": 71333.25,
+          "median": 32395.5,
+          "n": 4,
+          "p10": 2387.4,
+          "p90": 171429.30000000005
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "heuristic-8": {
+        "exact_inputs": 4,
+        "feature_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 15459,
+          "mean": 6614.75,
+          "median": 4771.0,
+          "n": 4,
+          "p10": 1620.6,
+          "p90": 13083.900000000001
+        },
+        "first_target_ns_full_request": {
+          "maximum": 15459,
+          "mean": 6614.75,
+          "median": 4771.0,
+          "n": 4,
+          "p10": 1620.6,
+          "p90": 13083.900000000001
+        },
+        "inference_ns_full_request": {
+          "maximum": 0,
+          "mean": 0,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 73417,
+          "mean": 30083.25,
+          "median": 22520.5,
+          "n": 4,
+          "p10": 2387.4,
+          "p90": 63829.3
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "learned-16": {
+        "exact_inputs": 4,
+        "feature_ns_full_request": {
+          "maximum": 53208,
+          "mean": 17708,
+          "median": 8812.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 42532.8
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 13542,
+          "mean": 6291.75,
+          "median": 5041.5,
+          "n": 4,
+          "p10": 2041.8000000000002,
+          "p90": 11541.900000000001
+        },
+        "first_target_ns_full_request": {
+          "maximum": 13542,
+          "mean": 6291.75,
+          "median": 5041.5,
+          "n": 4,
+          "p10": 2041.8000000000002,
+          "p90": 11541.900000000001
+        },
+        "inference_ns_full_request": {
+          "maximum": 35539,
+          "mean": 11978.5,
+          "median": 6187.5,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 28589.800000000003
+        },
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 182583,
+          "mean": 69562.5,
+          "median": 46479.0,
+          "n": 4,
+          "p10": 3071.4,
+          "p90": 154520.40000000002
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "learned-32": {
+        "exact_inputs": 4,
+        "feature_ns_full_request": {
+          "maximum": 53208,
+          "mean": 17708,
+          "median": 8812.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 42532.8
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 13542,
+          "mean": 6291.75,
+          "median": 5041.5,
+          "n": 4,
+          "p10": 2041.8000000000002,
+          "p90": 11541.900000000001
+        },
+        "first_target_ns_full_request": {
+          "maximum": 13542,
+          "mean": 6291.75,
+          "median": 5041.5,
+          "n": 4,
+          "p10": 2041.8000000000002,
+          "p90": 11541.900000000001
+        },
+        "inference_ns_full_request": {
+          "maximum": 35539,
+          "mean": 11978.5,
+          "median": 6187.5,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 28589.800000000003
+        },
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 314542,
+          "mean": 102552.25,
+          "median": 46479.0,
+          "n": 4,
+          "p10": 3071.4,
+          "p90": 246891.70000000004
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      },
+      "learned-8": {
+        "exact_inputs": 4,
+        "feature_ns_full_request": {
+          "maximum": 53208,
+          "mean": 17708,
+          "median": 8812.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 42532.8
+        },
+        "first_optimal_ns_full_request": {
+          "maximum": 13542,
+          "mean": 6291.75,
+          "median": 5041.5,
+          "n": 4,
+          "p10": 2041.8000000000002,
+          "p90": 11541.900000000001
+        },
+        "first_target_ns_full_request": {
+          "maximum": 13542,
+          "mean": 6291.75,
+          "median": 5041.5,
+          "n": 4,
+          "p10": 2041.8000000000002,
+          "p90": 11541.900000000001
+        },
+        "inference_ns_full_request": {
+          "maximum": 35539,
+          "mean": 11978.5,
+          "median": 6187.5,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 28589.800000000003
+        },
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "time_ns": {
+          "maximum": 118875,
+          "mean": 46719,
+          "median": 32646.0,
+          "n": 4,
+          "p10": 3071.4,
+          "p90": 101625.0
+        },
+        "unreached_optimal_inputs": 0,
+        "unreached_target_inputs": 0,
+        "versus_heuristic": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        }
+      }
+    },
+    "wall": {
+      "fixed-1000000": {
+        "no_timely_result_inputs": 0,
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "request_time_ns": {
+          "maximum": 1021417,
+          "mean": 269958,
+          "median": 28541.0,
+          "n": 4,
+          "p10": 1807.9,
+          "p90": 731241.7000000002
+        },
+        "step_overrun_ns": {
+          "maximum": 21417,
+          "mean": 5354.25,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 14991.900000000003
+        }
+      },
+      "heuristic-1000000": {
+        "no_timely_result_inputs": 0,
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "request_time_ns": {
+          "maximum": 1018583,
+          "mean": 270270.75,
+          "median": 30583.5,
+          "n": 4,
+          "p10": 1658.2,
+          "p90": 730633.1000000002
+        },
+        "step_overrun_ns": {
+          "maximum": 18583,
+          "mean": 4645.75,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 13008.100000000004
+        }
+      },
+      "learned-1000000": {
+        "no_timely_result_inputs": 0,
+        "ratios": {
+          "maximum": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "n": 4,
+          "p10": 1.0,
+          "p90": 1.0
+        },
+        "request_time_ns": {
+          "maximum": 1005167,
+          "mean": 274021,
+          "median": 44687.5,
+          "n": 4,
+          "p10": 1829.4,
+          "p90": 729679.4000000001
+        },
+        "step_overrun_ns": {
+          "maximum": 5167,
+          "mean": 1291.75,
+          "median": 0.0,
+          "n": 4,
+          "p10": 0.0,
+          "p90": 3616.900000000001
+        }
+      }
+    }
+  }
+}

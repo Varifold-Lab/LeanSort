@@ -1,0 +1,7 @@
+2026-09-08 UTC: read repository docs, previous dynamic-runs/direct/learning reports and applicable skills. No applicable AGENTS.md found.
+Inspected branch, worktree and untracked files; captured 1113 original nonignored files. Lean processes are editor server/workers, not experiment writers. New work isolated to MergeSearch and learned-merge-search paths.
+Created experiment/learned-merge-search with approved git ref write; unchanged old working tree is included, no commit/push.
+apply_patch Update File encountered fs helper SIGKILL. Used apply_patch Add File .next and mv only for newly created experiment files. No old files replaced.
+First proof compile failed on missing finite Decidable instance, then range append rewrite and implicit type inference. Fixing elaboration; no proof holes introduced.
+Design decision: shared finite DFS with complete common fallback at partial states; no pruning, no beam, zero certified lower bound during search. Model changes cut priority only. Exhaustion is never itself a claimed Lean optimality certificate.
+Optimality checker uses finite Bellman subsolution inequalities plus a feasible tree attaining the root value. Exact DP is outside search; training may use its continuation regret labels.

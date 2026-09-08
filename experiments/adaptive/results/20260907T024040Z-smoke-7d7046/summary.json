@@ -1,0 +1,199 @@
+{
+  "best_fixed_selected_on_train": "hybrid-24",
+  "conclusion": "\u51b3\u7b56\u6811\u672a\u8d85\u8fc7\u8bad\u7ec3\u96c6\u9009\u51fa\u7684\u6700\u4f73\u56fa\u5b9a\u7b56\u7565\uff1b\u672c\u6b21\u7aef\u5230\u7aef\u70b9\u4f30\u8ba1\u66f4\u6162\u3002",
+  "families_sum_median_ns": {
+    "duplicates": {
+      "best_fixed": 81792.0,
+      "decision_tree": 107396.0,
+      "hybrid-1": 195104.5,
+      "hybrid-24": 87333.0,
+      "hybrid-64": 102770.5,
+      "hybrid-8": 130812.5,
+      "insertion": 96416.5,
+      "manual_rule": 105312.5,
+      "merge": 184188.0,
+      "oracle": 86895.5,
+      "tree_plan_only": 83750.0
+    },
+    "nearly_sorted": {
+      "best_fixed": 32271.0,
+      "decision_tree": 49458.5,
+      "hybrid-1": 129166.5,
+      "hybrid-24": 32479.5,
+      "hybrid-64": 20770.5,
+      "hybrid-8": 67999.5,
+      "insertion": 22125.0,
+      "manual_rule": 48521.0,
+      "merge": 135728.5,
+      "oracle": 20770.5,
+      "tree_plan_only": 21188.0
+    },
+    "organ_pipe": {
+      "best_fixed": 99896.0,
+      "decision_tree": 121542.0,
+      "hybrid-1": 149146.0,
+      "hybrid-24": 93813.0,
+      "hybrid-64": 111667.0,
+      "hybrid-8": 99520.5,
+      "insertion": 110750.5,
+      "manual_rule": 125333.5,
+      "merge": 150417.0,
+      "oracle": 92521.0,
+      "tree_plan_only": 95646.0
+    },
+    "random": {
+      "best_fixed": 90687.5,
+      "decision_tree": 139979.5,
+      "hybrid-1": 184250.0,
+      "hybrid-24": 92417.0,
+      "hybrid-64": 98396.0,
+      "hybrid-8": 125666.5,
+      "insertion": 100604.5,
+      "manual_rule": 120958.5,
+      "merge": 194729.5,
+      "oracle": 91896.5,
+      "tree_plan_only": 108979.5
+    },
+    "reverse": {
+      "best_fixed": 146458.0,
+      "decision_tree": 128416.5,
+      "hybrid-1": 146645.5,
+      "hybrid-24": 134895.5,
+      "hybrid-64": 192291.5,
+      "hybrid-8": 97854.0,
+      "insertion": 209187.5,
+      "manual_rule": 186333.5,
+      "merge": 151333.5,
+      "oracle": 97854.0,
+      "tree_plan_only": 95874.5
+    },
+    "runs": {
+      "best_fixed": 89625.5,
+      "decision_tree": 119562.0,
+      "hybrid-1": 180979.0,
+      "hybrid-24": 89041.5,
+      "hybrid-64": 93979.0,
+      "hybrid-8": 121374.5,
+      "insertion": 93708.0,
+      "manual_rule": 122332.5,
+      "merge": 171521.5,
+      "oracle": 86187.5,
+      "tree_plan_only": 83812.5
+    },
+    "skewed": {
+      "best_fixed": 92375.0,
+      "decision_tree": 117457.5,
+      "hybrid-1": 212250.0,
+      "hybrid-24": 94479.0,
+      "hybrid-64": 106375.5,
+      "hybrid-8": 132958.0,
+      "insertion": 105166.5,
+      "manual_rule": 120354.0,
+      "merge": 187854.0,
+      "oracle": 91750.0,
+      "tree_plan_only": 87542.0
+    },
+    "sorted": {
+      "best_fixed": 32604.5,
+      "decision_tree": 47438.0,
+      "hybrid-1": 131583.0,
+      "hybrid-24": 32979.0,
+      "hybrid-64": 21084.0,
+      "hybrid-8": 71896.0,
+      "insertion": 21125.0,
+      "manual_rule": 46583.0,
+      "merge": 135854.5,
+      "oracle": 20917.0,
+      "tree_plan_only": 20187.0
+    }
+  },
+  "oracle_caveat": "post-hoc minimum among six measured candidates; free choice and selection bias, not executable",
+  "oracle_choices": {
+    "hybrid-24": 5,
+    "hybrid-64": 6,
+    "hybrid-8": 2,
+    "insertion": 3
+  },
+  "paired_bootstrap_95pct_ratio": [
+    1.2122993276505756,
+    1.2926169648883459
+  ],
+  "strategies": {
+    "best_fixed": {
+      "mean_case_ns": 41606.84375,
+      "median_case_ns": 31239.75,
+      "p90_case_ns": 67458.5,
+      "sum_median_ns": 665709.5
+    },
+    "decision_tree": {
+      "mean_case_ns": 51953.125,
+      "median_case_ns": 42958.0,
+      "p90_case_ns": 84219.0,
+      "sum_median_ns": 831250.0
+    },
+    "hybrid-1": {
+      "mean_case_ns": 83070.28125,
+      "median_case_ns": 73020.75,
+      "p90_case_ns": 125916.75,
+      "sum_median_ns": 1329124.5
+    },
+    "hybrid-24": {
+      "mean_case_ns": 41089.84375,
+      "median_case_ns": 32177.0,
+      "p90_case_ns": 66010.5,
+      "sum_median_ns": 657437.5
+    },
+    "hybrid-64": {
+      "mean_case_ns": 46708.375,
+      "median_case_ns": 30489.75,
+      "p90_case_ns": 82145.75,
+      "sum_median_ns": 747334.0
+    },
+    "hybrid-8": {
+      "mean_case_ns": 53005.09375,
+      "median_case_ns": 42531.0,
+      "p90_case_ns": 89916.75,
+      "sum_median_ns": 848081.5
+    },
+    "insertion": {
+      "mean_case_ns": 47442.71875,
+      "median_case_ns": 31770.75,
+      "p90_case_ns": 81833.5,
+      "sum_median_ns": 759083.5
+    },
+    "manual_rule": {
+      "mean_case_ns": 54733.03125,
+      "median_case_ns": 43145.75,
+      "p90_case_ns": 84718.75,
+      "sum_median_ns": 875728.5
+    },
+    "merge": {
+      "mean_case_ns": 81976.65625,
+      "median_case_ns": 77385.5,
+      "p90_case_ns": 122687.5,
+      "sum_median_ns": 1311626.5
+    },
+    "oracle": {
+      "mean_case_ns": 36799.5,
+      "median_case_ns": 30489.75,
+      "p90_case_ns": 65510.25,
+      "sum_median_ns": 588792.0
+    },
+    "tree_plan_only": {
+      "mean_case_ns": 37311.21875,
+      "median_case_ns": 31187.5,
+      "p90_case_ns": 66010.25,
+      "sum_median_ns": 596979.5
+    }
+  },
+  "sum_median_feature_ns": 6980.5,
+  "test_inputs": 16,
+  "tree_choices": {
+    "hybrid-24": 8,
+    "hybrid-64": 5,
+    "hybrid-8": 3
+  },
+  "tree_extra_vs_plan_only_ns": 234270.5,
+  "tree_to_best_fixed_ratio": 1.2486677747576083,
+  "uncertainty_caveat": "case bootstrap, not independent machine/session replications; no outliers removed"
+}

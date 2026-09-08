@@ -1,0 +1,9 @@
+⚠ [2072/2079] Replayed LeanSort.Verification.MergeSearch.Certificate
+warning: LeanSort/Verification/MergeSearch/Certificate.lean:12:35: This simp argument is unused:
+  List.range'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Shape.indices]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (2079 jobs).

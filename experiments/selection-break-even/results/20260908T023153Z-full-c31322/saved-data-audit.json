@@ -1,0 +1,22 @@
+{
+  "checked_core_calls_including_warmups": 45032,
+  "conditional_applicable_records": 1678,
+  "model_and_budget_selection_matches_validation": true,
+  "note": "Post-test audit replay only; no new timing, export, parameter change or reselection",
+  "original_files_unchanged": 868,
+  "passed": true,
+  "records": 677,
+  "retrained_models_match": 16,
+  "samples": 70151,
+  "source_and_models_unchanged": true,
+  "split": {
+    "base_groups": 79,
+    "inputs": 677,
+    "passed": true,
+    "unique_hashes": 677
+  },
+  "statuses": {
+    "ok": 677
+  },
+  "unexecuted_design_cells": 81
+}

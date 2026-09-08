@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "backend": "lean --run; one compiler/toolchain/configuration for all variants",
+  "strategies": [
+    "merge",
+    "hybrid_8",
+    "fixed_four",
+    "runs_count",
+    "runs_length"
+  ],
+  "primary_modes": [
+    "reference",
+    "counted",
+    "plain"
+  ],
+  "adaptive_ablation_modes": [
+    "staged_reference",
+    "scan_only",
+    "merge_only",
+    "staged_direct"
+  ],
+  "threshold": 8,
+  "rounds": 5,
+  "confirmation_sizes": [
+    33,
+    97,
+    257
+  ],
+  "confirmation_seeds": [
+    400009,
+    500009,
+    600011
+  ],
+  "smoke_sizes": [
+    13,
+    29
+  ],
+  "smoke_seeds": [
+    810001
+  ],
+  "paired_data": "experiments/dynamic-runs/results/20260907T043940Z-full-19d37a/dataset-test.jsonl",
+  "paired_data_role": "98 previously seen inputs: paired diagnostic, not unseen test",
+  "confirmation_role": "generated only after all implementation/configuration hashes are frozen",
+  "main_request_timeout_seconds": 45,
+  "worker_rss_limit_mib": 3072,
+  "worker_stack_limit_mib": 8,
+  "extension_sizes": [
+    1024,
+    4096,
+    16384
+  ],
+  "extension_shapes": [
+    "random",
+    "sorted",
+    "skewed_runs"
+  ],
+  "extension_seed": 700001,
+  "extension_rounds": 3,
+  "extension_request_timeout_seconds": 5,
+  "extension_total_budget_seconds": 180,
+  "extension_order": "ascending size; rotating strategies/modes per input; primary modes only",
+  "metrics": [
+    "per-input median E2E ns",
+    "all raw repetitions",
+    "paired same-algorithm ratios",
+    "within-mode algorithm comparison",
+    "by-shape totals",
+    "timeouts/resource failures"
+  ],
+  "excluded_from_timer": [
+    "proofs",
+    "dataset generation",
+    "JSON transport",
+    "validation",
+    "offline diagnostic replay"
+  ],
+  "no_test_tuning": true,
+  "no_native_backend": true,
+  "budget_revision_before_any_measurement": "Both initial 1 GiB smoke attempts aborted during Lean startup, before any timed input. Host has 24 GiB; uniform cap revised to 3 GiB for all variants before performance freeze."
+}

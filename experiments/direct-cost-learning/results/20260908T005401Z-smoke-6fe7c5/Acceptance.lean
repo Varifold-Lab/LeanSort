@@ -1,0 +1,24 @@
+import LeanSort.Verification.LearnedSelection.Checks
+#print axioms LeanSort.LearnedSelection.dispatch_correct
+#print axioms LeanSort.LearnedSelection.arbitrary_selector_correct
+#print axioms LeanSort.LearnedSelection.run_correct
+#print axioms LeanSort.LearnedSelection.fallback_correct
+#print axioms LeanSort.LearnedSelection.invalid_fallback
+#print axioms LeanSort.LearnedSelection.kernel_bound
+#print axioms LeanSort.LearnedSelection.kernel_execution
+#print axioms LeanSort.LearnedSelection.certificate
+#print axioms LeanSort.LearnedSelection.feature_counted_refines
+#print axioms LeanSort.LearnedSelection.feature_plain_refines
+#print axioms LeanSort.LearnedSelection.features_agree
+#print axioms LeanSort.LearnedSelection.selection_eval
+#print axioms LeanSort.LearnedSelection.selection_execution
+#print axioms LeanSort.LearnedSelection.selection_bound
+#print axioms LeanSort.LearnedSelection.feature_step_cost
+#print axioms LeanSort.LearnedSelection.feature_fold_cost
+#print axioms LeanSort.LearnedSelection.feature_cost
+#print axioms LeanSort.LearnedSelection.probePairs_length_le
+#print axioms LeanSort.LearnedSelection.feature_cost_le
+#print axioms LeanSort.LearnedSelection.selection_bound_80
+#print axioms LeanSort.Direct.run_counted_eq
+#print axioms LeanSort.Direct.correct
+#print axioms LeanSort.Direct.cost_bound

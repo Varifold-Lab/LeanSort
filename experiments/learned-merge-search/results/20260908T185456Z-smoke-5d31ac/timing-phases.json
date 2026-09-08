@@ -1,0 +1,12 @@
+{
+  "certified_phase_wall_seconds": 18.676328417000008,
+  "label_cost": {
+    "dp_ns": 2352250,
+    "label_generation_ns": 10416333,
+    "rows": 1034
+  },
+  "measured_evaluation_including_reference_seconds": 0.13430733300006636,
+  "note": "No search, label, certification or training time counted as sorting-kernel latency",
+  "training_ns": 106598375,
+  "validation_wall_seconds": 0.4147692499999778
+}

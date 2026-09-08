@@ -1,0 +1,70 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_kind": "length",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "descent_permille",
+    "unused_0",
+    "unused_1",
+    "unused_2"
+  ],
+  "feature_version": "budget-length-v1",
+  "hyperparameters": {
+    "depth": 2,
+    "min_leaf": 8
+  },
+  "kind": "cost_ranking",
+  "schema_version": 1,
+  "target": "relative latency time/input-oracle; integer scale 1000000",
+  "training_hash": "c3fda1269a1fc5cd02a71b142804faee352721eefa9ebda4b57996850719ca32",
+  "training_inputs": 172,
+  "training_ns": 2508000,
+  "training_preferred_id": 5,
+  "tree": {
+    "feature": 0,
+    "kind": "branch",
+    "left": {
+      "kind": "leaf",
+      "values": [
+        1693932,
+        1166437,
+        1352836,
+        1416676,
+        1241961,
+        1225996,
+        1968703
+      ]
+    },
+    "right": {
+      "feature": 0,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "values": [
+          1972472,
+          1377448,
+          1685227,
+          1675425,
+          1454735,
+          1160612,
+          1757735
+        ]
+      },
+      "right": {
+        "kind": "leaf",
+        "values": [
+          2163369,
+          1617673,
+          1718852,
+          1817804,
+          1421802,
+          1124831,
+          1692108
+        ]
+      },
+      "threshold": 256
+    },
+    "threshold": 32
+  }
+}

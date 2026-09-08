@@ -1,0 +1,56 @@
+{
+  "feature_names": [
+    "length",
+    "descent_permille",
+    "ascending_runs",
+    "adjacent_equal_permille",
+    "value_range",
+    "prefix_duplicate_permille"
+  ],
+  "schema_version": 1,
+  "training_hash": "79dae1b3f46cf35a733c23a38663409c33f0b88157baef880319c21157d1b36c",
+  "training_inputs": 32,
+  "tree": {
+    "feature": 2,
+    "kind": "branch",
+    "left": {
+      "feature": 5,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "plan": {
+          "kind": "hybrid",
+          "threshold": 64
+        }
+      },
+      "right": {
+        "kind": "leaf",
+        "plan": {
+          "kind": "hybrid",
+          "threshold": 24
+        }
+      },
+      "threshold": 62
+    },
+    "right": {
+      "feature": 1,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "plan": {
+          "kind": "hybrid",
+          "threshold": 24
+        }
+      },
+      "right": {
+        "kind": "leaf",
+        "plan": {
+          "kind": "hybrid",
+          "threshold": 8
+        }
+      },
+      "threshold": 580
+    },
+    "threshold": 15
+  }
+}

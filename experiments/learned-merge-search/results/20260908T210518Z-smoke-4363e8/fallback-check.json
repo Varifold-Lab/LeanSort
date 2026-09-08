@@ -1,0 +1,118 @@
+{
+  "budgets": [
+    6,
+    2,
+    null
+  ],
+  "certificate_ns": 71083,
+  "count_signature": [
+    1,
+    [
+      1,
+      2
+    ]
+  ],
+  "executions": [
+    {
+      "budget": 7,
+      "comparisons": 5,
+      "leaves": [
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "output": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "times_ns": [
+        9292,
+        1833,
+        1542
+      ]
+    },
+    {
+      "budget": 7,
+      "comparisons": 5,
+      "leaves": [
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "output": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "times_ns": [
+        2292,
+        1500,
+        1459
+      ]
+    },
+    {
+      "budget": 7,
+      "comparisons": 5,
+      "leaves": [
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "output": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "times_ns": [
+        2000,
+        1542,
+        1833
+      ]
+    }
+  ],
+  "fits": [
+    false,
+    false,
+    false
+  ],
+  "length_signature": [
+    [
+      1,
+      1
+    ],
+    2
+  ],
+  "lower": 6,
+  "lower_checked": true,
+  "optimal": [
+    false,
+    false,
+    false
+  ],
+  "request_wall_ns": 377583
+}

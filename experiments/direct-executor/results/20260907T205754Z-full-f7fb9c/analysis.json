@@ -1,0 +1,1121 @@
+{
+  "confirmation": {
+    "ablation_ratios": {
+      "runs_count": {
+        "full_counted_over_staged_direct": 1.0053336426681994,
+        "merge_only_over_staged_reference": 0.438377506555217,
+        "scan_only_over_staged_reference": 0.6209831514732486,
+        "staged_direct_over_staged_reference": 0.05758477591505133,
+        "staging_over_reference": 0.9951400159835895
+      },
+      "runs_length": {
+        "full_counted_over_staged_direct": 1.007073444098565,
+        "merge_only_over_staged_reference": 0.46195390331490815,
+        "scan_only_over_staged_reference": 0.6058280887583161,
+        "staged_direct_over_staged_reference": 0.0673243407767334,
+        "staging_over_reference": 0.9969525028770545
+      }
+    },
+    "algorithms": {
+      "fixed_four": {
+        "comparisons": 54666,
+        "count": 90,
+        "counted_over_reference": 0.11518447880289713,
+        "plain_over_counted": 0.2819857368788172,
+        "plain_over_reference": 0.032480380132237446,
+        "plain_wins_vs_reference": 90,
+        "times_ms": {
+          "counted": 42.014086000000006,
+          "plain": 11.847372999999997,
+          "reference": 364.75475200000005
+        }
+      },
+      "hybrid_8": {
+        "comparisons": 58403,
+        "count": 90,
+        "counted_over_reference": 0.10393321021350013,
+        "plain_over_counted": 0.2556727111074062,
+        "plain_over_reference": 0.02657288562938154,
+        "plain_wins_vs_reference": 90,
+        "times_ms": {
+          "counted": 39.30074100000001,
+          "plain": 10.048126999999997,
+          "reference": 378.1345820000001
+        }
+      },
+      "merge": {
+        "comparisons": 58196,
+        "count": 90,
+        "counted_over_reference": 0.1247822333991711,
+        "plain_over_counted": 0.28553991252661737,
+        "plain_over_reference": 0.03563030800967527,
+        "plain_wins_vs_reference": 90,
+        "times_ms": {
+          "counted": 47.39178800000002,
+          "plain": 13.532247,
+          "reference": 379.795959
+        }
+      },
+      "runs_count": {
+        "comparisons": 50007,
+        "count": 90,
+        "counted_over_reference": 0.05761055876332116,
+        "plain_over_counted": 0.27675941358860556,
+        "plain_over_reference": 0.015944264459848666,
+        "plain_wins_vs_reference": 90,
+        "times_ms": {
+          "counted": 35.004504,
+          "merge_only": 265.06616399999996,
+          "plain": 9.687825999999998,
+          "reference": 607.6057019999998,
+          "scan_only": 375.47916899999996,
+          "staged_direct": 34.818793,
+          "staged_reference": 604.652748
+        }
+      },
+      "runs_length": {
+        "comparisons": 48027,
+        "count": 90,
+        "counted_over_reference": 0.06759393373914564,
+        "plain_over_counted": 0.38596439846174735,
+        "plain_over_reference": 0.026088851975292555,
+        "plain_wins_vs_reference": 90,
+        "times_ms": {
+          "counted": 39.572952999999984,
+          "merge_only": 269.62728999999996,
+          "plain": 15.273750999999994,
+          "reference": 585.45125,
+          "scan_only": 353.60191700000007,
+          "staged_direct": 39.29500199999999,
+          "staged_reference": 583.6670890000001
+        }
+      }
+    },
+    "by_shape_ms": {
+      "duplicates": {
+        "fixed_four": {
+          "counted": 5.481376,
+          "plain": 1.523876,
+          "reference": 43.923957
+        },
+        "hybrid_8": {
+          "counted": 4.655916,
+          "plain": 1.156417,
+          "reference": 44.143292
+        },
+        "merge": {
+          "counted": 5.513458,
+          "plain": 1.49504,
+          "reference": 44.115457
+        },
+        "runs_count": {
+          "counted": 4.944001,
+          "plain": 1.334624,
+          "reference": 66.389207
+        },
+        "runs_length": {
+          "counted": 5.865956,
+          "plain": 2.244333,
+          "reference": 67.249791
+        }
+      },
+      "long_runs": {
+        "fixed_four": {
+          "counted": 3.393584,
+          "plain": 0.940209,
+          "reference": 36.795375
+        },
+        "hybrid_8": {
+          "counted": 3.397915,
+          "plain": 0.871041,
+          "reference": 38.22279
+        },
+        "merge": {
+          "counted": 4.540042,
+          "plain": 1.318375,
+          "reference": 39.737083
+        },
+        "runs_count": {
+          "counted": 2.090209,
+          "plain": 0.583499,
+          "reference": 56.268624
+        },
+        "runs_length": {
+          "counted": 2.052333,
+          "plain": 0.597959,
+          "reference": 56.408459
+        }
+      },
+      "perturbed": {
+        "fixed_four": {
+          "counted": 4.547834,
+          "plain": 1.311793,
+          "reference": 41.152082
+        },
+        "hybrid_8": {
+          "counted": 3.538956,
+          "plain": 0.926125,
+          "reference": 39.950711
+        },
+        "merge": {
+          "counted": 4.686332,
+          "plain": 1.338583,
+          "reference": 41.186373
+        },
+        "runs_count": {
+          "counted": 3.169084,
+          "plain": 0.824291,
+          "reference": 64.189335
+        },
+        "runs_length": {
+          "counted": 3.119374,
+          "plain": 0.934001,
+          "reference": 60.808667
+        }
+      },
+      "random": {
+        "fixed_four": {
+          "counted": 5.675374,
+          "plain": 1.56804,
+          "reference": 50.169875
+        },
+        "hybrid_8": {
+          "counted": 4.981708,
+          "plain": 1.239959,
+          "reference": 50.511582
+        },
+        "merge": {
+          "counted": 5.628791,
+          "plain": 1.541502,
+          "reference": 50.202083
+        },
+        "runs_count": {
+          "counted": 5.370041,
+          "plain": 1.46904,
+          "reference": 72.332831
+        },
+        "runs_length": {
+          "counted": 6.555416,
+          "plain": 2.638252,
+          "reference": 73.89829
+        }
+      },
+      "random_boundaries": {
+        "fixed_four": {
+          "counted": 5.244542,
+          "plain": 1.4525,
+          "reference": 48.526209
+        },
+        "hybrid_8": {
+          "counted": 4.368457,
+          "plain": 1.108542,
+          "reference": 48.149291
+        },
+        "merge": {
+          "counted": 5.186875,
+          "plain": 1.459083,
+          "reference": 48.329834
+        },
+        "runs_count": {
+          "counted": 3.805875,
+          "plain": 0.990083,
+          "reference": 71.571999
+        },
+        "runs_length": {
+          "counted": 3.811459,
+          "plain": 1.162041,
+          "reference": 67.876376
+        }
+      },
+      "reverse": {
+        "fixed_four": {
+          "counted": 3.837084,
+          "plain": 1.152833,
+          "reference": 16.272959
+        },
+        "hybrid_8": {
+          "counted": 4.194958,
+          "plain": 1.03496,
+          "reference": 20.222583
+        },
+        "merge": {
+          "counted": 3.794373,
+          "plain": 1.141083,
+          "reference": 16.367584
+        },
+        "runs_count": {
+          "counted": 4.577168,
+          "plain": 1.469832,
+          "reference": 40.349125
+        },
+        "runs_length": {
+          "counted": 7.028041,
+          "plain": 3.912833,
+          "reference": 42.096083
+        }
+      },
+      "short_runs": {
+        "fixed_four": {
+          "counted": 5.595084,
+          "plain": 1.578333,
+          "reference": 49.540959
+        },
+        "hybrid_8": {
+          "counted": 4.845624,
+          "plain": 1.218916,
+          "reference": 50.473124
+        },
+        "merge": {
+          "counted": 5.461584,
+          "plain": 1.507291,
+          "reference": 49.738126
+        },
+        "runs_count": {
+          "counted": 4.992875,
+          "plain": 1.302416,
+          "reference": 72.367501
+        },
+        "runs_length": {
+          "counted": 5.637125,
+          "plain": 2.053916,
+          "reference": 72.572042
+        }
+      },
+      "skewed_runs": {
+        "fixed_four": {
+          "counted": 3.373125,
+          "plain": 0.963666,
+          "reference": 31.323125
+        },
+        "hybrid_8": {
+          "counted": 3.394956,
+          "plain": 0.893333,
+          "reference": 33.407041
+        },
+        "merge": {
+          "counted": 4.415582,
+          "plain": 1.301998,
+          "reference": 34.251127
+        },
+        "runs_count": {
+          "counted": 2.996168,
+          "plain": 0.802959,
+          "reference": 80.087748
+        },
+        "runs_length": {
+          "counted": 2.444706,
+          "plain": 0.794415,
+          "reference": 59.960792
+        }
+      },
+      "sorted": {
+        "fixed_four": {
+          "counted": 1.352124,
+          "plain": 0.37354,
+          "reference": 10.032335
+        },
+        "hybrid_8": {
+          "counted": 2.561207,
+          "plain": 0.705999,
+          "reference": 14.706292
+        },
+        "merge": {
+          "counted": 3.741043,
+          "plain": 1.125459,
+          "reference": 16.106125
+        },
+        "runs_count": {
+          "counted": 0.884875,
+          "plain": 0.295916,
+          "reference": 24.262708
+        },
+        "runs_length": {
+          "counted": 0.875209,
+          "plain": 0.303377,
+          "reference": 24.187585
+        }
+      },
+      "unequal_runs": {
+        "fixed_four": {
+          "counted": 3.513959,
+          "plain": 0.982583,
+          "reference": 37.017876
+        },
+        "hybrid_8": {
+          "counted": 3.361044,
+          "plain": 0.892835,
+          "reference": 38.347876
+        },
+        "merge": {
+          "counted": 4.423708,
+          "plain": 1.303833,
+          "reference": 39.762167
+        },
+        "runs_count": {
+          "counted": 2.174208,
+          "plain": 0.615166,
+          "reference": 59.786624
+        },
+        "runs_length": {
+          "counted": 2.183334,
+          "plain": 0.632624,
+          "reference": 60.393165
+        }
+      }
+    },
+    "plain_algorithm_pairs": {
+      "runs_count": {
+        "fixed_four": {
+          "aggregate_ratio": 0.8177193374429926,
+          "total": 90,
+          "wins": 81
+        },
+        "hybrid_8": {
+          "aggregate_ratio": 0.9641424715272807,
+          "total": 90,
+          "wins": 55
+        },
+        "merge": {
+          "aggregate_ratio": 0.7159066783217892,
+          "total": 90,
+          "wins": 81
+        }
+      },
+      "runs_length": {
+        "fixed_four": {
+          "aggregate_ratio": 1.2892099370890067,
+          "total": 90,
+          "wins": 53
+        },
+        "hybrid_8": {
+          "aggregate_ratio": 1.5200595095981566,
+          "total": 90,
+          "wins": 41
+        },
+        "merge": {
+          "aggregate_ratio": 1.1286928918752366,
+          "total": 90,
+          "wins": 54
+        }
+      }
+    }
+  },
+  "extension_matched": {
+    "1024": {
+      "complete_input_ids": [
+        "extension-700001-1024-random",
+        "extension-700001-1024-sorted",
+        "extension-700001-1024-skewed_runs"
+      ],
+      "times_ms": {
+        "fixed_four": {
+          "counted": 11.079666,
+          "plain": 2.878625,
+          "reference": 409.568666
+        },
+        "hybrid_8": {
+          "counted": 12.522208,
+          "plain": 3.085459,
+          "reference": 436.790375
+        },
+        "merge": {
+          "counted": 15.206,
+          "plain": 4.158624,
+          "reference": 442.174458
+        },
+        "runs_count": {
+          "counted": 10.706542,
+          "plain": 2.815916,
+          "reference": 955.962583
+        },
+        "runs_length": {
+          "counted": 10.54175,
+          "plain": 3.811584,
+          "reference": 725.873542
+        }
+      }
+    },
+    "4096": {
+      "complete_input_ids": [],
+      "times_ms": {
+        "fixed_four": {
+          "counted": 0.0,
+          "plain": 0.0,
+          "reference": 0.0
+        },
+        "hybrid_8": {
+          "counted": 0.0,
+          "plain": 0.0,
+          "reference": 0.0
+        },
+        "merge": {
+          "counted": 0.0,
+          "plain": 0.0,
+          "reference": 0.0
+        },
+        "runs_count": {
+          "counted": 0.0,
+          "plain": 0.0,
+          "reference": 0.0
+        },
+        "runs_length": {
+          "counted": 0.0,
+          "plain": 0.0,
+          "reference": 0.0
+        }
+      }
+    },
+    "16384": {
+      "complete_input_ids": [],
+      "times_ms": {
+        "fixed_four": {
+          "counted": 0.0,
+          "plain": 0.0,
+          "reference": 0.0
+        },
+        "hybrid_8": {
+          "counted": 0.0,
+          "plain": 0.0,
+          "reference": 0.0
+        },
+        "merge": {
+          "counted": 0.0,
+          "plain": 0.0,
+          "reference": 0.0
+        },
+        "runs_count": {
+          "counted": 0.0,
+          "plain": 0.0,
+          "reference": 0.0
+        },
+        "runs_length": {
+          "counted": 0.0,
+          "plain": 0.0,
+          "reference": 0.0
+        }
+      }
+    }
+  },
+  "extension_status_counts": {
+    "not_run_total_budget": 15,
+    "ok": 98,
+    "request_timeout": 22
+  },
+  "paired": {
+    "ablation_ratios": {
+      "runs_count": {
+        "full_counted_over_staged_direct": 1.012545416339377,
+        "merge_only_over_staged_reference": 0.4368596312947958,
+        "scan_only_over_staged_reference": 0.6200931764904862,
+        "staged_direct_over_staged_reference": 0.057787409245573386,
+        "staging_over_reference": 0.9964928681927725
+      },
+      "runs_length": {
+        "full_counted_over_staged_direct": 1.0007519797169855,
+        "merge_only_over_staged_reference": 0.4672400727498437,
+        "scan_only_over_staged_reference": 0.6039296343073532,
+        "staged_direct_over_staged_reference": 0.06891466970362269,
+        "staging_over_reference": 0.9954140688822434
+      }
+    },
+    "algorithms": {
+      "fixed_four": {
+        "comparisons": 54730,
+        "count": 98,
+        "counted_over_reference": 0.1164453121345947,
+        "plain_over_counted": 0.27972158382955203,
+        "plain_over_reference": 0.03257226713981539,
+        "plain_wins_vs_reference": 98,
+        "times_ms": {
+          "counted": 42.21191599999998,
+          "plain": 11.807584000000004,
+          "reference": 362.504211
+        }
+      },
+      "hybrid_8": {
+        "comparisons": 58471,
+        "count": 98,
+        "counted_over_reference": 0.10560858157160882,
+        "plain_over_counted": 0.251922708774244,
+        "plain_over_reference": 0.026605199939325398,
+        "plain_wins_vs_reference": 98,
+        "times_ms": {
+          "counted": 39.772794000000005,
+          "plain": 10.01967,
+          "reference": 376.605702
+        }
+      },
+      "merge": {
+        "comparisons": 58166,
+        "count": 98,
+        "counted_over_reference": 0.12591994512329316,
+        "plain_over_counted": 0.28614783579861003,
+        "plain_over_reference": 0.03603171978091007,
+        "plain_wins_vs_reference": 98,
+        "times_ms": {
+          "counted": 47.51799000000002,
+          "plain": 13.597169999999998,
+          "reference": 377.36666699999984
+        }
+      },
+      "runs_count": {
+        "comparisons": 49887,
+        "count": 98,
+        "counted_over_reference": 0.05830716573750642,
+        "plain_over_counted": 0.27481016290173893,
+        "plain_over_reference": 0.016023401714662832,
+        "plain_wins_vs_reference": 98,
+        "times_ms": {
+          "counted": 35.267210999999996,
+          "merge_only": 263.308752,
+          "plain": 9.691787999999999,
+          "reference": 604.8520890000002,
+          "scan_only": 373.7492519999999,
+          "staged_direct": 34.830251,
+          "staged_reference": 602.7307930000003
+        }
+      },
+      "runs_length": {
+        "comparisons": 47797,
+        "count": 98,
+        "counted_over_reference": 0.06865021655506696,
+        "plain_over_counted": 0.3849410373642177,
+        "plain_over_reference": 0.026426285575985666,
+        "plain_wins_vs_reference": 98,
+        "times_ms": {
+          "counted": 39.759671,
+          "merge_only": 269.3672100000001,
+          "plain": 15.305129,
+          "reference": 579.1630819999999,
+          "scan_only": 348.16971000000024,
+          "staged_direct": 39.729795,
+          "staged_reference": 576.5070800000003
+        }
+      }
+    },
+    "by_shape_ms": {
+      "duplicates": {
+        "fixed_four": {
+          "counted": 5.419708,
+          "plain": 1.501459,
+          "reference": 43.685249
+        },
+        "hybrid_8": {
+          "counted": 4.607583,
+          "plain": 1.138293,
+          "reference": 43.289291
+        },
+        "merge": {
+          "counted": 5.371416,
+          "plain": 1.481377,
+          "reference": 43.151375
+        },
+        "runs_count": {
+          "counted": 5.020373,
+          "plain": 1.357124,
+          "reference": 65.685584
+        },
+        "runs_length": {
+          "counted": 5.89225,
+          "plain": 2.272167,
+          "reference": 66.283332
+        }
+      },
+      "edge_duplicates": {
+        "fixed_four": {
+          "counted": 0.015875,
+          "plain": 0.006083,
+          "reference": 0.017291
+        },
+        "hybrid_8": {
+          "counted": 0.010333,
+          "plain": 0.003458,
+          "reference": 0.013334
+        },
+        "merge": {
+          "counted": 0.014708,
+          "plain": 0.005959,
+          "reference": 0.015833
+        },
+        "runs_count": {
+          "counted": 0.014667,
+          "plain": 0.005708,
+          "reference": 0.01975
+        },
+        "runs_length": {
+          "counted": 0.017,
+          "plain": 0.008208,
+          "reference": 0.022333
+        }
+      },
+      "edge_empty": {
+        "fixed_four": {
+          "counted": 0.004584,
+          "plain": 0.001958,
+          "reference": 0.003709
+        },
+        "hybrid_8": {
+          "counted": 0.000875,
+          "plain": 0.000709,
+          "reference": 0.00075
+        },
+        "merge": {
+          "counted": 0.000792,
+          "plain": 0.000583,
+          "reference": 0.000625
+        },
+        "runs_count": {
+          "counted": 0.000959,
+          "plain": 0.000666,
+          "reference": 0.000958
+        },
+        "runs_length": {
+          "counted": 0.000958,
+          "plain": 0.000708,
+          "reference": 0.000916
+        }
+      },
+      "edge_equal": {
+        "fixed_four": {
+          "counted": 0.013625,
+          "plain": 0.004625,
+          "reference": 0.015666
+        },
+        "hybrid_8": {
+          "counted": 0.011667,
+          "plain": 0.0045,
+          "reference": 0.013583
+        },
+        "merge": {
+          "counted": 0.017541,
+          "plain": 0.006833,
+          "reference": 0.017958
+        },
+        "runs_count": {
+          "counted": 0.008,
+          "plain": 0.003375,
+          "reference": 0.014625
+        },
+        "runs_length": {
+          "counted": 0.007542,
+          "plain": 0.003209,
+          "reference": 0.014292
+        }
+      },
+      "edge_length_witness": {
+        "fixed_four": {
+          "counted": 0.036917,
+          "plain": 0.012667,
+          "reference": 0.069458
+        },
+        "hybrid_8": {
+          "counted": 0.039,
+          "plain": 0.011292,
+          "reference": 0.072291
+        },
+        "merge": {
+          "counted": 0.050625,
+          "plain": 0.016125,
+          "reference": 0.076208
+        },
+        "runs_count": {
+          "counted": 0.037542,
+          "plain": 0.011333,
+          "reference": 0.114417
+        },
+        "runs_length": {
+          "counted": 0.031,
+          "plain": 0.012042,
+          "reference": 0.080041
+        }
+      },
+      "edge_not_aligned": {
+        "fixed_four": {
+          "counted": 0.030875,
+          "plain": 0.010584,
+          "reference": 0.039625
+        },
+        "hybrid_8": {
+          "counted": 0.021541,
+          "plain": 0.006875,
+          "reference": 0.031208
+        },
+        "merge": {
+          "counted": 0.027125,
+          "plain": 0.009667,
+          "reference": 0.033917
+        },
+        "runs_count": {
+          "counted": 0.022917,
+          "plain": 0.007959,
+          "reference": 0.038125
+        },
+        "runs_length": {
+          "counted": 0.026416,
+          "plain": 0.012708,
+          "reference": 0.041917
+        }
+      },
+      "edge_odd": {
+        "fixed_four": {
+          "counted": 0.011041,
+          "plain": 0.003833,
+          "reference": 0.011209
+        },
+        "hybrid_8": {
+          "counted": 0.007791,
+          "plain": 0.002917,
+          "reference": 0.009166
+        },
+        "merge": {
+          "counted": 0.010625,
+          "plain": 0.0045,
+          "reference": 0.01075
+        },
+        "runs_count": {
+          "counted": 0.010917,
+          "plain": 0.004459,
+          "reference": 0.013041
+        },
+        "runs_length": {
+          "counted": 0.014042,
+          "plain": 0.007292,
+          "reference": 0.01625
+        }
+      },
+      "edge_pair": {
+        "fixed_four": {
+          "counted": 0.006208,
+          "plain": 0.00275,
+          "reference": 0.005208
+        },
+        "hybrid_8": {
+          "counted": 0.003083,
+          "plain": 0.00175,
+          "reference": 0.002375
+        },
+        "merge": {
+          "counted": 0.00325,
+          "plain": 0.001792,
+          "reference": 0.002541
+        },
+        "runs_count": {
+          "counted": 0.005125,
+          "plain": 0.002583,
+          "reference": 0.004459
+        },
+        "runs_length": {
+          "counted": 0.005875,
+          "plain": 0.003584,
+          "reference": 0.005667
+        }
+      },
+      "edge_singleton": {
+        "fixed_four": {
+          "counted": 0.004542,
+          "plain": 0.002166,
+          "reference": 0.003625
+        },
+        "hybrid_8": {
+          "counted": 0.001458,
+          "plain": 0.001041,
+          "reference": 0.001042
+        },
+        "merge": {
+          "counted": 0.000791,
+          "plain": 0.000667,
+          "reference": 0.000709
+        },
+        "runs_count": {
+          "counted": 0.001584,
+          "plain": 0.001042,
+          "reference": 0.001333
+        },
+        "runs_length": {
+          "counted": 0.001416,
+          "plain": 0.001041,
+          "reference": 0.001292
+        }
+      },
+      "long_runs": {
+        "fixed_four": {
+          "counted": 3.572833,
+          "plain": 0.993833,
+          "reference": 39.2405
+        },
+        "hybrid_8": {
+          "counted": 3.514793,
+          "plain": 0.909376,
+          "reference": 41.037248
+        },
+        "merge": {
+          "counted": 4.566582,
+          "plain": 1.328166,
+          "reference": 42.201168
+        },
+        "runs_count": {
+          "counted": 2.154166,
+          "plain": 0.597084,
+          "reference": 57.781918
+        },
+        "runs_length": {
+          "counted": 2.130126,
+          "plain": 0.629333,
+          "reference": 57.152418
+        }
+      },
+      "perturbed": {
+        "fixed_four": {
+          "counted": 4.662459,
+          "plain": 1.320958,
+          "reference": 40.632293
+        },
+        "hybrid_8": {
+          "counted": 3.598251,
+          "plain": 0.909667,
+          "reference": 39.943792
+        },
+        "merge": {
+          "counted": 4.723959,
+          "plain": 1.366624,
+          "reference": 41.114709
+        },
+        "runs_count": {
+          "counted": 2.952875,
+          "plain": 0.764916,
+          "reference": 60.927415
+        },
+        "runs_length": {
+          "counted": 3.036334,
+          "plain": 0.900335,
+          "reference": 60.601123
+        }
+      },
+      "random": {
+        "fixed_four": {
+          "counted": 5.607751,
+          "plain": 1.541708,
+          "reference": 49.774458
+        },
+        "hybrid_8": {
+          "counted": 5.089419,
+          "plain": 1.250126,
+          "reference": 50.999416
+        },
+        "merge": {
+          "counted": 5.562831,
+          "plain": 1.528959,
+          "reference": 49.691251
+        },
+        "runs_count": {
+          "counted": 5.464585,
+          "plain": 1.48921,
+          "reference": 73.219792
+        },
+        "runs_length": {
+          "counted": 6.665251,
+          "plain": 2.685,
+          "reference": 74.216336
+        }
+      },
+      "random_boundaries": {
+        "fixed_four": {
+          "counted": 5.156332,
+          "plain": 1.434875,
+          "reference": 47.283002
+        },
+        "hybrid_8": {
+          "counted": 4.331125,
+          "plain": 1.090625,
+          "reference": 47.299709
+        },
+        "merge": {
+          "counted": 5.183456,
+          "plain": 1.45875,
+          "reference": 47.719458
+        },
+        "runs_count": {
+          "counted": 3.711001,
+          "plain": 0.953167,
+          "reference": 68.944377
+        },
+        "runs_length": {
+          "counted": 3.765081,
+          "plain": 1.116833,
+          "reference": 67.259875
+        }
+      },
+      "reverse": {
+        "fixed_four": {
+          "counted": 3.889874,
+          "plain": 1.161335,
+          "reference": 16.361042
+        },
+        "hybrid_8": {
+          "counted": 4.294582,
+          "plain": 1.057,
+          "reference": 20.257416
+        },
+        "merge": {
+          "counted": 3.799124,
+          "plain": 1.151375,
+          "reference": 16.145791
+        },
+        "runs_count": {
+          "counted": 4.638502,
+          "plain": 1.451041,
+          "reference": 40.302667
+        },
+        "runs_length": {
+          "counted": 7.019836,
+          "plain": 3.889293,
+          "reference": 42.421833
+        }
+      },
+      "short_runs": {
+        "fixed_four": {
+          "counted": 5.618709,
+          "plain": 1.529041,
+          "reference": 49.888126
+        },
+        "hybrid_8": {
+          "counted": 4.983376,
+          "plain": 1.209876,
+          "reference": 50.395375
+        },
+        "merge": {
+          "counted": 5.594375,
+          "plain": 1.534834,
+          "reference": 49.870959
+        },
+        "runs_count": {
+          "counted": 5.053749,
+          "plain": 1.334665,
+          "reference": 71.993583
+        },
+        "runs_length": {
+          "counted": 5.698209,
+          "plain": 2.068083,
+          "reference": 72.661834
+        }
+      },
+      "skewed_runs": {
+        "fixed_four": {
+          "counted": 3.366834,
+          "plain": 0.946833,
+          "reference": 31.596666
+        },
+        "hybrid_8": {
+          "counted": 3.387085,
+          "plain": 0.869832,
+          "reference": 33.39325
+        },
+        "merge": {
+          "counted": 4.373375,
+          "plain": 1.269625,
+          "reference": 34.432501
+        },
+        "runs_count": {
+          "counted": 3.168832,
+          "plain": 0.827581,
+          "reference": 86.273666
+        },
+        "runs_length": {
+          "counted": 2.453499,
+          "plain": 0.774917,
+          "reference": 60.0515
+        }
+      },
+      "sorted": {
+        "fixed_four": {
+          "counted": 1.333541,
+          "plain": 0.373334,
+          "reference": 9.990791
+        },
+        "hybrid_8": {
+          "counted": 2.571624,
+          "plain": 0.688083,
+          "reference": 14.51829
+        },
+        "merge": {
+          "counted": 3.756207,
+          "plain": 1.144375,
+          "reference": 15.89679
+        },
+        "runs_count": {
+          "counted": 0.885167,
+          "plain": 0.294292,
+          "reference": 24.017919
+        },
+        "runs_length": {
+          "counted": 0.889085,
+          "plain": 0.301125,
+          "reference": 23.928749
+        }
+      },
+      "unequal_runs": {
+        "fixed_four": {
+          "counted": 3.460208,
+          "plain": 0.959542,
+          "reference": 33.886293
+        },
+        "hybrid_8": {
+          "counted": 3.299208,
+          "plain": 0.86425,
+          "reference": 35.328166
+        },
+        "merge": {
+          "counted": 4.461208,
+          "plain": 1.286959,
+          "reference": 36.984124
+        },
+        "runs_count": {
+          "counted": 2.11625,
+          "plain": 0.585583,
+          "reference": 55.49846
+        },
+        "runs_length": {
+          "counted": 2.105751,
+          "plain": 0.619251,
+          "reference": 54.403374
+        }
+      }
+    },
+    "plain_algorithm_pairs": {
+      "runs_count": {
+        "fixed_four": {
+          "aggregate_ratio": 0.8208104215053643,
+          "total": 98,
+          "wins": 85
+        },
+        "hybrid_8": {
+          "aggregate_ratio": 0.9672761677779806,
+          "total": 98,
+          "wins": 56
+        },
+        "merge": {
+          "aggregate_ratio": 0.7127797916772387,
+          "total": 98,
+          "wins": 83
+        }
+      },
+      "runs_length": {
+        "fixed_four": {
+          "aggregate_ratio": 1.2962117398444928,
+          "total": 98,
+          "wins": 56
+        },
+        "hybrid_8": {
+          "aggregate_ratio": 1.527508291191227,
+          "total": 98,
+          "wins": 46
+        },
+        "merge": {
+          "aggregate_ratio": 1.1256113588342282,
+          "total": 98,
+          "wins": 56
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "classifier": {
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "local_descent_permille",
+        "local_equal_permille",
+        "cross_descent_permille",
+        "sampled_left_range"
+      ],
+      "feature_version": "spread-adjacent16-v1",
+      "hyperparameters": {
+        "depth": 2,
+        "min_leaf": 8
+      },
+      "kind": "classifier",
+      "schema_version": 1,
+      "target": "epsilon-tied fastest candidate ID",
+      "training_hash": "84475a70c4fe00c31d4b5104eabf01f377c336a3fa6994b48ea02f19b1920304",
+      "training_inputs": 320,
+      "training_ns": 9099625,
+      "training_preferred_id": 5,
+      "tree": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "feature": 4,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              2
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "threshold": 0
+        },
+        "right": {
+          "feature": 2,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "threshold": 187
+        },
+        "threshold": 125
+      }
+    }
+  },
+  "cost_ranking": {
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "local_descent_permille",
+        "local_equal_permille",
+        "cross_descent_permille",
+        "sampled_left_range"
+      ],
+      "feature_version": "spread-adjacent16-v1",
+      "hyperparameters": {
+        "depth": 2,
+        "min_leaf": 4
+      },
+      "kind": "cost_ranking",
+      "schema_version": 1,
+      "target": "relative latency time/input-oracle; integer scale 1000000",
+      "training_hash": "84475a70c4fe00c31d4b5104eabf01f377c336a3fa6994b48ea02f19b1920304",
+      "training_inputs": 320,
+      "training_ns": 26084291,
+      "training_preferred_id": 5,
+      "tree": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "feature": 4,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              3142260,
+              2078925,
+              1131353,
+              1195652,
+              1357535,
+              1058823,
+              1081170
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1752617,
+              1273608,
+              1692630,
+              1492591,
+              1423698,
+              1026553,
+              1178555
+            ]
+          },
+          "threshold": 0
+        },
+        "right": {
+          "feature": 2,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1248075,
+              1001232,
+              1257710,
+              1277751,
+              1281112,
+              1186388,
+              2021346
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1109793,
+              1000071,
+              1100647,
+              1143637,
+              1115309,
+              1479928,
+              3865472
+            ]
+          },
+          "threshold": 687
+        },
+        "threshold": 187
+      }
+    }
+  },
+  "fixed": {
+    "id": 5,
+    "kind": "fixed"
+  },
+  "hybrid": {
+    "id": 1,
+    "kind": "fixed"
+  },
+  "rule": {
+    "kind": "sample_rule"
+  }
+}

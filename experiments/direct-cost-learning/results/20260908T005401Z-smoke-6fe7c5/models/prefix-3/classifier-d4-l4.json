@@ -1,0 +1,106 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "local_descent_permille",
+    "local_equal_permille",
+    "cross_descent_permille",
+    "sampled_left_range"
+  ],
+  "feature_version": "spread-adjacent16-v1",
+  "hyperparameters": {
+    "depth": 4,
+    "min_leaf": 4
+  },
+  "kind": "classifier",
+  "schema_version": 1,
+  "target": "epsilon-tied fastest candidate ID",
+  "training_hash": "56e9db1ada46358c55c398f2eee051ee6ceabe3ce4319444559665f163d220d5",
+  "training_inputs": 60,
+  "training_ns": 1972875,
+  "training_preferred_id": 1,
+  "tree": {
+    "feature": 2,
+    "kind": "branch",
+    "left": {
+      "feature": 2,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "values": [
+          2
+        ]
+      },
+      "right": {
+        "feature": 5,
+        "kind": "branch",
+        "left": {
+          "feature": 2,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              3
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "threshold": 62
+        },
+        "right": {
+          "feature": 5,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "threshold": 604
+        },
+        "threshold": 594
+      },
+      "threshold": 0
+    },
+    "right": {
+      "feature": 4,
+      "kind": "branch",
+      "left": {
+        "feature": 5,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            1
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            5
+          ]
+        },
+        "threshold": 256
+      },
+      "right": {
+        "kind": "leaf",
+        "values": [
+          1
+        ]
+      },
+      "threshold": 400
+    },
+    "threshold": 125
+  }
+}

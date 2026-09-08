@@ -1,0 +1,7 @@
+if cross_descent_permille <= 333:
+  if length <= 17:
+    return hybrid_8
+  else:
+    return runs_count
+else:
+  return hybrid_8

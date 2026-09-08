@@ -1,0 +1,175 @@
+{
+  "aggregates": [
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 875,
+      "ready_cases": 20,
+      "strategy": "single_merge",
+      "sum_case_median_e2e_ns": 1624793
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 1649,
+      "ready_cases": 20,
+      "strategy": "single_insertion",
+      "sum_case_median_e2e_ns": 5917001
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 857,
+      "ready_cases": 20,
+      "strategy": "single_hybrid_4",
+      "sum_case_median_e2e_ns": 1525583
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 905,
+      "ready_cases": 20,
+      "strategy": "single_hybrid_8",
+      "sum_case_median_e2e_ns": 1666752
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 1094,
+      "ready_cases": 20,
+      "strategy": "single_hybrid_16",
+      "sum_case_median_e2e_ns": 2352956
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 1061,
+      "ready_cases": 20,
+      "strategy": "p000_two_insertion",
+      "sum_case_median_e2e_ns": 2388708
+    },
+    {
+      "cases": 20,
+      "checks": 153,
+      "comparisons": 851,
+      "ready_cases": 9,
+      "strategy": "p001_two_guarded",
+      "sum_case_median_e2e_ns": 1577123
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 875,
+      "ready_cases": 20,
+      "strategy": "p002_merge_halves",
+      "sum_case_median_e2e_ns": 1672290
+    },
+    {
+      "cases": 20,
+      "checks": 113,
+      "comparisons": 851,
+      "ready_cases": 6,
+      "strategy": "p003_guarded_merge",
+      "sum_case_median_e2e_ns": 1508709
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 909,
+      "ready_cases": 20,
+      "strategy": "p004_prefix_insertion_merge",
+      "sum_case_median_e2e_ns": 1766082
+    },
+    {
+      "cases": 20,
+      "checks": 167,
+      "comparisons": 870,
+      "ready_cases": 9,
+      "strategy": "p005_three_guarded",
+      "sum_case_median_e2e_ns": 1509917
+    },
+    {
+      "cases": 20,
+      "checks": 181,
+      "comparisons": 846,
+      "ready_cases": 12,
+      "strategy": "p006_four_guarded",
+      "sum_case_median_e2e_ns": 1483752
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 958,
+      "ready_cases": 20,
+      "strategy": "p007_mixed_hybrid",
+      "sum_case_median_e2e_ns": 1807459
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 870,
+      "ready_cases": 20,
+      "strategy": "p028_split",
+      "sum_case_median_e2e_ns": 1582212
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 870,
+      "ready_cases": 20,
+      "strategy": "p031_nested",
+      "sum_case_median_e2e_ns": 1585084
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 903,
+      "ready_cases": 20,
+      "strategy": "p098_split",
+      "sum_case_median_e2e_ns": 1660421
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 898,
+      "ready_cases": 20,
+      "strategy": "p024_split",
+      "sum_case_median_e2e_ns": 1669668
+    },
+    {
+      "cases": 20,
+      "checks": 0,
+      "comparisons": 898,
+      "ready_cases": 20,
+      "strategy": "p027_nested",
+      "sum_case_median_e2e_ns": 1685334
+    }
+  ],
+  "all_outputs_checked": true,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "baseline_certificates": 5,
+  "cases": 20,
+  "comparison_model": "key comparisons, including runtime guards",
+  "composite_certificates": 100,
+  "conclusion_scope": "No pointwise cost dominance, optimality, or native-machine speedup claim.",
+  "conditional_linear_composites": 50,
+  "measured_algorithms": 18,
+  "phases_ns": {
+    "algorithm_and_proof_source_generation": 2209833,
+    "evaluation_wall_including_transport_and_diagnostics": 2128288958,
+    "existing_lake_build": 2077555041,
+    "general_proof_build": 1820401542,
+    "lean_check_algorithms": 2671920209,
+    "lean_check_certificates": 6478484709,
+    "offline_profile_diagnostics": 37372952,
+    "offline_search_and_selection": 1210417,
+    "worker_startup": 1833858167,
+    "worker_typecheck": 3688928917
+  },
+  "structurally_unique": 100,
+  "unconditional_nlog_composites": 66
+}

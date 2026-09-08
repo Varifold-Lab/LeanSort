@@ -1,0 +1,141 @@
+{
+  "config": {
+    "backend": "same lean --run direct executor for every candidate and deployed policy; no interpreter timing labels",
+    "candidate_ids": [
+      "merge",
+      "hybrid_8",
+      "fixed_two",
+      "fixed_three",
+      "fixed_four",
+      "runs_count",
+      "runs_length"
+    ],
+    "candidate_version": "verified-direct-seven-v1",
+    "failure_policy": "retain status and null metrics; never zero-impute; any missing main-stage response blocks complete-case headline and final acceptance",
+    "feature_names": [
+      "length",
+      "probe_count",
+      "local_descent_permille",
+      "local_equal_permille",
+      "cross_descent_permille",
+      "sampled_left_range"
+    ],
+    "feature_version": "spread-adjacent16-v1",
+    "final_selection": "largest training size only; hyperparameters chosen on the same validation set; separate classifier and cost-ranking models",
+    "generalization_lengths": [
+      768,
+      1536
+    ],
+    "generalization_seeds": [
+      4100011,
+      4100033
+    ],
+    "length_rule": "Hybrid-8 if n <= 32; else runs_count (length only, no sampled features)",
+    "max_probes": 16,
+    "near_tie_fraction": 0.02,
+    "no_test_tuning": true,
+    "old_data_policy": "do not train on historical timings; old inputs are development-only and excluded by hash from final data",
+    "primary_metric": "sum of per-input median end-to-end ns versus training-selected best fixed, then paired ratio distribution",
+    "protocol_version": 1,
+    "relative_cost_scale": 1000000,
+    "rounds": 5,
+    "sample_rule": "Hybrid-8 if n <= 32; else runs_count if sampled local descent permille <= 125; else Hybrid-8",
+    "smoke_lengths": [
+      17,
+      41
+    ],
+    "smoke_test_seeds": [
+      5300003
+    ],
+    "smoke_train_seeds": [
+      5100001,
+      5100007,
+      5100013
+    ],
+    "smoke_training_seed_prefixes": [
+      1,
+      2,
+      3
+    ],
+    "smoke_validation_seeds": [
+      5200009
+    ],
+    "snapshot_selection": "for each training size and model kind, minimum validation E2E sum; lexicographic hyperparameter tie break",
+    "test_seeds": [
+      3100009,
+      3100021,
+      3100043
+    ],
+    "total_measurement_budget_seconds": 900,
+    "train_lengths": [
+      24,
+      80,
+      240,
+      512
+    ],
+    "train_seeds": [
+      1100003,
+      1100009,
+      1100021,
+      1100033,
+      1100049,
+      1100069,
+      1100077,
+      1100093
+    ],
+    "training_seed_prefixes": [
+      2,
+      4,
+      8
+    ],
+    "tree_depths": [
+      2,
+      4
+    ],
+    "tree_max_split_candidates": 16,
+    "tree_min_leaves": [
+      4,
+      8
+    ],
+    "validation_seeds": [
+      2100001,
+      2100013,
+      2100029
+    ],
+    "worker_request_timeout_seconds": 60,
+    "worker_rss_limit_mib": 3072,
+    "worker_stack_limit_mib": 8
+  },
+  "fixed_before_any_training_measurement": true,
+  "run_protocol": {
+    "lengths": [
+      17,
+      41
+    ],
+    "prefixes": [
+      1,
+      2,
+      3
+    ],
+    "rounds": 3,
+    "test_seeds": [
+      5300003
+    ],
+    "train_seeds": [
+      5100001,
+      5100007,
+      5100013
+    ],
+    "validation_seeds": [
+      5200009
+    ]
+  },
+  "smoke": true,
+  "versions": {
+    "candidate_version": "verified-direct-seven-v1",
+    "executor_version": "bc61312857365c7105a2bd53070ad0660cce8295623d93bde49ecc96698bf888",
+    "feature_source_sha256": "02860aeb454a20fe945939487016b12b880cca0e28d4ef43d1b2afd2f9bcd36d",
+    "feature_version": "spread-adjacent16-v1",
+    "worker_source_sha256": "a1705ad841e3db67b6a02e9b29bc15d46d3759b87999c956bbb7c0679632e1de"
+  }
+}

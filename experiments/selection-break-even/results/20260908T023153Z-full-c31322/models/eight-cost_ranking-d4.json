@@ -1,0 +1,189 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_kind": "eight",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "descent_permille",
+    "unused_0",
+    "unused_1",
+    "unused_2"
+  ],
+  "feature_version": "budget-eight-v1",
+  "hyperparameters": {
+    "depth": 4,
+    "min_leaf": 8
+  },
+  "kind": "cost_ranking",
+  "schema_version": 1,
+  "target": "relative latency time/input-oracle; integer scale 1000000",
+  "training_hash": "c3fda1269a1fc5cd02a71b142804faee352721eefa9ebda4b57996850719ca32",
+  "training_inputs": 172,
+  "training_ns": 5489917,
+  "training_preferred_id": 5,
+  "tree": {
+    "feature": 2,
+    "kind": "branch",
+    "left": {
+      "feature": 0,
+      "kind": "branch",
+      "left": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            2439588,
+            1406735,
+            1526015,
+            1639974,
+            1240661,
+            1137344,
+            1304803
+          ]
+        },
+        "right": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              2524437,
+              1767835,
+              2057213,
+              1665941,
+              1566843,
+              1126650,
+              1254249
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              2475949,
+              1555427,
+              1958616,
+              2177190,
+              1602949,
+              1062199,
+              1218425
+            ]
+          },
+          "threshold": 96
+        },
+        "threshold": 32
+      },
+      "right": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            2685493,
+            1984464,
+            2023071,
+            2130191,
+            1578006,
+            1072320,
+            1187710
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            2942238,
+            2042989,
+            2114344,
+            2330509,
+            1573236,
+            1083431,
+            1226137
+          ]
+        },
+        "threshold": 768
+      },
+      "threshold": 256
+    },
+    "right": {
+      "feature": 2,
+      "kind": "branch",
+      "left": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            1508804,
+            1100930,
+            1481208,
+            1540337,
+            1474616,
+            1048961,
+            1329231
+          ]
+        },
+        "right": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1240244,
+              1001813,
+              1263997,
+              1269943,
+              1272374,
+              1224884,
+              2156890
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1184979,
+              1008602,
+              1185946,
+              1184652,
+              1180096,
+              1134025,
+              1959726
+            ]
+          },
+          "threshold": 256
+        },
+        "threshold": 125
+      },
+      "right": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            1063866,
+            1001660,
+            1057368,
+            1120307,
+            1080696,
+            1492797,
+            3805022
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1066000,
+            1000000,
+            1072563,
+            1102611,
+            1071170,
+            1436155,
+            4097652
+          ]
+        },
+        "threshold": 256
+      },
+      "threshold": 875
+    },
+    "threshold": 0
+  }
+}

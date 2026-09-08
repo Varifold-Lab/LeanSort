@@ -1,0 +1,12 @@
+{
+  "all_outputs_correct": true,
+  "build_checks_passed": true,
+  "experiment_wall_ns": 16256451625,
+  "model_load_roundtrip_ns": 71917,
+  "model_sha256_unchanged": "f9b995e855b6a3fe6f31b97d3de32f39bc88d03867c97e4f0e883fd1dbf758cb",
+  "protocol_checks": 17,
+  "test_leakage_detected": false,
+  "timed_outputs_checked": 704,
+  "training_rows_reused": 0,
+  "worker_startup_ns": 3370086917
+}

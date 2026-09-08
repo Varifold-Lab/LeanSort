@@ -1,0 +1,4 @@
+if cross_descent_permille <= 133:
+  return runs_count
+else:
+  return hybrid_8

@@ -1,0 +1,10 @@
+if local_descent_permille <= 187:
+  if cross_descent_permille <= 0:
+    relative_costs=[3042943, 2025501, 1183754, 1238023, 1408870, 1075807, 1103959] -> runs_count
+  else:
+    relative_costs=[1777474, 1294967, 1720479, 1476122, 1454382, 1031962, 1177482] -> runs_count
+else:
+  if local_descent_permille <= 625:
+    relative_costs=[1243292, 1000000, 1262472, 1273123, 1257631, 1163044, 1948520] -> hybrid_8
+  else:
+    relative_costs=[1094994, 1000000, 1103959, 1140577, 1110435, 1450649, 3871734] -> hybrid_8

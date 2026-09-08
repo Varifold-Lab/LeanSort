@@ -1,0 +1,23 @@
+{
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "passed": true,
+  "theorems": [
+    "counted_refines",
+    "plain_refines",
+    "features_agree",
+    "fold_cost",
+    "extract_cost",
+    "extract_bound",
+    "feature_bound",
+    "length_cost",
+    "legacy_eq",
+    "selection_eval",
+    "selection_execution",
+    "selection_bound",
+    "run_correct"
+  ]
+}

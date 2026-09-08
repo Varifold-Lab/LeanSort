@@ -1,0 +1,34 @@
+if local_descent_permille <= 125:
+  if cross_descent_permille <= 0:
+    if length <= 24:
+      return fixed_two
+    else:
+      if sampled_left_range <= 1219:
+        return runs_count
+      else:
+        return fixed_two
+  else:
+    if sampled_left_range <= 3745:
+      if sampled_left_range <= 357:
+        return runs_count
+      else:
+        return runs_count
+    else:
+      if sampled_left_range <= 7499:
+        return runs_count
+      else:
+        return runs_count
+else:
+  if local_descent_permille <= 187:
+    if sampled_left_range <= 3022:
+      return hybrid_8
+    else:
+      return runs_count
+  else:
+    if cross_descent_permille <= 333:
+      if local_equal_permille <= 62:
+        return hybrid_8
+      else:
+        return hybrid_8
+    else:
+      return hybrid_8

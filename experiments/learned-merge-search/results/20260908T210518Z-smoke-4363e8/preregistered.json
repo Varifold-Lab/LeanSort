@@ -1,0 +1,65 @@
+{
+  "certificate": "Lean Bellman subsolution lower certificate plus ordered feasible tree of same budget; search predictions never supplied as certificate lower bounds",
+  "confirmation_seeds": [
+    8400007,
+    8400011,
+    8400023
+  ],
+  "depths": [
+    2,
+    4
+  ],
+  "dp": "classical cubic interval recurrence, measured directly including reconstruction; traced peak Python allocations in separate replay",
+  "extrapolation_seeds": [
+    8500003,
+    8500013
+  ],
+  "freeze_rule": "pilot limits selected using time/memory only, then code/protocol/train before unseen confirmation generation",
+  "initial_solution": "minimum of old count and old integer-midpoint length strategy; same for every search",
+  "lean_certificate_seconds": 90,
+  "lean_request_seconds": 45,
+  "max_request_seconds": 5,
+  "memory_limit_mib": 1024,
+  "min_leaf": 16,
+  "node_budgets": [
+    32,
+    128,
+    512
+  ],
+  "pilot_rs": [
+    4,
+    8,
+    16,
+    24,
+    32
+  ],
+  "pilot_seed": 8100089,
+  "pilot_total_seconds": 90,
+  "primary": "per-input paired budget/OPT at equal expanded-state budget; attainable budget at strict wall deadlines; total time to first feasible tree meeting post-hoc OPT or 1.01 OPT",
+  "quality_target_denominator": 100,
+  "quality_target_numerator": 101,
+  "rounds": 3,
+  "search": "leftmost-hole finite DFS, complete missing subtrees with count plan, no pruning and no beam, zero global certified lower bound",
+  "smoke_seed_offset": 500000,
+  "total_search_seconds": 180,
+  "train_rs": [
+    4,
+    8,
+    12,
+    16
+  ],
+  "train_seeds": [
+    8200003,
+    8200011,
+    8200021
+  ],
+  "validation_seeds": [
+    8300009
+  ],
+  "validation_selection": "mean budget/reference ratio at 128 nodes; then mean total search ns; then shallower tree. No test selection.",
+  "version": 1,
+  "wall_budgets_ns": [
+    2000000,
+    10000000
+  ]
+}

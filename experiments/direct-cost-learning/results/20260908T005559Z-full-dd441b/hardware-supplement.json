@@ -1,0 +1,6 @@
+{
+  "cpu_brand": "Apple M4 Pro",
+  "read_command": "sysctl -n machdep.cpu.brand_string",
+  "timing_backend": "unchanged lean --run",
+  "note": "Post-run environment metadata only; no model, executor or measurement modification."
+}

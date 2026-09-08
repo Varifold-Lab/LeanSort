@@ -1,0 +1,191 @@
+{
+  "calibrated_threshold": 8,
+  "test_inputs": 98,
+  "test_strategies": 7,
+  "run_count_min": 0,
+  "run_count_max": 257,
+  "aggregates": [
+    {
+      "shape": "ALL",
+      "strategy": "merge",
+      "inputs": 98,
+      "comparisons": 58166,
+      "checks": 0,
+      "sum_input_median_ns": 377387332
+    },
+    {
+      "shape": "ALL",
+      "strategy": "hybrid_8",
+      "inputs": 98,
+      "comparisons": 58471,
+      "checks": 0,
+      "sum_input_median_ns": 375933038
+    },
+    {
+      "shape": "ALL",
+      "strategy": "fixed_two",
+      "inputs": 98,
+      "comparisons": 57030,
+      "checks": 3513,
+      "sum_input_median_ns": 366390748
+    },
+    {
+      "shape": "ALL",
+      "strategy": "fixed_three",
+      "inputs": 98,
+      "comparisons": 55483,
+      "checks": 4142,
+      "sum_input_median_ns": 374865665
+    },
+    {
+      "shape": "ALL",
+      "strategy": "fixed_four",
+      "inputs": 98,
+      "comparisons": 54730,
+      "checks": 4522,
+      "sum_input_median_ns": 362416212
+    },
+    {
+      "shape": "ALL",
+      "strategy": "runs_count",
+      "inputs": 98,
+      "comparisons": 49887,
+      "checks": 11566,
+      "sum_input_median_ns": 604529042
+    },
+    {
+      "shape": "ALL",
+      "strategy": "runs_length",
+      "inputs": 98,
+      "comparisons": 47797,
+      "checks": 11566,
+      "sum_input_median_ns": 579710292
+    }
+  ],
+  "phases_ns": {
+    "python_checks": 241429124,
+    "lake_build": 2065263250,
+    "related_build": 2019059208,
+    "fresh_module_proof_checks": 18511835875,
+    "certificate_source_generation": 157042,
+    "certificate_axiom_check": 2066447000,
+    "worker_check_and_codegen": 4808331958,
+    "calibration_worker_startup": 2895999542,
+    "calibration_wall_including_startup_diagnostics_and_validation": 11479739917,
+    "offline_threshold_selection": 358666,
+    "frozen_certificate_generation": 78084,
+    "frozen_certificate_check": 2120051916,
+    "test_worker_startup": 2887274417,
+    "test_wall_including_startup_diagnostics_and_validation": 33592028167
+  },
+  "paired": [
+    {
+      "adaptive": "runs_count",
+      "baseline": "merge",
+      "inputs": 98,
+      "fewer_comparisons": 54,
+      "more_comparisons": 41,
+      "lower_median_ns": 6,
+      "fewer_comparisons_but_slower": 48
+    },
+    {
+      "adaptive": "runs_count",
+      "baseline": "hybrid_8",
+      "inputs": 98,
+      "fewer_comparisons": 69,
+      "more_comparisons": 25,
+      "lower_median_ns": 0,
+      "fewer_comparisons_but_slower": 69
+    },
+    {
+      "adaptive": "runs_count",
+      "baseline": "fixed_two",
+      "inputs": 98,
+      "fewer_comparisons": 58,
+      "more_comparisons": 37,
+      "lower_median_ns": 4,
+      "fewer_comparisons_but_slower": 56
+    },
+    {
+      "adaptive": "runs_count",
+      "baseline": "fixed_three",
+      "inputs": 98,
+      "fewer_comparisons": 58,
+      "more_comparisons": 36,
+      "lower_median_ns": 2,
+      "fewer_comparisons_but_slower": 58
+    },
+    {
+      "adaptive": "runs_count",
+      "baseline": "fixed_four",
+      "inputs": 98,
+      "fewer_comparisons": 58,
+      "more_comparisons": 37,
+      "lower_median_ns": 5,
+      "fewer_comparisons_but_slower": 56
+    },
+    {
+      "adaptive": "runs_count",
+      "baseline": "runs_length",
+      "inputs": 98,
+      "fewer_comparisons": 11,
+      "more_comparisons": 56,
+      "lower_median_ns": 63,
+      "fewer_comparisons_but_slower": 1
+    },
+    {
+      "adaptive": "runs_length",
+      "baseline": "merge",
+      "inputs": 98,
+      "fewer_comparisons": 56,
+      "more_comparisons": 39,
+      "lower_median_ns": 6,
+      "fewer_comparisons_but_slower": 50
+    },
+    {
+      "adaptive": "runs_length",
+      "baseline": "hybrid_8",
+      "inputs": 98,
+      "fewer_comparisons": 76,
+      "more_comparisons": 20,
+      "lower_median_ns": 0,
+      "fewer_comparisons_but_slower": 76
+    },
+    {
+      "adaptive": "runs_length",
+      "baseline": "fixed_two",
+      "inputs": 98,
+      "fewer_comparisons": 59,
+      "more_comparisons": 34,
+      "lower_median_ns": 3,
+      "fewer_comparisons_but_slower": 58
+    },
+    {
+      "adaptive": "runs_length",
+      "baseline": "fixed_three",
+      "inputs": 98,
+      "fewer_comparisons": 65,
+      "more_comparisons": 30,
+      "lower_median_ns": 2,
+      "fewer_comparisons_but_slower": 65
+    },
+    {
+      "adaptive": "runs_length",
+      "baseline": "fixed_four",
+      "inputs": 98,
+      "fewer_comparisons": 64,
+      "more_comparisons": 32,
+      "lower_median_ns": 3,
+      "fewer_comparisons_but_slower": 63
+    },
+    {
+      "adaptive": "runs_length",
+      "baseline": "runs_count",
+      "inputs": 98,
+      "fewer_comparisons": 56,
+      "more_comparisons": 11,
+      "lower_median_ns": 35,
+      "fewer_comparisons_but_slower": 30
+    }
+  ]
+}

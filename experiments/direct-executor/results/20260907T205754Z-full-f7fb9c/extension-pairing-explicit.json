@@ -1,0 +1,44 @@
+{
+  "1024": {
+    "complete_input_ids": [
+      "extension-700001-1024-random",
+      "extension-700001-1024-sorted",
+      "extension-700001-1024-skewed_runs"
+    ],
+    "times_ms": {
+      "fixed_four": {
+        "counted": 11.079666,
+        "plain": 2.878625,
+        "reference": 409.568666
+      },
+      "hybrid_8": {
+        "counted": 12.522208,
+        "plain": 3.085459,
+        "reference": 436.790375
+      },
+      "merge": {
+        "counted": 15.206,
+        "plain": 4.158624,
+        "reference": 442.174458
+      },
+      "runs_count": {
+        "counted": 10.706542,
+        "plain": 2.815916,
+        "reference": 955.962583
+      },
+      "runs_length": {
+        "counted": 10.54175,
+        "plain": 3.811584,
+        "reference": 725.873542
+      }
+    }
+  },
+  "4096": {
+    "complete_input_ids": [],
+    "times_ms": null
+  },
+  "16384": {
+    "complete_input_ids": [],
+    "times_ms": null
+  }
+}

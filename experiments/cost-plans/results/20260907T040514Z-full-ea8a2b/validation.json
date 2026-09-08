@@ -1,0 +1,61 @@
+{
+  "checked_at_utc": "2026-09-07",
+  "full_run": "20260907T040514Z-full-ea8a2b",
+  "data_validation": {
+    "cases": 62,
+    "unique_input_lists": 62,
+    "algorithms_measured": 18,
+    "unique_algorithm_input_pairs": 1116,
+    "deployment_repetitions": 5580,
+    "repetitions_per_pair": 5,
+    "source": "dataset.jsonl + observations.jsonl + evaluation.csv + summary.json",
+    "passed": [
+      "case/strategy completeness and uniqueness",
+      "positive raw durations and fixed repetition counts",
+      "independent recomputation of per-case medians",
+      "aggregate sums recomputed from rows",
+      "guard + sorting comparisons = total",
+      "all unconditional bounds and applicable conditional bounds",
+      "Python reference counts agree with Lean counts",
+      "shortlist frozen before benchmark; no outcome-based retuning"
+    ],
+    "scope": "Finite data/measurement checks, not mathematical proofs; dependent synthetic shapes and no significance claim"
+  },
+  "builds": {
+    "default_lake_build": "passed",
+    "new_structural_proofs": "passed, 2046 jobs including existing Adaptive correctness",
+    "existing_adaptive_and_hybrid_checks": "passed, 886 jobs",
+    "hybrid_threshold_smoke": "passed",
+    "new_python_tests": 9,
+    "existing_adaptive_python_tests": 12
+  },
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "workspace": {
+    "branch": "experiment/certified-cost-plans",
+    "tracked_diff_empty": true,
+    "commit_created": false,
+    "pushed": false,
+    "main_and_head": "d857faa185ce8f5bf39b851c206b3a607ba16ac5",
+    "stash_preserved": "52d976d4ed8cf6bbf1253cdb92e478db59f15cf6",
+    "original_snapshot_files": 91,
+    "hashes_matching": 90,
+    "original_snapshot_mismatch": {
+      "path": "experiments/hybrid-threshold/README.md",
+      "initial_sha256": "5311061284079e253300c723f676c169268442b8b42adee547ad760927a9f06d",
+      "current_sha256": "07887c721af5142cb0bfd6bdf7aed7871d1e4eda61e295b1242572d75cc684c9",
+      "action": "Current content preserved; not reverted. This mismatch is disclosed rather than claiming every original file is unchanged."
+    },
+    "prior_decision_tree_results": "original hashes match; retained negative result",
+    "current_phase_lean_and_experiment_sources": "hashes unchanged throughout full measured run"
+  },
+  "limitations": [
+    "CPU architecture recorded; exact CPU model unavailable to sandbox",
+    "Timings describe Lean comparison-program interpreter, not native optimized sort",
+    "No proof of dominance/global optimality",
+    "Variable run-count recursion and direct-executor refinement remain future work"
+  ]
+}

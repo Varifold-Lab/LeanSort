@@ -1,0 +1,14 @@
+$ lake build
+Build completed successfully (2091 jobs).
+$ lake build LeanSort.Verification.HybridMerge.Checks LeanSort.Verification.Adaptive.Checks
+Build completed successfully (886 jobs).
+$ /Library/Developer/CommandLineTools/usr/bin/python3 -m unittest discover -s experiments/adaptive -p test_*.py
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.022s
+
+OK
+$ lake env lean -c /Users/moqian/LeanSort/experiments/adaptive/results/20260907T024833Z-full-b5f2e8/Worker.audit.c experiments/adaptive/Worker.lean
+$ axiom audit
+'LeanSort.Adaptive.Plan.run_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanSort.Adaptive.selectAndRun_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

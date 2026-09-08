@@ -1,0 +1,16 @@
+{
+  "status": "completed_and_audited",
+  "branch": "experiment/learned-merge-search",
+  "head_and_main": "086c581604b626101006b9dbfaa1e78e26247afa",
+  "stash": "52d976d4ed8cf6bbf1253cdb92e478db59f15cf6",
+  "cpu": "Apple M4 Pro",
+  "memory_bytes": 25769803776,
+  "lean": "4.34.0-rc2 6a10ac8c22beadecabdbb0919c2b50214762f91d Release",
+  "commit": false,
+  "push": false,
+  "original_nonignored_files_preserved": 1113,
+  "frozen_source_or_model_changes_after_test": [],
+  "reports": ["interpretation.zh.md", "findings.zh.md", "saved-data-audit.json", "final-review.json", "goal-analysis.json"],
+  "formal_scope": "Universal checker soundness and refinement; executable certificate acceptance for all 493 input-tree pairs, additional kernel-normalized representatives at eight r values plus pilot",
+  "stop_reason": "Predefined experiment completed, not continued to force a positive result"
+}

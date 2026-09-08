@@ -1,0 +1,13 @@
+adaptive,baseline,inputs,fewer_comparisons,more_comparisons,lower_median_ns,fewer_comparisons_but_slower
+runs_count,merge,28,12,13,3,9
+runs_count,hybrid_4,28,12,13,1,11
+runs_count,fixed_two,28,15,10,3,14
+runs_count,fixed_three,28,15,10,2,15
+runs_count,fixed_four,28,15,11,4,13
+runs_count,runs_length,28,1,12,23,0
+runs_length,merge,28,14,11,2,12
+runs_length,hybrid_4,28,14,11,1,13
+runs_length,fixed_two,28,16,8,3,15
+runs_length,fixed_three,28,18,7,2,18
+runs_length,fixed_four,28,16,10,3,15
+runs_length,runs_count,28,12,1,5,9

@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "prior_smoke_rows": 140,
+  "checked_final_inputs": 156,
+  "canonical_matches": [],
+  "selected_model_file_equals_frozen": true,
+  "scope": "Scale/reversal exact equivalence, not arbitrary near-similarity; reserved equal diagnostics excluded intentionally."
+}

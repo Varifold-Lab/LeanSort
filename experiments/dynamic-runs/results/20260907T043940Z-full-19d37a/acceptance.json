@@ -1,0 +1,22 @@
+{
+  "all_applicable_bounds_checked": true,
+  "all_count_references_matched": true,
+  "all_outputs_checked": true,
+  "audited_theorems": 37,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "calibration_inputs": 60,
+  "comparison_model_not_machine_time": true,
+  "complete": true,
+  "deployment_repetitions": 5230,
+  "fresh_modules": 13,
+  "git_refs_unchanged": true,
+  "input_strategy_pairs": 1046,
+  "sources_unchanged": true,
+  "test_inputs": 98,
+  "test_parameters_frozen": true,
+  "timer_audit_passed": true
+}

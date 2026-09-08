@@ -1,0 +1,18 @@
+[
+  {
+    "best_fixed": "hybrid-24",
+    "fit_ns": 4846375,
+    "note": "in-sample costs; excludes feature/decision overhead, not generalization",
+    "training_fixed_ns": 16603627,
+    "training_tree_plan_only_ns": 14687247,
+    "unique_training_inputs": 80
+  },
+  {
+    "best_fixed": "hybrid-24",
+    "fit_ns": 10736584,
+    "note": "in-sample costs; excludes feature/decision overhead, not generalization",
+    "training_fixed_ns": 34929294,
+    "training_tree_plan_only_ns": 32131999,
+    "unique_training_inputs": 160
+  }
+]

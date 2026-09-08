@@ -1,0 +1,12 @@
+{
+  "extension_failures_retained": true,
+  "independent_inputs": {
+    "smoke": 28
+  },
+  "output_and_counts_checked": true,
+  "passed": true,
+  "refs_unchanged": true,
+  "rows": 644,
+  "source_hashes_unchanged": true,
+  "timed_repetitions": 1932
+}

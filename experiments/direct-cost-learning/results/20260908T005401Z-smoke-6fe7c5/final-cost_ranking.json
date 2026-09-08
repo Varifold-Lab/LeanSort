@@ -1,0 +1,86 @@
+{
+  "candidate_version": "verified-direct-seven-v1",
+  "feature_names": [
+    "length",
+    "probe_count",
+    "local_descent_permille",
+    "local_equal_permille",
+    "cross_descent_permille",
+    "sampled_left_range"
+  ],
+  "feature_version": "spread-adjacent16-v1",
+  "hyperparameters": {
+    "depth": 2,
+    "min_leaf": 8
+  },
+  "kind": "cost_ranking",
+  "schema_version": 1,
+  "target": "relative latency time/input-oracle; integer scale 1000000",
+  "training_hash": "56e9db1ada46358c55c398f2eee051ee6ceabe3ce4319444559665f163d220d5",
+  "training_inputs": 60,
+  "training_ns": 2974625,
+  "training_preferred_id": 1,
+  "tree": {
+    "feature": 2,
+    "kind": "branch",
+    "left": {
+      "feature": 4,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "values": [
+          2635550,
+          1687241,
+          1186230,
+          1200469,
+          1444416,
+          1054842,
+          1102933
+        ]
+      },
+      "right": {
+        "kind": "leaf",
+        "values": [
+          1598125,
+          1139580,
+          1508105,
+          1321243,
+          1275460,
+          1055329,
+          1355984
+        ]
+      },
+      "threshold": 0
+    },
+    "right": {
+      "feature": 2,
+      "kind": "branch",
+      "left": {
+        "kind": "leaf",
+        "values": [
+          1297785,
+          1007982,
+          1293141,
+          1366782,
+          1343885,
+          1217021,
+          2110238
+        ]
+      },
+      "right": {
+        "kind": "leaf",
+        "values": [
+          1231737,
+          1000000,
+          1228021,
+          1300538,
+          1285417,
+          1568392,
+          3191940
+        ]
+      },
+      "threshold": 437
+    },
+    "threshold": 250
+  }
+}

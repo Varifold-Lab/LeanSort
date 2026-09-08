@@ -1,0 +1,32 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["551172b3935e207a.olean"],
+  "m": false,
+  "i": "d8bffa83821d0cb4.ilean",
+  "c": "01ce93725e2f4f9a.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/moqian/LeanSort/.lake/packages/Cli/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/batteries/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/Qq/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/aesop/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/importGraph/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/plausible/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/mathlib/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/build/lib/lean /Users/moqian/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean /Users/moqian/LeanSort/LeanSort/Bubble/Algorithm.lean -o /Users/moqian/LeanSort/.lake/build/lib/lean/LeanSort/Bubble/Algorithm.olean -i /Users/moqian/LeanSort/.lake/build/lib/lean/LeanSort/Bubble/Algorithm.ilean -c /Users/moqian/LeanSort/.lake/build/ir/LeanSort/Bubble/Algorithm.c --setup /Users/moqian/LeanSort/.lake/build/ir/LeanSort/Bubble/Algorithm.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["deps",
+   [["leansort/LeanSort:extraDep",
+     [["@leansort:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["LeanSort.Operations transitive imports (legacy)", "b3d7a295e7ee80c6"],
+      ["LeanSort.Operations:importAllArts", "bfab260317a24fc2"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.34.0, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d",
+   "365244c167ac8c1d"],
+  ["/Users/moqian/LeanSort/LeanSort/Bubble/Algorithm.lean", "833ca5d5d9fb3883"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: LeanSort.Bubble.Algorithm", "ce90afa4ae2472f8"],
+  ["Package.id?: (some leansort)", "c099074cf6e8ec59"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "9c5aa51e0ff1853d"}

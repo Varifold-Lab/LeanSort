@@ -1,0 +1,17 @@
+{
+  "backend": "same lean --run direct executor for every candidate and deployed policy; no interpreter timing labels",
+  "branch": "experiment/direct-cost-learning",
+  "lean": "Lean (version 4.34.0-rc2, arm64-apple-darwin24.6.0, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+  "logical_cpus": 14,
+  "machine": "arm64",
+  "memory_monitor": "sample worker RSS every >=0.25s; includes Lean process, not algorithm space complexity",
+  "physical_memory_bytes": "25769803776",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "python": "Python 3.9.6",
+  "refs": {
+    "HEAD": "086c581604b626101006b9dbfaa1e78e26247afa",
+    "main": "086c581604b626101006b9dbfaa1e78e26247afa",
+    "refs/stash": "52d976d4ed8cf6bbf1253cdb92e478db59f15cf6"
+  },
+  "status": "?? LeanSort/Algorithm/Adaptive.lean\n?? LeanSort/Algorithm/ComparisonSort.lean\n?? LeanSort/Algorithm/CostedPlan.lean\n?? LeanSort/Algorithm/Direct/\n?? LeanSort/Algorithm/HybridMerge.lean\n?? LeanSort/Algorithm/LearnedSelection/\n?? LeanSort/Algorithm/PlanChecks.lean\n?? LeanSort/Algorithm/RunDiscovery.lean\n?? LeanSort/Algorithm/RunLengthPlan.lean\n?? LeanSort/Algorithm/RunMerge.lean\n?? LeanSort/Algorithm/RunStrategy.lean\n?? LeanSort/Model/ComparisonBounds.lean\n?? LeanSort/Model/MergeTree.lean\n?? LeanSort/Model/SortingPlan.lean\n?? LeanSort/Semantics/\n?? LeanSort/Verification/Adaptive/\n?? LeanSort/Verification/Comparison/\n?? LeanSort/Verification/CostedPlan/\n?? LeanSort/Verification/Direct/\n?? LeanSort/Verification/HybridMerge/\n?? LeanSort/Verification/LearnedSelection/\n?? LeanSort/Verification/RunAdaptive/\n?? experiments/"
+}

@@ -1,0 +1,26 @@
+{
+  "cases": 26,
+  "final_no_retuning": true,
+  "formal_checks": 17,
+  "kernel_certified_rs": [
+    0,
+    1,
+    4,
+    8
+  ],
+  "original_files_unchanged": 1113,
+  "passed": true,
+  "source_and_model_unchanged": true,
+  "split": {
+    "base_groups": 40,
+    "canonical_groups": 70,
+    "caveat": "No guarantee against coincidental structural similarity across independently generated groups; scale/reversal identity and explicit perturbation lineage checked.",
+    "inputs": 70,
+    "passed": true,
+    "unique_hashes": 70
+  },
+  "statuses": {
+    "ok": 156
+  },
+  "trees_checked": 45
+}

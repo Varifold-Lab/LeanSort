@@ -1,0 +1,25 @@
+{
+  "criteria": "first 8 named mathematical examples plus top 5 unconditional envelopes at n=64; structural dedup; before execution",
+  "frozen_before_any_candidate_execution": true,
+  "reference_n": 64,
+  "strategies": [
+    "single_merge",
+    "single_insertion",
+    "single_hybrid_4",
+    "single_hybrid_8",
+    "single_hybrid_16",
+    "p000_two_insertion",
+    "p001_two_guarded",
+    "p002_merge_halves",
+    "p003_guarded_merge",
+    "p004_prefix_insertion_merge",
+    "p005_three_guarded",
+    "p006_four_guarded",
+    "p007_mixed_hybrid",
+    "p028_split",
+    "p031_nested",
+    "p098_split",
+    "p024_split",
+    "p027_nested"
+  ]
+}

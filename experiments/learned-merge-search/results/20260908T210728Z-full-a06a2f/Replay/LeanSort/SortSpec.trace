@@ -1,0 +1,33 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["61423c2372b32eb4.olean"],
+  "m": false,
+  "i": "6dbbcd5b7fdf5a35.ilean",
+  "c": "73078e8977ccfa91.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/moqian/LeanSort/.lake/packages/Cli/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/batteries/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/Qq/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/aesop/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/importGraph/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/plausible/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/mathlib/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/build/lib/lean /Users/moqian/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean /Users/moqian/LeanSort/LeanSort/SortSpec.lean -o /Users/moqian/LeanSort/.lake/build/lib/lean/LeanSort/SortSpec.olean -i /Users/moqian/LeanSort/.lake/build/lib/lean/LeanSort/SortSpec.ilean -c /Users/moqian/LeanSort/.lake/build/ir/LeanSort/SortSpec.c --setup /Users/moqian/LeanSort/.lake/build/ir/LeanSort/SortSpec.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["deps",
+   [["leansort/LeanSort:extraDep",
+     [["@leansort:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["Mathlib.Data.List.Sort transitive imports (legacy)",
+       "2890bd9c41a8b9f3"],
+      ["Mathlib.Data.List.Sort:importAllArts", "bbcd35d42382f512"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.34.0, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d",
+   "365244c167ac8c1d"],
+  ["/Users/moqian/LeanSort/LeanSort/SortSpec.lean", "d1dd90441fd902d4"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: LeanSort.SortSpec", "f8245541083a95a3"],
+  ["Package.id?: (some leansort)", "c099074cf6e8ec59"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "c03141da4af8c515"}

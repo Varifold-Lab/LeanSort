@@ -1,0 +1,34 @@
+if local_descent_permille <= 187:
+  if cross_descent_permille <= 0:
+    if sampled_left_range <= 1217:
+      relative_costs=[2530527, 1731011, 1216057, 1288265, 1424492, 1068088, 1099194] -> runs_count
+    else:
+      relative_costs=[3591245, 2358164, 1096622, 1160092, 1347786, 1062390, 1092812] -> runs_count
+  else:
+    if local_descent_permille <= 0:
+      if length <= 80:
+        relative_costs=[1782521, 1299967, 1675708, 1460261, 1421226, 1000000, 1122167] -> runs_count
+      else:
+        relative_costs=[2236241, 1554142, 2160597, 1860808, 1703801, 1006075, 1051100] -> runs_count
+    else:
+      if cross_descent_permille <= 266:
+        relative_costs=[1705561, 1224057, 1618518, 1388619, 1350734, 1037304, 1164444] -> runs_count
+      else:
+        relative_costs=[1348191, 1070235, 1354723, 1370414, 1354654, 1031917, 1374112] -> runs_count
+else:
+  if local_descent_permille <= 687:
+    if local_descent_permille <= 375:
+      if sampled_left_range <= 364:
+        relative_costs=[1270658, 1000000, 1284295, 1306513, 1301157, 1202628, 1960811] -> hybrid_8
+      else:
+        relative_costs=[1237393, 1000000, 1241013, 1257374, 1241794, 1107949, 1796572] -> hybrid_8
+    else:
+      if local_equal_permille <= 0:
+        relative_costs=[1227844, 1000000, 1249029, 1257824, 1268042, 1246542, 2232609] -> hybrid_8
+      else:
+        relative_costs=[1250648, 1000000, 1280527, 1280444, 1281003, 1174957, 1997565] -> hybrid_8
+  else:
+    if length <= 80:
+      relative_costs=[1134247, 1000000, 1145524, 1183062, 1167080, 1558389, 3848221] -> hybrid_8
+    else:
+      relative_costs=[1050211, 1000000, 1051639, 1092825, 1054298, 1383230, 3846391] -> hybrid_8

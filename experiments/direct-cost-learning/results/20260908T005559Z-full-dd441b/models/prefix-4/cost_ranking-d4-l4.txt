@@ -1,0 +1,46 @@
+if local_descent_permille <= 187:
+  if cross_descent_permille <= 0:
+    if sampled_left_range <= 1217:
+      if length <= 24:
+        relative_costs=[2421417, 1534140, 1123269, 1178500, 1318792, 1064323, 1090779] -> runs_count
+      else:
+        relative_costs=[2639637, 1927881, 1308845, 1398031, 1530193, 1071853, 1107609] -> runs_count
+    else:
+      if length <= 240:
+        relative_costs=[3746091, 2474524, 1000000, 1082040, 1309392, 1053839, 1055905] -> fixed_two
+      else:
+        relative_costs=[3462207, 2261197, 1177139, 1225135, 1379782, 1069515, 1123568] -> runs_count
+  else:
+    if local_descent_permille <= 0:
+      if length <= 80:
+        relative_costs=[1782521, 1299967, 1675708, 1460261, 1421226, 1000000, 1122167] -> runs_count
+      else:
+        relative_costs=[2236241, 1554142, 2160597, 1860808, 1703801, 1006075, 1051100] -> runs_count
+    else:
+      if cross_descent_permille <= 266:
+        relative_costs=[1705561, 1224057, 1618518, 1388619, 1350734, 1037304, 1164444] -> runs_count
+      else:
+        relative_costs=[1348191, 1070235, 1354723, 1370414, 1354654, 1031917, 1374112] -> runs_count
+else:
+  if local_descent_permille <= 687:
+    if local_descent_permille <= 375:
+      if local_equal_permille <= 0:
+        relative_costs=[1240263, 1000000, 1249115, 1271631, 1244303, 1107614, 1763593] -> hybrid_8
+      else:
+        relative_costs=[1274573, 1000000, 1278467, 1287250, 1314672, 1235026, 2098005] -> hybrid_8
+    else:
+      if length <= 24:
+        relative_costs=[1281423, 1000000, 1344304, 1374426, 1374940, 1335886, 2256844] -> hybrid_8
+      else:
+        relative_costs=[1225500, 1000000, 1239535, 1236835, 1244225, 1178155, 2087220] -> hybrid_8
+  else:
+    if length <= 80:
+      if length <= 24:
+        relative_costs=[1103445, 1000000, 1135910, 1164925, 1154542, 1537815, 3687801] -> hybrid_8
+      else:
+        relative_costs=[1165050, 1000000, 1155139, 1201198, 1179618, 1578964, 4008641] -> hybrid_8
+    else:
+      if length <= 240:
+        relative_costs=[1059800, 1000000, 1058168, 1097492, 1064180, 1400723, 3814109] -> hybrid_8
+      else:
+        relative_costs=[1040623, 1000000, 1045110, 1088158, 1044416, 1365736, 3878673] -> hybrid_8

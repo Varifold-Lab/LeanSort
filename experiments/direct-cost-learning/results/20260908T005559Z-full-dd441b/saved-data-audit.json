@@ -1,0 +1,69 @@
+{
+  "checked_core_repetitions_including_warmups": 68880,
+  "conditional_applicable_records": 2212,
+  "models_retrained_identically_without_reselection": 24,
+  "note": "Post-test audit only: no refit model exported, no hyperparameter/feature/candidate change, no repeat timing",
+  "original_files_unchanged": 574,
+  "passed": true,
+  "recorded_samples": 97480,
+  "source_and_models_unchanged": true,
+  "split": {
+    "base_groups": 60,
+    "inputs": 600,
+    "passed": true,
+    "unique_hashes": 600
+  },
+  "statuses": {
+    "ok": 960
+  },
+  "supplement": {
+    "generalization": {
+      "base_groups": 4,
+      "note": "Oracle chooses smallest measured time, not fewest comparisons or smallest proved bound",
+      "oracle_chosen_counts": {
+        "1": 16,
+        "2": 4,
+        "5": 15,
+        "6": 5
+      },
+      "oracle_kernel_comparisons": 268335,
+      "ratios_by_length": {
+        "classifier": {
+          "1536": 0.9533951354981164,
+          "768": 0.9652764158607592
+        },
+        "cost_ranking": {
+          "1536": 0.9387281511253174,
+          "768": 0.9544497853766613
+        }
+      }
+    },
+    "test": {
+      "base_groups": 12,
+      "note": "Oracle chooses smallest measured time, not fewest comparisons or smallest proved bound",
+      "oracle_chosen_counts": {
+        "1": 49,
+        "2": 14,
+        "4": 1,
+        "5": 43,
+        "6": 13
+      },
+      "oracle_kernel_comparisons": 122913,
+      "ratios_by_length": {
+        "classifier": {
+          "24": 1.8205139906284968,
+          "240": 1.0062202212058957,
+          "512": 0.9834374010698581,
+          "80": 1.1941296744116543
+        },
+        "cost_ranking": {
+          "24": 1.9326160805065795,
+          "240": 1.006261744271959,
+          "512": 0.957059032185179,
+          "80": 1.2024699728625268
+        }
+      }
+    }
+  },
+  "validated_records": 960
+}

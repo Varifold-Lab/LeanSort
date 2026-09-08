@@ -1,0 +1,17 @@
+{
+  "all_outputs_features_counts_exports_checked": true,
+  "all_recorded_statuses": "ok",
+  "executor_unchanged": true,
+  "final_generation_after_model_freeze": true,
+  "final_models_unchanged": true,
+  "generalization_inputs": 40,
+  "grouping_and_hash_leakage_checks_passed": true,
+  "model_snapshots": 24,
+  "passed": true,
+  "refs_unchanged": true,
+  "source_hashes_unchanged": true,
+  "test_inputs": 120,
+  "training_candidate_records": 2240,
+  "training_inputs": 320,
+  "validation_inputs": 120
+}

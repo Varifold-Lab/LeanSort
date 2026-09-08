@@ -1,0 +1,27 @@
+{
+  "core_rs": [
+    4,
+    8
+  ],
+  "extrapolation_rs": [],
+  "frozen_at": "2026-09-08T20:06:11.505027+00:00",
+  "max_r": 8,
+  "memory_mib": 1024,
+  "node_budgets": [
+    8,
+    16,
+    32
+  ],
+  "not_executed_rs": [
+    16,
+    24,
+    32
+  ],
+  "request_seconds": 5,
+  "rounds": 1,
+  "selection_basis": "pilot time and allocation budget only; no comparison of relative search quality",
+  "total_seconds": 180,
+  "wall_budgets_ns": [
+    1000000
+  ]
+}

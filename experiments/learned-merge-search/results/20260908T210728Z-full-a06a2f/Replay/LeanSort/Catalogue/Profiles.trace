@@ -1,0 +1,33 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["184c3762efa5e94f.olean"],
+  "m": false,
+  "i": "f85ed02b2cd58907.ilean",
+  "c": "54817812c6e02dec.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/moqian/LeanSort/.lake/packages/Cli/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/batteries/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/Qq/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/aesop/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/importGraph/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/plausible/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/mathlib/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/packages/cslib/.lake/build/lib/lean:/Users/moqian/LeanSort/.lake/build/lib/lean /Users/moqian/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean /Users/moqian/LeanSort/LeanSort/Catalogue/Profiles.lean -o /Users/moqian/LeanSort/.lake/build/lib/lean/LeanSort/Catalogue/Profiles.olean -i /Users/moqian/LeanSort/.lake/build/lib/lean/LeanSort/Catalogue/Profiles.ilean -c /Users/moqian/LeanSort/.lake/build/ir/LeanSort/Catalogue/Profiles.c --setup /Users/moqian/LeanSort/.lake/build/ir/LeanSort/Catalogue/Profiles.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["deps",
+   [["leansort/LeanSort:extraDep",
+     [["@leansort:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["LeanSort.Search.Find transitive imports (legacy)", "37659c20ca9e3168"],
+      ["LeanSort.Search.Find:importAllArts", "fdaff2e555fa7434"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.34.0, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d",
+   "365244c167ac8c1d"],
+  ["/Users/moqian/LeanSort/LeanSort/Catalogue/Profiles.lean",
+   "8feb15ed1384e209"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: LeanSort.Catalogue.Profiles", "0906676d65c158dd"],
+  ["Package.id?: (some leansort)", "c099074cf6e8ec59"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "e9d65726a508c109"}

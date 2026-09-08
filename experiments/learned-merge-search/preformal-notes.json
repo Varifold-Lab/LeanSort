@@ -1,0 +1,14 @@
+{
+  "failures_preserved": [
+    "First smoke failed because Lean's package-root resolution needed non-replayed dependency artifacts copied into Replay; corrected without changing old files.",
+    "Second smoke ran successfully, but stricter saved-data audit exposed model hash dependence on JSON object key order. Canonical hashing and an explicit reload check added BEFORE any full confirmation run.",
+    "An optional py_compile command tried the macOS external cache and was denied; used non-writing compile(source) syntax checking. No cache permissions bypassed.",
+    "User interruption left no conflicting experiment writer. Original 1113-file snapshot still matches."
+  ],
+  "preformal_changes": [
+    "Hash dictionaries canonically; add serialization and cyclic-model fallback tests.",
+    "Include final structural assertion in total search duration.",
+    "Record search allocation peak as well as DP allocation peak in pilot.",
+    "No model hyperparameter, strategy, dataset family or resource grid changed based on smoke performance."
+  ]
+}

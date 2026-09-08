@@ -1,0 +1,91 @@
+{
+  "feature_names": [
+    "runs",
+    "left_count_per_mille",
+    "left_weight_per_mille",
+    "weight_imbalance",
+    "count_imbalance",
+    "max_share",
+    "concentration",
+    "left_max_share",
+    "right_max_share",
+    "boundary_share"
+  ],
+  "fit_ns": 376429125,
+  "hyperparameters": {
+    "depth": 2,
+    "min_leaf": 16
+  },
+  "model_bytes": 756,
+  "nodes": [
+    [
+      3,
+      662,
+      1,
+      4
+    ],
+    [
+      3,
+      440,
+      2,
+      3
+    ],
+    [
+      -1,
+      49234,
+      0,
+      0
+    ],
+    [
+      -1,
+      237466,
+      0,
+      0
+    ],
+    [
+      9,
+      604,
+      5,
+      6
+    ],
+    [
+      -1,
+      600889,
+      0,
+      0
+    ],
+    [
+      -1,
+      40125,
+      0,
+      0
+    ]
+  ],
+  "schema_version": 1,
+  "target": "optimal continuation regret / interval weight * 1000000",
+  "training_rows": 34980,
+  "tree": {
+    "feature": 3,
+    "left": {
+      "feature": 3,
+      "left": {
+        "value": 49234
+      },
+      "right": {
+        "value": 237466
+      },
+      "threshold": 440
+    },
+    "right": {
+      "feature": 9,
+      "left": {
+        "value": 600889
+      },
+      "right": {
+        "value": 40125
+      },
+      "threshold": 604
+    },
+    "threshold": 662
+  }
+}

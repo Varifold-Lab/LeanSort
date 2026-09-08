@@ -1,0 +1,210 @@
+{
+  "confirmation": {
+    "optimal": {
+      "common_reached": 11,
+      "hard_inputs": 48,
+      "learned_over_heuristic_time": {
+        "maximum": 2.376722493784468,
+        "mean": 1.0389797643310292,
+        "median": 1.1724428525710162,
+        "n": 11,
+        "p10": 0.13353905856572615,
+        "p90": 2.2608159294410424
+      },
+      "methods": {
+        "fixed": {
+          "first_time_ns": {
+            "maximum": 40625,
+            "mean": 37812.5,
+            "median": 37812.5,
+            "n": 2,
+            "p10": 35562.5,
+            "p90": 40062.5
+          },
+          "not_reached": 46,
+          "reached": 2
+        },
+        "heuristic": {
+          "first_time_ns": {
+            "maximum": 2589875,
+            "mean": 1035660.3076923077,
+            "median": 628792,
+            "n": 13,
+            "p10": 147517.2000000001,
+            "p90": 2346291.8000000003
+          },
+          "not_reached": 35,
+          "reached": 13
+        },
+        "learned": {
+          "first_time_ns": {
+            "maximum": 2462292,
+            "mean": 664812.5555555555,
+            "median": 260771.0,
+            "n": 18,
+            "p10": 73237.40000000001,
+            "p90": 1693266.8000000005
+          },
+          "not_reached": 30,
+          "reached": 18
+        }
+      },
+      "note": "Conditional paired first attainment, not recognition/certification time or an uncensored average."
+    },
+    "within_one_percent": {
+      "common_reached": 8,
+      "hard_inputs": 19,
+      "learned_over_heuristic_time": {
+        "maximum": 2.3889558525718915,
+        "mean": 1.2847479542192661,
+        "median": 1.260003147743594,
+        "n": 8,
+        "p10": 0.13572705686268818,
+        "p90": 2.31306170578456
+      },
+      "methods": {
+        "fixed": {
+          "first_time_ns": {
+            "maximum": 40625,
+            "mean": 31166.5,
+            "median": 31166.5,
+            "n": 2,
+            "p10": 23599.7,
+            "p90": 38733.3
+          },
+          "not_reached": 17,
+          "reached": 2
+        },
+        "heuristic": {
+          "first_time_ns": {
+            "maximum": 642667,
+            "mean": 454213.375,
+            "median": 584020.5,
+            "n": 8,
+            "p10": 29108.6,
+            "p90": 627878.8
+          },
+          "not_reached": 11,
+          "reached": 8
+        },
+        "learned": {
+          "first_time_ns": {
+            "maximum": 1474583,
+            "mean": 426817.1538461539,
+            "median": 168250,
+            "n": 13,
+            "p10": 56691.40000000001,
+            "p90": 1303341.6000000006
+          },
+          "not_reached": 6,
+          "reached": 13
+        }
+      },
+      "note": "Conditional paired first attainment, not recognition/certification time or an uncensored average."
+    }
+  },
+  "extrapolation": {
+    "optimal": {
+      "common_reached": 0,
+      "hard_inputs": 21,
+      "learned_over_heuristic_time": {
+        "maximum": null,
+        "mean": null,
+        "median": null,
+        "n": 0,
+        "p10": null,
+        "p90": null
+      },
+      "methods": {
+        "fixed": {
+          "first_time_ns": {
+            "maximum": null,
+            "mean": null,
+            "median": null,
+            "n": 0,
+            "p10": null,
+            "p90": null
+          },
+          "not_reached": 21,
+          "reached": 0
+        },
+        "heuristic": {
+          "first_time_ns": {
+            "maximum": 4606500,
+            "mean": 2567166.5,
+            "median": 2567166.5,
+            "n": 2,
+            "p10": 935699.7,
+            "p90": 4198633.300000001
+          },
+          "not_reached": 19,
+          "reached": 2
+        },
+        "learned": {
+          "first_time_ns": {
+            "maximum": 503375,
+            "mean": 503375,
+            "median": 503375,
+            "n": 1,
+            "p10": 503375.0,
+            "p90": 503375.0
+          },
+          "not_reached": 20,
+          "reached": 1
+        }
+      },
+      "note": "Conditional paired first attainment, not recognition/certification time or an uncensored average."
+    },
+    "within_one_percent": {
+      "common_reached": 1,
+      "hard_inputs": 6,
+      "learned_over_heuristic_time": {
+        "maximum": 0.20598936259016926,
+        "mean": 0.20598936259016926,
+        "median": 0.20598936259016926,
+        "n": 1,
+        "p10": 0.20598936259016926,
+        "p90": 0.20598936259016926
+      },
+      "methods": {
+        "fixed": {
+          "first_time_ns": {
+            "maximum": null,
+            "mean": null,
+            "median": null,
+            "n": 0,
+            "p10": null,
+            "p90": null
+          },
+          "not_reached": 6,
+          "reached": 0
+        },
+        "heuristic": {
+          "first_time_ns": {
+            "maximum": 3985792,
+            "mean": 2761416.6666666665,
+            "median": 2946958,
+            "n": 3,
+            "p10": 1670591.6,
+            "p90": 3778025.2
+          },
+          "not_reached": 3,
+          "reached": 3
+        },
+        "learned": {
+          "first_time_ns": {
+            "maximum": 607042,
+            "mean": 607042,
+            "median": 607042,
+            "n": 1,
+            "p10": 607042.0,
+            "p90": 607042.0
+          },
+          "not_reached": 5,
+          "reached": 1
+        }
+      },
+      "note": "Conditional paired first attainment, not recognition/certification time or an uncensored average."
+    }
+  }
+}

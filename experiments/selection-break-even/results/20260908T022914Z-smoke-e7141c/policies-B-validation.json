@@ -1,0 +1,1058 @@
+{
+  "eight-classifier-d2": {
+    "feature_kind": "eight",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "eight",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-eight-v1",
+      "hyperparameters": {
+        "depth": 2,
+        "min_leaf": 8
+      },
+      "kind": "classifier",
+      "schema_version": 1,
+      "target": "epsilon-tied fastest candidate ID",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 236458,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            4
+          ]
+        },
+        "right": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "threshold": 32
+        },
+        "threshold": 0
+      }
+    }
+  },
+  "eight-classifier-d4": {
+    "feature_kind": "eight",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "eight",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-eight-v1",
+      "hyperparameters": {
+        "depth": 4,
+        "min_leaf": 8
+      },
+      "kind": "classifier",
+      "schema_version": 1,
+      "target": "epsilon-tied fastest candidate ID",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 312542,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            4
+          ]
+        },
+        "right": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "threshold": 32
+        },
+        "threshold": 0
+      }
+    }
+  },
+  "eight-cost_ranking-d2": {
+    "feature_kind": "eight",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "eight",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-eight-v1",
+      "hyperparameters": {
+        "depth": 2,
+        "min_leaf": 8
+      },
+      "kind": "cost_ranking",
+      "schema_version": 1,
+      "target": "relative latency time/input-oracle; integer scale 1000000",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 360542,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            2266015,
+            1470956,
+            1728575,
+            1678190,
+            1424816,
+            1130833,
+            1350542
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1234718,
+            1013894,
+            1214479,
+            1278144,
+            1241562,
+            1313254,
+            2594785
+          ]
+        },
+        "threshold": 125
+      }
+    }
+  },
+  "eight-cost_ranking-d4": {
+    "feature_kind": "eight",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "eight",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-eight-v1",
+      "hyperparameters": {
+        "depth": 4,
+        "min_leaf": 8
+      },
+      "kind": "cost_ranking",
+      "schema_version": 1,
+      "target": "relative latency time/input-oracle; integer scale 1000000",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 391042,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            2266015,
+            1470956,
+            1728575,
+            1678190,
+            1424816,
+            1130833,
+            1350542
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1234718,
+            1013894,
+            1214479,
+            1278144,
+            1241562,
+            1313254,
+            2594785
+          ]
+        },
+        "threshold": 125
+      }
+    }
+  },
+  "eight-rule-n128-d125": {
+    "descent_cut": 125,
+    "feature_kind": "eight",
+    "kind": "rule",
+    "length_cut": 128
+  },
+  "eight-rule-n128-d250": {
+    "descent_cut": 250,
+    "feature_kind": "eight",
+    "kind": "rule",
+    "length_cut": 128
+  },
+  "eight-rule-n32-d125": {
+    "descent_cut": 125,
+    "feature_kind": "eight",
+    "kind": "rule",
+    "length_cut": 32
+  },
+  "eight-rule-n32-d250": {
+    "descent_cut": 250,
+    "feature_kind": "eight",
+    "kind": "rule",
+    "length_cut": 32
+  },
+  "fixed": {
+    "feature_kind": "length",
+    "id": 5,
+    "kind": "fixed"
+  },
+  "hybrid": {
+    "feature_kind": "length",
+    "id": 1,
+    "kind": "fixed"
+  },
+  "legacy-classifier-d2": {
+    "feature_kind": "legacy",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "legacy",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "local_descent_permille",
+        "local_equal_permille",
+        "cross_descent_permille",
+        "sampled_left_range"
+      ],
+      "feature_version": "budget-legacy-v1",
+      "hyperparameters": {
+        "depth": 2,
+        "min_leaf": 8
+      },
+      "kind": "classifier",
+      "schema_version": 1,
+      "target": "epsilon-tied fastest candidate ID",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 670791,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 4,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            4
+          ]
+        },
+        "right": {
+          "feature": 2,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "threshold": 375
+        },
+        "threshold": 200
+      }
+    }
+  },
+  "legacy-classifier-d4": {
+    "feature_kind": "legacy",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "legacy",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "local_descent_permille",
+        "local_equal_permille",
+        "cross_descent_permille",
+        "sampled_left_range"
+      ],
+      "feature_version": "budget-legacy-v1",
+      "hyperparameters": {
+        "depth": 4,
+        "min_leaf": 8
+      },
+      "kind": "classifier",
+      "schema_version": 1,
+      "target": "epsilon-tied fastest candidate ID",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 596542,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 4,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            4
+          ]
+        },
+        "right": {
+          "feature": 2,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "threshold": 375
+        },
+        "threshold": 200
+      }
+    }
+  },
+  "legacy-cost_ranking-d2": {
+    "feature_kind": "legacy",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "legacy",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "local_descent_permille",
+        "local_equal_permille",
+        "cross_descent_permille",
+        "sampled_left_range"
+      ],
+      "feature_version": "budget-legacy-v1",
+      "hyperparameters": {
+        "depth": 2,
+        "min_leaf": 8
+      },
+      "kind": "cost_ranking",
+      "schema_version": 1,
+      "target": "relative latency time/input-oracle; integer scale 1000000",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 1218167,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 4,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            2490220,
+            1580524,
+            1803279,
+            1715642,
+            1407992,
+            1136185,
+            1277668
+          ]
+        },
+        "right": {
+          "feature": 2,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1375715,
+              1067461,
+              1364587,
+              1465650,
+              1400903,
+              1137887,
+              1729558
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1220552,
+              1000469,
+              1195446,
+              1235725,
+              1210945,
+              1373088,
+              2891293
+            ]
+          },
+          "threshold": 375
+        },
+        "threshold": 200
+      }
+    }
+  },
+  "legacy-cost_ranking-d4": {
+    "feature_kind": "legacy",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "legacy",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "local_descent_permille",
+        "local_equal_permille",
+        "cross_descent_permille",
+        "sampled_left_range"
+      ],
+      "feature_version": "budget-legacy-v1",
+      "hyperparameters": {
+        "depth": 4,
+        "min_leaf": 8
+      },
+      "kind": "cost_ranking",
+      "schema_version": 1,
+      "target": "relative latency time/input-oracle; integer scale 1000000",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 1203750,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 4,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            2490220,
+            1580524,
+            1803279,
+            1715642,
+            1407992,
+            1136185,
+            1277668
+          ]
+        },
+        "right": {
+          "feature": 2,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1375715,
+              1067461,
+              1364587,
+              1465650,
+              1400903,
+              1137887,
+              1729558
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              1220552,
+              1000469,
+              1195446,
+              1235725,
+              1210945,
+              1373088,
+              2891293
+            ]
+          },
+          "threshold": 375
+        },
+        "threshold": 200
+      }
+    }
+  },
+  "legacy-rule-n128-d125": {
+    "descent_cut": 125,
+    "feature_kind": "legacy",
+    "kind": "rule",
+    "length_cut": 128
+  },
+  "legacy-rule-n128-d250": {
+    "descent_cut": 250,
+    "feature_kind": "legacy",
+    "kind": "rule",
+    "length_cut": 128
+  },
+  "legacy-rule-n32-d125": {
+    "descent_cut": 125,
+    "feature_kind": "legacy",
+    "kind": "rule",
+    "length_cut": 32
+  },
+  "legacy-rule-n32-d250": {
+    "descent_cut": 250,
+    "feature_kind": "legacy",
+    "kind": "rule",
+    "length_cut": 32
+  },
+  "length-classifier-d2": {
+    "feature_kind": "length",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "length",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-length-v1",
+      "hyperparameters": {
+        "depth": 2,
+        "min_leaf": 8
+      },
+      "kind": "classifier",
+      "schema_version": 1,
+      "target": "epsilon-tied fastest candidate ID",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 181792,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            1
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1
+          ]
+        },
+        "threshold": 32
+      }
+    }
+  },
+  "length-classifier-d4": {
+    "feature_kind": "length",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "length",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-length-v1",
+      "hyperparameters": {
+        "depth": 4,
+        "min_leaf": 8
+      },
+      "kind": "classifier",
+      "schema_version": 1,
+      "target": "epsilon-tied fastest candidate ID",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 147000,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            1
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1
+          ]
+        },
+        "threshold": 32
+      }
+    }
+  },
+  "length-cost_ranking-d2": {
+    "feature_kind": "length",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "length",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-length-v1",
+      "hyperparameters": {
+        "depth": 2,
+        "min_leaf": 8
+      },
+      "kind": "cost_ranking",
+      "schema_version": 1,
+      "target": "relative latency time/input-oracle; integer scale 1000000",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 209667,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            1692130,
+            1123081,
+            1295849,
+            1452953,
+            1232043,
+            1221391,
+            1981370
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1910250,
+            1386032,
+            1665287,
+            1542228,
+            1432220,
+            1202283,
+            1827642
+          ]
+        },
+        "threshold": 32
+      }
+    }
+  },
+  "length-cost_ranking-d4": {
+    "feature_kind": "length",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "length",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-length-v1",
+      "hyperparameters": {
+        "depth": 4,
+        "min_leaf": 8
+      },
+      "kind": "cost_ranking",
+      "schema_version": 1,
+      "target": "relative latency time/input-oracle; integer scale 1000000",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 200000,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 0,
+        "kind": "branch",
+        "left": {
+          "kind": "leaf",
+          "values": [
+            1692130,
+            1123081,
+            1295849,
+            1452953,
+            1232043,
+            1221391,
+            1981370
+          ]
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1910250,
+            1386032,
+            1665287,
+            1542228,
+            1432220,
+            1202283,
+            1827642
+          ]
+        },
+        "threshold": 32
+      }
+    }
+  },
+  "length-rule-n128-d125": {
+    "descent_cut": 125,
+    "feature_kind": "length",
+    "kind": "rule",
+    "length_cut": 128
+  },
+  "length-rule-n128-d250": {
+    "descent_cut": 250,
+    "feature_kind": "length",
+    "kind": "rule",
+    "length_cut": 128
+  },
+  "length-rule-n32-d125": {
+    "descent_cut": 125,
+    "feature_kind": "length",
+    "kind": "rule",
+    "length_cut": 32
+  },
+  "length-rule-n32-d250": {
+    "descent_cut": 250,
+    "feature_kind": "length",
+    "kind": "rule",
+    "length_cut": 32
+  },
+  "sixteen-classifier-d2": {
+    "feature_kind": "sixteen",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "sixteen",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-sixteen-v1",
+      "hyperparameters": {
+        "depth": 2,
+        "min_leaf": 8
+      },
+      "kind": "classifier",
+      "schema_version": 1,
+      "target": "epsilon-tied fastest candidate ID",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 268000,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "feature": 2,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "threshold": 0
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1
+          ]
+        },
+        "threshold": 125
+      }
+    }
+  },
+  "sixteen-classifier-d4": {
+    "feature_kind": "sixteen",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "sixteen",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-sixteen-v1",
+      "hyperparameters": {
+        "depth": 4,
+        "min_leaf": 8
+      },
+      "kind": "classifier",
+      "schema_version": 1,
+      "target": "epsilon-tied fastest candidate ID",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 258416,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "feature": 2,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              1
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              5
+            ]
+          },
+          "threshold": 0
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1
+          ]
+        },
+        "threshold": 125
+      }
+    }
+  },
+  "sixteen-cost_ranking-d2": {
+    "feature_kind": "sixteen",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "sixteen",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-sixteen-v1",
+      "hyperparameters": {
+        "depth": 2,
+        "min_leaf": 8
+      },
+      "kind": "cost_ranking",
+      "schema_version": 1,
+      "target": "relative latency time/input-oracle; integer scale 1000000",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 471459,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              2013505,
+              1214805,
+              1355687,
+              1582135,
+              1211958,
+              1122436,
+              1462564
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              2272276,
+              1579049,
+              1902588,
+              1714282,
+              1544873,
+              1134157,
+              1319855
+            ]
+          },
+          "threshold": 32
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1224914,
+            1000391,
+            1203374,
+            1239415,
+            1232868,
+            1345933,
+            2758164
+          ]
+        },
+        "threshold": 125
+      }
+    }
+  },
+  "sixteen-cost_ranking-d4": {
+    "feature_kind": "sixteen",
+    "kind": "learned",
+    "model": {
+      "candidate_version": "verified-direct-seven-v1",
+      "feature_kind": "sixteen",
+      "feature_names": [
+        "length",
+        "probe_count",
+        "descent_permille",
+        "unused_0",
+        "unused_1",
+        "unused_2"
+      ],
+      "feature_version": "budget-sixteen-v1",
+      "hyperparameters": {
+        "depth": 4,
+        "min_leaf": 8
+      },
+      "kind": "cost_ranking",
+      "schema_version": 1,
+      "target": "relative latency time/input-oracle; integer scale 1000000",
+      "training_hash": "d2a7d58d13dc849b392f759a6d6ccb21af00c6cf5379fe857330ee5578a42526",
+      "training_inputs": 32,
+      "training_ns": 472500,
+      "training_preferred_id": 1,
+      "tree": {
+        "feature": 2,
+        "kind": "branch",
+        "left": {
+          "feature": 0,
+          "kind": "branch",
+          "left": {
+            "kind": "leaf",
+            "values": [
+              2013505,
+              1214805,
+              1355687,
+              1582135,
+              1211958,
+              1122436,
+              1462564
+            ]
+          },
+          "right": {
+            "kind": "leaf",
+            "values": [
+              2272276,
+              1579049,
+              1902588,
+              1714282,
+              1544873,
+              1134157,
+              1319855
+            ]
+          },
+          "threshold": 32
+        },
+        "right": {
+          "kind": "leaf",
+          "values": [
+            1224914,
+            1000391,
+            1203374,
+            1239415,
+            1232868,
+            1345933,
+            2758164
+          ]
+        },
+        "threshold": 125
+      }
+    }
+  },
+  "sixteen-rule-n128-d125": {
+    "descent_cut": 125,
+    "feature_kind": "sixteen",
+    "kind": "rule",
+    "length_cut": 128
+  },
+  "sixteen-rule-n128-d250": {
+    "descent_cut": 250,
+    "feature_kind": "sixteen",
+    "kind": "rule",
+    "length_cut": 128
+  },
+  "sixteen-rule-n32-d125": {
+    "descent_cut": 125,
+    "feature_kind": "sixteen",
+    "kind": "rule",
+    "length_cut": 32
+  },
+  "sixteen-rule-n32-d250": {
+    "descent_cut": 250,
+    "feature_kind": "sixteen",
+    "kind": "rule",
+    "length_cut": 32
+  }
+}

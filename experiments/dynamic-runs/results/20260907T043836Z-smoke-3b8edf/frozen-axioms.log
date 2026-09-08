@@ -1,0 +1,2 @@
+'frozen_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frozen_cost' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,45 @@
+⚠ [884/916] Replayed LeanSort.Verification.Comparison.Semantics
+warning: LeanSort/Verification/Comparison/Semantics.lean:12:71: This simp argument is unused:
+  Nat.add_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Program.bind, Program.eval, ih, Nat.add_assoc, Nat.add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [889/916] Replayed LeanSort.Verification.Comparison.Components
+warning: LeanSort/Verification/Comparison/Components.lean:36:77: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: LeanSort/Verification/Comparison/Components.lean:137:64: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [checkSorted, Program.eval, decide_eq_true h, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LeanSort/Verification/Comparison/Components.lean:157:82: Unused tactic linter: `omega` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: LeanSort/Verification/Comparison/Components.lean:157:82: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: LeanSort/Verification/Comparison/Components.lean:157:65: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [914/1733] Replayed LeanSort.Verification.CostedPlan.Cost
+warning: LeanSort/Verification/CostedPlan/Cost.lean:37:37: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Bool.false_eq_true, ↓reduceIte, Program.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2043/2045] Replayed LeanSort.Verification.Comparison.Phases
+warning: LeanSort/Verification/Comparison/Phases.lean:12:6: This simp argument is unused:
+  Nat.add_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Program.bind, Program.count, Program.eval, ih, Nat.add_assoc, Nat.add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (2045 jobs).

@@ -1,0 +1,15 @@
+{
+  "a_completed": 16,
+  "a_total": 16,
+  "b_confirmation": 16,
+  "b_training": 32,
+  "b_validation": 16,
+  "feature_export_counts_outputs_verified": true,
+  "models_unchanged": true,
+  "no_test_tuning": true,
+  "original_files": 868,
+  "passed": true,
+  "source_unchanged": true,
+  "theorem_recompilation_and_axioms_passed": true,
+  "trained_models": 16
+}

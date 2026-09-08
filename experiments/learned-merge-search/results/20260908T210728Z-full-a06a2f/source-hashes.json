@@ -1,0 +1,21 @@
+{
+  "LeanSort/Algorithm/MergeSearch/Certificate.lean": "51296a44bbb86288cf4b1308b206f6bdb4072787ca3f58052d06486fc9293762",
+  "LeanSort/Model/MergeSearch.lean": "42281fe591df43cddd5982fd435878511f24b8e42bd6a8011e86e90e13c91d86",
+  "LeanSort/Verification/MergeSearch/Certificate.lean": "e8307706063ac0bd533d77b9fd44426f5284a1d225f18d24894f7a210f51dbc2",
+  "LeanSort/Verification/MergeSearch/Checks.lean": "87bb96c916f97379231f385f507c83a8d3741885afb418f9ec6773582f67dd62",
+  "experiments/learned-merge-search/README.md": "830316636fec1ad165d31b9e416ea7f9b610df264bc2d30aa6871a42af96fd73",
+  "experiments/learned-merge-search/Worker.lean": "f181fd47c6f6253fe6d81a50690e4941b642d2d6c588c4c9ac04125a83428e83",
+  "experiments/learned-merge-search/audit_saved.py": "ec3f90f1460e5febac57327e62bc70b89f82e7fa81f3de0d2a494c44451af338",
+  "experiments/learned-merge-search/build_checks.py": "53a653f20d3cbd9a5eb0b043c9524d3805159b8d85221143348fc57a9d9f4651",
+  "experiments/learned-merge-search/certificates.py": "f56baa7d1cf7b49dac315ac45335fb1fed7b1e5fb69374b1207718730d0337ef",
+  "experiments/learned-merge-search/config.json": "727ba9a0f876f12c36083d3169df9e0db7481b963103bd1e769b80aca118b493",
+  "experiments/learned-merge-search/core.py": "9517b14dd142f737d09e03b5d84f1a5055ed88f5c55481e9025ca4eb934e52f2",
+  "experiments/learned-merge-search/data.py": "63a4ce57d04706bf1111b9f7c304d03cbee0c96cfefeb9a92e23080cc760ca5a",
+  "experiments/learned-merge-search/learning.py": "f591d7f577823ef1f7f56348208f0825b02948ae22e58601b23984681b37546d",
+  "experiments/learned-merge-search/preformal-notes.json": "8237d15b54bc5bf0138f4132cc044d8680847c0f3f659cf8aac7753c4d3cf39f",
+  "experiments/learned-merge-search/reference.py": "44be30fbfecbc6902b6288c19d1af0c370f33471bd301317c286f79941cb57c0",
+  "experiments/learned-merge-search/reporting.py": "78eb5214172ebc7e6445b4454326e7f487040b4ff2d09c8c6055467a047b721b",
+  "experiments/learned-merge-search/run.py": "9f48793ad9f9f2d64b1a34a7c38a3dbbf2ab8797d6181c1b286cfb7a4a27be53",
+  "experiments/learned-merge-search/test_search.py": "664abd84dac14182af8d40c8d2602d2f9feb42fd88b4a7367293c2ee83b08ee7",
+  "experiments/learned-merge-search/test_serialization.py": "b970f67228ffc0402f5cf31d648540f649668fa17b63c28f5e8b6c41bf7e4ca1"
+}

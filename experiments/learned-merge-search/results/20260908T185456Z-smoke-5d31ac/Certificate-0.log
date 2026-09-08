@@ -1,0 +1,2 @@
+'optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'feasible' does not depend on any axioms

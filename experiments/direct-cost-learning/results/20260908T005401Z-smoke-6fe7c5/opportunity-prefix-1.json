@@ -1,0 +1,153 @@
+{
+  "train": {
+    "by_family": {
+      "duplicates": {
+        "fixed_ns": 55083,
+        "n": 2,
+        "oracle_ns": 46708
+      },
+      "long_runs": {
+        "fixed_ns": 33417,
+        "n": 2,
+        "oracle_ns": 32166
+      },
+      "perturbed": {
+        "fixed_ns": 25542,
+        "n": 2,
+        "oracle_ns": 25458
+      },
+      "random": {
+        "fixed_ns": 61334,
+        "n": 2,
+        "oracle_ns": 46459
+      },
+      "random_boundaries": {
+        "fixed_ns": 28124,
+        "n": 2,
+        "oracle_ns": 25208
+      },
+      "reverse": {
+        "fixed_ns": 68417,
+        "n": 2,
+        "oracle_ns": 48459
+      },
+      "short_runs": {
+        "fixed_ns": 48084,
+        "n": 2,
+        "oracle_ns": 46542
+      },
+      "skewed_runs": {
+        "fixed_ns": 27833,
+        "n": 2,
+        "oracle_ns": 27833
+      },
+      "sorted": {
+        "fixed_ns": 19500,
+        "n": 2,
+        "oracle_ns": 16792
+      },
+      "unequal_runs": {
+        "fixed_ns": 34417,
+        "n": 2,
+        "oracle_ns": 32042
+      }
+    },
+    "candidate_totals_ns": [
+      535168,
+      403208,
+      482334,
+      456502,
+      461001,
+      401751,
+      629206
+    ],
+    "fixed_id": 5,
+    "fixed_kernel_sum_ns": 401751,
+    "inputs": 20,
+    "note": "free hindsight oracle restricted to frozen candidates; excludes feature/inference and is not a deployable or globally optimal algorithm",
+    "oracle_kernel_sum_ns": 347667,
+    "oracle_over_fixed": 0.8653793021050352,
+    "winner_counts": {
+      "1": 10,
+      "2": 2,
+      "3": 1,
+      "5": 7
+    }
+  },
+  "validation": {
+    "by_family": {
+      "duplicates": {
+        "fixed_ns": 56833,
+        "n": 2,
+        "oracle_ns": 46416
+      },
+      "long_runs": {
+        "fixed_ns": 33250,
+        "n": 2,
+        "oracle_ns": 30625
+      },
+      "perturbed": {
+        "fixed_ns": 24458,
+        "n": 2,
+        "oracle_ns": 24208
+      },
+      "random": {
+        "fixed_ns": 56792,
+        "n": 2,
+        "oracle_ns": 48333
+      },
+      "random_boundaries": {
+        "fixed_ns": 41582,
+        "n": 2,
+        "oracle_ns": 41582
+      },
+      "reverse": {
+        "fixed_ns": 67916,
+        "n": 2,
+        "oracle_ns": 45041
+      },
+      "short_runs": {
+        "fixed_ns": 53541,
+        "n": 2,
+        "oracle_ns": 47542
+      },
+      "skewed_runs": {
+        "fixed_ns": 28918,
+        "n": 2,
+        "oracle_ns": 28918
+      },
+      "sorted": {
+        "fixed_ns": 19542,
+        "n": 2,
+        "oracle_ns": 18124
+      },
+      "unequal_runs": {
+        "fixed_ns": 33291,
+        "n": 2,
+        "oracle_ns": 30875
+      }
+    },
+    "candidate_totals_ns": [
+      550087,
+      417624,
+      485373,
+      489042,
+      467416,
+      416123,
+      668792
+    ],
+    "fixed_id": 5,
+    "fixed_kernel_sum_ns": 416123,
+    "inputs": 20,
+    "note": "free hindsight oracle restricted to frozen candidates; excludes feature/inference and is not a deployable or globally optimal algorithm",
+    "oracle_kernel_sum_ns": 361664,
+    "oracle_over_fixed": 0.8691276377417254,
+    "winner_counts": {
+      "1": 10,
+      "2": 2,
+      "3": 1,
+      "4": 1,
+      "5": 6
+    }
+  }
+}

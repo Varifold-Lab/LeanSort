@@ -1,0 +1,8 @@
+{
+  "base_groups": 96,
+  "canonical_groups": 176,
+  "caveat": "No guarantee against coincidental structural similarity across independently generated groups; scale/reversal identity and explicit perturbation lineage checked.",
+  "inputs": 176,
+  "passed": true,
+  "unique_hashes": 176
+}

@@ -1,0 +1,41 @@
+{
+  "all_checked": true,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "theorems": [
+    "symbolic_scanTail",
+    "symbolic_discover",
+    "symbolic_merge",
+    "symbolic_tree",
+    "symbolic_strategy",
+    "scan_counted_eq",
+    "scan_eq",
+    "merge_counted_eq",
+    "merge_eq",
+    "tree_counted_eq",
+    "tree_eq",
+    "run_counted_eq",
+    "run_eq",
+    "uncounted_eq_counted",
+    "uncounted_execution",
+    "execution_iff",
+    "scan_execution",
+    "merge_execution",
+    "tree_execution",
+    "correct",
+    "cost_bound",
+    "execution_bound",
+    "count_bound",
+    "length_bound",
+    "count_sorted_exact",
+    "length_sorted_exact",
+    "count_isBigO_structural",
+    "count_isBigO_nlog",
+    "staged_eq",
+    "phase_count_eq",
+    "phase_partition"
+  ]
+}

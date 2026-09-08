@@ -1,0 +1,19 @@
+if cross_descent_permille <= 200:
+  if cross_descent_permille <= 0:
+    relative_costs=[2579492, 1658470, 1247706, 1237014, 1465159, 1061873, 1129129] -> runs_count
+  else:
+    if local_descent_permille <= 62:
+      relative_costs=[1848445, 1332209, 1735135, 1327401, 1428415, 1061714, 1215015] -> runs_count
+    else:
+      if length <= 17:
+        relative_costs=[1482157, 1001724, 1529920, 1266523, 1181394, 1057638, 1344772] -> hybrid_8
+      else:
+        relative_costs=[1741539, 1244079, 1528019, 1360607, 1243162, 1000000, 1206001] -> runs_count
+else:
+  if local_descent_permille <= 500:
+    if local_descent_permille <= 375:
+      relative_costs=[1264808, 1010262, 1230098, 1342768, 1312061, 1126927, 1882250] -> hybrid_8
+    else:
+      relative_costs=[1347046, 1000000, 1337281, 1403178, 1394362, 1381591, 2333061] -> hybrid_8
+  else:
+    relative_costs=[1121656, 1000000, 1193014, 1241539, 1225789, 1557225, 3620445] -> hybrid_8

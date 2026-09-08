@@ -1,0 +1,35 @@
+{
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "old_theorems": [
+    "Direct.run_counted_eq",
+    "Direct.correct",
+    "Direct.cost_bound"
+  ],
+  "passed": true,
+  "theorems": [
+    "dispatch_correct",
+    "arbitrary_selector_correct",
+    "run_correct",
+    "fallback_correct",
+    "invalid_fallback",
+    "kernel_bound",
+    "kernel_execution",
+    "certificate",
+    "feature_counted_refines",
+    "feature_plain_refines",
+    "features_agree",
+    "selection_eval",
+    "selection_execution",
+    "selection_bound",
+    "feature_step_cost",
+    "feature_fold_cost",
+    "feature_cost",
+    "probePairs_length_le",
+    "feature_cost_le",
+    "selection_bound_80"
+  ]
+}

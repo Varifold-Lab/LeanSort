@@ -1,0 +1,37 @@
+import LeanSort.Verification.RunAdaptive.Strategy
+
+#print axioms LeanSort.RunAdaptive.discover_spec
+#print axioms LeanSort.RunAdaptive.discover_cost
+#print axioms LeanSort.RunAdaptive.discover_no_sorting
+#print axioms LeanSort.RunAdaptive.discover_count_le
+#print axioms LeanSort.RunAdaptive.discover_of_sorted
+#print axioms LeanSort.RunAdaptive.runCount_eq_descents
+#print axioms LeanSort.RunAdaptive.runCount_zero_iff
+#print axioms LeanSort.RunAdaptive.countPlan_leaves
+#print axioms LeanSort.RunAdaptive.countPlan_depth
+#print axioms LeanSort.RunAdaptive.countPlan_budget
+#print axioms LeanSort.RunAdaptive.lengthPlan_leaves
+#print axioms LeanSort.RunAdaptive.MergeTree.cost_le_budget
+#print axioms LeanSort.RunAdaptive.MergeTree.budget_le_weight_depth
+#print axioms LeanSort.RunAdaptive.MergeTree.no_checks
+#print axioms LeanSort.RunAdaptive.count_sort_spec
+#print axioms LeanSort.RunAdaptive.length_sort_spec
+#print axioms LeanSort.RunAdaptive.operational_certificate
+#print axioms LeanSort.RunAdaptive.cost_decomposition
+#print axioms LeanSort.RunAdaptive.check_cost
+#print axioms LeanSort.RunAdaptive.sorting_cost
+#print axioms LeanSort.RunAdaptive.cost_le_tree_budget
+#print axioms LeanSort.RunAdaptive.count_cost_le_upper
+#print axioms LeanSort.RunAdaptive.count_cost_le_nlog_envelope
+#print axioms LeanSort.RunAdaptive.empty_case
+#print axioms LeanSort.RunAdaptive.upper_le_structuralScale
+#print axioms LeanSort.RunAdaptive.count_cost_isBigO_structural
+#print axioms LeanSort.RunAdaptive.count_cost_isBigO_nlog
+#print axioms LeanSort.RunAdaptive.count_cost_of_sorted
+#print axioms LeanSort.RunAdaptive.sorted_cost_isBigO_linear
+#print axioms LeanSort.RunAdaptive.length_cost_of_sorted
+#print axioms LeanSort.RunAdaptive.unequal_length_witness
+#print axioms LeanSort.RunAdaptive.Strategy.correct
+#print axioms LeanSort.RunAdaptive.Strategy.cost_bound
+#print axioms LeanSort.RunAdaptive.Strategy.execution
+#print axioms LeanSort.RunAdaptive.Strategy.phases
