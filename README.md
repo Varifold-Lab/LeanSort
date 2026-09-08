@@ -31,16 +31,26 @@ Ten implemented algorithms; the table distinguishes full and partial verificatio
 | Merge sort | proved | comparison choices |
 | Pancake sort | proved | prefix reversals |
 | Quick sort | proved | not instrumented |
-| Heap sort | regression checks only | not instrumented |
+| Heap sort | proved | root extractions; checked replay |
 | Shell sort | proved | gapped transpositions |
 | Counting sort | proved | histogram updates; checked replay |
 | Radix sort | proved | binary partition choices |
 
 Quick sort uses a deterministic first pivot and a single partition pass.
 Heap sort reuses Batteries' array-backed binary heap, with a separate output
-array. Its sortedness and permutation proofs remain to be added.
+array. Its permutation theorem proves preservation of elements and their
+multiplicities; length and membership preservation follow directly. The proof
+covers sifting, heap construction, root removal, and the extraction loop.
+Sortedness follows from a minimum-heap invariant: sifting repairs the sole possible
+violating node, construction establishes heap order, and root removal preserves it.
+Heap's optional trace records each extracted value and the remaining heap size.
+Its output is proved equal to Batteries' output; replay accepts exactly the
+complete generated trace, rejecting missing, extra, or altered steps. Replay
+re-executes heap operations and does not independently certify sortedness.
 Quick and heap sort have edge-case checks and exhaustive checks of the
 243 length-five lists over `{0, 1, 2}`.
+Heap additionally checks traced execution, replay, and extraction cost on all
+364 lists of length at most five over the same alphabet.
 
 Shell sort uses halving gaps and gapped insertion on arrays. Counting sort
 uses a histogram; radix sort uses stable binary digit passes from least to
@@ -90,7 +100,7 @@ results already proved in this repository.
 | Merge sort | `O(n log n)` | comparisons | `O(n log n)` |
 | Pancake sort | `O(n²)` | prefix reversals | `O(n)` |
 | Quick sort | `O(n²)` | pending | not yet proved |
-| Heap sort | `O(n log n)` | pending | not yet proved |
+| Heap sort | `O(n log n)` | key comparisons; root extractions | comparisons `O(n log n)`; extractions exactly `n` |
 | Shell sort | `O(n²)` for halving gaps | gapped swaps | `≤ 2n²`; `O(n²)` |
 | Counting sort | `O(n + k)` | input visits, bucket initialization/enumeration, output entries | `Θ(n + k)` |
 | Radix sort | `O(n b)` for binary passes | digit tests; scan/partition/append work | exact tests `n * b`; work `Θ(n b)` |
@@ -117,6 +127,13 @@ Implementation-specific details:
 - **Heap sort:** the reference bound includes building the heap and extracting
   all elements. Batteries collects the result in a separate array, so the usual
   in-place heapsort space claim does not apply to this implementation.
+  The comparison-counted execution includes sibling and parent-child comparisons
+  during both construction and extraction, and is proved to return Batteries' result.
+  Each sift makes at most `2 * (floor(log2 n) + 1)` comparisons, yielding the
+  conservative whole-sort bound `4 * n * (floor(log2 n) + 1)` and a formal
+  `O(n log n)` theorem over the real logarithm. The separate extraction counter
+  remains exactly `n`. Index tests, allocation/copying, comparator bit costs,
+  and instrumentation overhead are outside the key-comparison model.
 - **Shell sort:** the bound is for the implemented `n/2, n/4, ..., 1` gaps.
   The formal counter is the number of transpositions in the generated trace.
   Each insertion at index `i` makes at most `i / gap` swaps; summing over the
@@ -143,7 +160,7 @@ swaps do not include finding minima, and pancake's `O(n)` flips do not include
 finding maxima or moving the elements of a reversed prefix. Neither is a
 linear-time sorting claim.
 
-Quick and heap sort still need formal cost definitions,
+Quick sort still needs a formal cost definition,
 a connection to their executable algorithms, concrete bounds, and asymptotic
 proofs. No total-runtime or space-complexity theorem is currently claimed.
 
