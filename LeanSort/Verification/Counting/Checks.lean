@@ -27,6 +27,12 @@ namespace LeanSort.Counting
 #guard replayHistogram? [2] [⟨2, 1⟩] #[0, 0] = none
 #guard replayHistogram? [1, 1] [⟨1, 3⟩, ⟨1, 4⟩] #[0, 2] = some #[0, 4]
 
+-- Stateful traversal preserves seeded counts and the legacy out-of-range helper behavior.
+#guard histogramTraceAux [1, 1] #[0, 2] = (#[0, 4], [⟨1, 3⟩, ⟨1, 4⟩])
+#guard histogramTraceAux [2] #[0, 0] = (#[0, 0], [⟨2, 0⟩])
+-- A certified key does not make an incorrect counter value acceptable.
+#guard replayBounded? [1] [⟨⟨1, by decide⟩, 0⟩] = none
+
 -- Cost cases distinguish list length from the allocated key range.
 #guard [([], 2), ([7], 19), ([0, 0, 0], 11),
     ([2, 1, 2, 0], 18), ([1000, 0, 1000, 1], 2014)].all
@@ -36,6 +42,7 @@ namespace LeanSort.Counting
   (List.replicate len [0, 1, 2]).sections.all fun xs =>
     countingSortResult xs == xs.mergeSort &&
       (sortTrace xs).1 == countingSortResult xs &&
-      replay? xs (countingSortTrace xs) == some (countingSortResult xs)
+      replay? xs (countingSortTrace xs) == some (countingSortResult xs) &&
+      replayBounded? xs (countingSortTraceBounded xs) == some (countingSortResult xs)
 
 end LeanSort.Counting
