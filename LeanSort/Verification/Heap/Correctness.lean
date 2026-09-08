@@ -4,8 +4,8 @@ public import LeanSort.Verification.Heap.Equations
 import all Batteries.Data.BinaryHeap.Basic
 public import Mathlib.Data.List.Sort
 
-/-! Element conservation for Batteries' binary-heap sort.
-These theorems do not yet establish that extraction is ordered. -/
+/-! Correctness of Batteries' binary-heap sort: element conservation and sortedness.
+The heap-order proof tracks a single possible violation during each sift. -/
 
 public section
 
@@ -101,5 +101,280 @@ theorem heapSortResult_perm [LinearOrder α] (xs : List α) :
 @[simp] theorem count_heapSortResult [LinearOrder α] (xs : List α) (x : α) :
     (heapSortResult xs).count x = xs.count x :=
   (heapSortResult_perm xs).count_eq x
+
+section Order
+
+variable [LinearOrder α]
+
+abbrev minLt (x y : α) : Bool := decide (y < x)
+
+/-- The two child positions of a binary heap node. -/
+def Child (parent child : Nat) : Prop :=
+  child = 2 * parent + 1 ∨ child = 2 * parent + 2
+
+private theorem Child.index_lt (h : Child p c) : p < c := by
+  rcases h with h | h <;> omega
+
+private theorem Child.parent_unique (h : Child p c) (h' : Child q c) : p = q := by
+  rcases h with h | h <;> rcases h' with h' | h' <;> omega
+
+/-- All parent-child edges starting at or after `start` satisfy the minimum-heap order. -/
+def HeapOrderedFrom (a : Vector α n) (start : Nat) : Prop :=
+  ∀ p c : Fin n, start ≤ p.val → Child p.val c.val → a[p] ≤ a[c]
+
+/-- During sifting, only `hole` may violate heap order. Its parent also bounds
+its children, so moving a child up cannot break the already repaired edge. -/
+def SiftInvariant (a : Vector α n) (start : Nat) (hole : Fin n) : Prop :=
+  (∀ p c : Fin n, start ≤ p.val → p ≠ hole → Child p.val c.val → a[p] ≤ a[c]) ∧
+  (∀ p c : Fin n, start ≤ p.val → Child p.val hole.val →
+    Child hole.val c.val → a[p] ≤ a[c])
+
+private theorem maxChild_none (a : Vector α n) (i : Fin n)
+    (h : BinaryHeap.maxChild minLt a i = none) :
+    ∀ c : Fin n, ¬ Child i.val c.val := by
+  unfold BinaryHeap.maxChild at h
+  dsimp only at h
+  split at h
+  · split at h
+    · split at h <;> contradiction
+    · contradiction
+  · intro c hc
+    rcases hc with hc | hc <;> omega
+
+private theorem maxChild_spec (a : Vector α n) (i j : Fin n)
+    (h : BinaryHeap.maxChild minLt a i = some j) :
+    Child i.val j.val ∧ ∀ c : Fin n, Child i.val c.val → a[j] ≤ a[c] := by
+  unfold BinaryHeap.maxChild at h
+  dsimp only at h
+  split at h
+  · split at h
+    · split at h
+      · cases h
+        constructor
+        · exact Or.inr rfl
+        · intro c hc
+          rcases hc with hc | hc
+          · have : c = ⟨2 * i.val + 1, by omega⟩ := Fin.ext hc
+            subst c
+            simp_all [minLt, le_of_lt]
+          · have : c = ⟨2 * i.val + 1 + 1, by omega⟩ := Fin.ext (by omega)
+            subst c
+            exact le_rfl
+      · cases h
+        constructor
+        · exact Or.inl rfl
+        · intro c hc
+          rcases hc with hc | hc
+          · have : c = ⟨2 * i.val + 1, by omega⟩ := Fin.ext hc
+            subst c
+            exact le_rfl
+          · have : c = ⟨2 * i.val + 1 + 1, by omega⟩ := Fin.ext (by omega)
+            subst c
+            simpa [minLt] using (show ¬ a[2 * i.val + 1 + 1] < a[2 * i.val + 1] from by simpa using ‹¬ minLt _ _ = true›)
+    · cases h
+      constructor
+      · exact Or.inl rfl
+      · intro c hc
+        have : c = ⟨2 * i.val + 1, by omega⟩ := Fin.ext (by rcases hc with hc | hc <;> omega)
+        subst c
+        exact le_rfl
+  · contradiction
+
+omit [LinearOrder α] in
+private theorem swap_get (a : Vector α n) (i j p : Fin n) :
+    (a.swap i j)[p] = if p = i then a[j] else if p = j then a[i] else a[p] := by
+  by_cases hi : p = i
+  · subst p; simp
+  · by_cases hj : p = j
+    · subst p; simp [hi]
+    · have hi' : p.val ≠ i.val := fun h => hi (Fin.ext h)
+      have hj' : p.val ≠ j.val := fun h => hj (Fin.ext h)
+      simp [hi, hj, hi', hj']
+
+private theorem SiftInvariant.swap (a : Vector α n) (i j : Fin n)
+    (hstart : start ≤ i.val) (h : SiftInvariant a start i)
+    (hij : Child i.val j.val) (hmin : ∀ c : Fin n, Child i.val c.val → a[j] ≤ a[c])
+    (hle : a[j] ≤ a[i]) : SiftInvariant (a.swap i j) start j := by
+  have hijlt := hij.index_lt
+  have hji : j ≠ i := fun he => by subst j; omega
+  constructor
+  · intro p c hp hpj hpc
+    rw [swap_get a i j p, swap_get a i j c]
+    by_cases hpi : p = i
+    · subst p
+      have hci : c ≠ i := fun he => by subst c; have := hpc.index_lt; omega
+      by_cases hcj : c = j
+      · subst c
+        simpa [hji] using hle
+      · simpa [hci, hcj] using hmin c hpc
+    · by_cases hci : c = i
+      · subst c
+        simpa [hpi, hpj] using h.2 p j hp hpc hij
+      · have hcj : c ≠ j := by
+          intro he
+          subst c
+          exact hpi (Fin.ext (hpc.parent_unique hij))
+        simpa [hpi, hpj, hci, hcj] using h.1 p c hp hpi hpc
+  · intro p c hp hpj hjc
+    rw [swap_get a i j p, swap_get a i j c]
+    have hpi : p = i := Fin.ext (hpj.parent_unique hij)
+    subst p
+    have hjclt := hjc.index_lt
+    have hci : c ≠ i := fun he => by subst c; omega
+    have hcj : c ≠ j := fun he => by subst c; omega
+    simpa [hci, hcj] using h.1 j c (by omega) hji hjc
+
+/-- Sifting repairs the one possible violation and preserves all other heap edges. -/
+theorem heapifyDown_ordered (a : Vector α n) (i : Fin n)
+    (hstart : start ≤ i.val) (h : SiftInvariant a start i) :
+    HeapOrderedFrom (BinaryHeap.heapifyDown minLt a i) start := by
+  fun_induction BinaryHeap.heapifyDown minLt a i with
+  | case1 a i hx =>
+    intro p c hp hpc
+    by_cases hpi : p = i
+    · subst p
+      exact False.elim (maxChild_none a i hx c hpc)
+    · exact h.1 p c hp hpi hpc
+  | case2 a i j hx hij hcmp ih =>
+    have hs := maxChild_spec a i j hx
+    exact ih (by have := hs.1.index_lt; omega)
+      (SiftInvariant.swap a i j hstart h hs.1 hs.2 (le_of_lt (by simpa using hcmp)))
+  | case3 a i j hx hij hcmp =>
+    have hs := maxChild_spec a i j hx
+    intro p c hp hpc
+    by_cases hpi : p = i
+    · subst p
+      exact (le_of_not_gt (by simpa using hcmp)).trans (hs.2 c hpc)
+    · exact h.1 p c hp hpi hpc
+
+theorem mkHeap_ordered (a : Vector α n) :
+    HeapOrderedFrom (BinaryHeap.mkHeap minLt a) 0 := by
+  have initial : HeapOrderedFrom a (n / 2) := by
+    intro p c hp hc
+    have := c.isLt
+    rcases hc with hc | hc <;> omega
+  unfold BinaryHeap.mkHeap
+  generalize_proofs hb
+  generalize n / 2 = k at hb initial ⊢
+  induction k generalizing a with
+  | zero => exact initial
+  | succ k ih =>
+    apply ih
+    apply heapifyDown_ordered _ _ (Nat.le_refl k)
+    constructor
+    · intro p c hp hne hpc
+      apply initial p c _ hpc
+      have : p.val ≠ k := fun he => hne (Fin.ext he)
+      omega
+    · intro p c hp hpi hpc
+      have := hpi.index_lt
+      dsimp only at this
+      omega
+
+/-- A minimum heap, expressed on the library's existing vector representation. -/
+def HeapOrdered (heap : BinaryHeap α minLt) : Prop := HeapOrderedFrom heap.vector 0
+
+private theorem heapOrdered_mk (a : Vector α n) :
+    HeapOrdered (⟨a.toArray⟩ : BinaryHeap α minLt) ↔ HeapOrderedFrom a 0 := by
+  rcases a with ⟨a, rfl⟩
+  rfl
+
+theorem initialHeap_ordered (xs : List α) : HeapOrdered (initialHeap xs) := by
+  exact (heapOrdered_mk _).2 (mkHeap_ordered ⟨xs.toArray, rfl⟩)
+
+private theorem pop_swap_invariant (a : Vector α n) (hn : 0 < n) (hn' : 0 < n - 1)
+    (h : HeapOrderedFrom a 0) :
+    SiftInvariant ((a.swap 0 (n - 1) hn (by omega)).pop) 0 ⟨0, hn'⟩ := by
+  constructor
+  · intro p c hp hne hpc
+    have hp0 : p.val ≠ 0 := fun he => hne (Fin.ext he)
+    have hpc' := hpc.index_lt
+    have hc0 : c.val ≠ 0 := by omega
+    have hplast : p.val ≠ n - 1 := Nat.ne_of_lt p.isLt
+    have hclast : c.val ≠ n - 1 := Nat.ne_of_lt c.isLt
+    simpa [Vector.getElem_pop, Vector.getElem_swap, hp0, hc0, hplast, hclast] using
+      h ⟨p.val, by omega⟩ ⟨c.val, by omega⟩ (by omega) hpc
+  · intro p c hp hpi hpc
+    have := hpi.index_lt
+    dsimp only at this
+    omega
+
+theorem popMax_ordered (heap : BinaryHeap α minLt) (h : HeapOrdered heap) :
+    HeapOrdered heap.popMax := by
+  by_cases hs : heap.size ≤ 1
+  · intro p c hp hpc
+    have hh := BinaryHeap.size_popMax heap
+    have := p.isLt
+    omega
+  unfold BinaryHeap.popMax
+  split
+  · exact h
+  · rename_i hn
+    split
+    · rename_i hn'
+      exact (heapOrdered_mk _).2 (heapifyDown_ordered _ _ (Nat.zero_le _)
+        (pop_swap_invariant heap.vector (Nat.pos_of_ne_zero hn) hn' h))
+    · omega
+
+/-- Every entry is bounded below by the root. -/
+theorem HeapOrdered.root_le (heap : BinaryHeap α minLt) (h : HeapOrdered heap)
+    (hn : 0 < heap.size) (i : Fin heap.size) : heap.vector[0] ≤ heap.vector[i] := by
+  have aux : ∀ k, ∀ hk : k < heap.size, heap.vector[0] ≤ heap.vector[k] := by
+    intro k
+    induction k using Nat.strong_induction_on with
+    | h k ih =>
+      intro hk
+      by_cases hk0 : k = 0
+      · subst k; exact le_rfl
+      · have hparent : (k - 1) / 2 < k := by omega
+        exact (ih _ hparent (by omega)).trans
+          (h ⟨(k - 1) / 2, by omega⟩ ⟨k, hk⟩ (Nat.zero_le _) (by
+            unfold Child
+            dsimp only
+            omega))
+  exact aux i.val i.isLt
+
+private theorem root_le_remaining (heap : BinaryHeap α minLt) (h : HeapOrdered heap)
+    (hx : heap.max = some x) : ∀ y ∈ heap.popMax.arr.toList, x ≤ y := by
+  intro y hy
+  have hy' := (popMax_perm heap hx).mem_iff.mp (List.mem_cons_of_mem x hy)
+  obtain ⟨i, hi, hiy⟩ := List.mem_iff_getElem.mp hy'
+  have hn := BinaryHeap.size_pos_of_max hx
+  have hx0 : heap.arr[0]'hn = x := by
+    simpa [BinaryHeap.max, Array.getElem?_eq_getElem hn] using hx
+  have hb := h.root_le heap hn ⟨i, by simpa [BinaryHeap.size] using hi⟩
+  change heap.arr[0] ≤ heap.arr[i] at hb
+  have hiy' : heap.arr[i] = y := by simpa only [Array.getElem_toList] using hiy
+  simpa only [hx0, hiy'] using hb
+
+private theorem extractTrace_values_perm (heap : BinaryHeap α minLt) :
+    ((extractTrace heap).map ExtractStep.value).Perm heap.arr.toList := by
+  fun_induction extractTrace heap with
+  | case1 heap hx =>
+    have : heap.arr = #[] := by simpa [BinaryHeap.max] using hx
+    simp [this]
+  | case2 heap x hx _ ih =>
+    exact (ih.cons x).trans (popMax_perm heap hx)
+
+theorem extractTrace_sorted (heap : BinaryHeap α minLt) (h : HeapOrdered heap) :
+    ((extractTrace heap).map ExtractStep.value).Pairwise (· ≤ ·) := by
+  fun_induction extractTrace heap with
+  | case1 => exact .nil
+  | case2 heap x hx _ ih =>
+    simp only [List.map_cons, List.pairwise_cons]
+    exact ⟨fun y hy => root_le_remaining heap h hx y
+      ((extractTrace_values_perm heap.popMax).mem_iff.mp hy), ih (popMax_ordered heap h)⟩
+
+theorem heapSortResult_sorted (xs : List α) :
+    (heapSortResult xs).Pairwise (· ≤ ·) := by
+  rw [← heapSortTrace_values]
+  exact extractTrace_sorted (initialHeap xs) (initialHeap_ordered xs)
+
+/-- The output is an ordered rearrangement of the input. -/
+theorem heapSortResult_correct (xs : List α) :
+    (heapSortResult xs).Pairwise (· ≤ ·) ∧ (heapSortResult xs).Perm xs :=
+  ⟨heapSortResult_sorted xs, heapSortResult_perm xs⟩
+
+end Order
 
 end LeanSort.Heap

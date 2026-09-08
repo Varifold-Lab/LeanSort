@@ -31,7 +31,7 @@ Ten implemented algorithms; the table distinguishes full and partial verificatio
 | Merge sort | proved | comparison choices |
 | Pancake sort | proved | prefix reversals |
 | Quick sort | proved | not instrumented |
-| Heap sort | permutation proved; sortedness pending | root extractions; checked replay |
+| Heap sort | proved | root extractions; checked replay |
 | Shell sort | proved | gapped transpositions |
 | Counting sort | proved | histogram updates; checked replay |
 | Radix sort | proved | binary partition choices |
@@ -41,8 +41,8 @@ Heap sort reuses Batteries' array-backed binary heap, with a separate output
 array. Its permutation theorem proves preservation of elements and their
 multiplicities; length and membership preservation follow directly. The proof
 covers sifting, heap construction, root removal, and the extraction loop.
-Sortedness remains to be proved: the heap-order invariant and its preservation
-are not yet formalized.
+Sortedness follows from a minimum-heap invariant: sifting repairs the sole possible
+violating node, construction establishes heap order, and root removal preserves it.
 Heap's optional trace records each extracted value and the remaining heap size.
 Its output is proved equal to Batteries' output; replay accepts exactly the
 complete generated trace, rejecting missing, extra, or altered steps. Replay
@@ -100,7 +100,7 @@ results already proved in this repository.
 | Merge sort | `O(n log n)` | comparisons | `O(n log n)` |
 | Pancake sort | `O(n²)` | prefix reversals | `O(n)` |
 | Quick sort | `O(n²)` | pending | not yet proved |
-| Heap sort | `O(n log n)` | root extractions | exact `n`; `Θ(n)` |
+| Heap sort | `O(n log n)` | key comparisons; root extractions | comparisons `O(n log n)`; extractions exactly `n` |
 | Shell sort | `O(n²)` for halving gaps | gapped swaps | `≤ 2n²`; `O(n²)` |
 | Counting sort | `O(n + k)` | input visits, bucket initialization/enumeration, output entries | `Θ(n + k)` |
 | Radix sort | `O(n b)` for binary passes | digit tests; scan/partition/append work | exact tests `n * b`; work `Θ(n b)` |
@@ -127,10 +127,13 @@ Implementation-specific details:
 - **Heap sort:** the reference bound includes building the heap and extracting
   all elements. Batteries collects the result in a separate array, so the usual
   in-place heapsort space claim does not apply to this implementation.
-  The formal counter charges one unit per root extraction, exactly `n` units.
-  It excludes heap construction, comparisons, internal swaps, and trace work;
-  its `Θ(n)` bound is not a total-runtime bound. A formal `O(n log n)` bound on
-  comparison work remains to be added.
+  The comparison-counted execution includes sibling and parent-child comparisons
+  during both construction and extraction, and is proved to return Batteries' result.
+  Each sift makes at most `2 * (floor(log2 n) + 1)` comparisons, yielding the
+  conservative whole-sort bound `4 * n * (floor(log2 n) + 1)` and a formal
+  `O(n log n)` theorem over the real logarithm. The separate extraction counter
+  remains exactly `n`. Index tests, allocation/copying, comparator bit costs,
+  and instrumentation overhead are outside the key-comparison model.
 - **Shell sort:** the bound is for the implemented `n/2, n/4, ..., 1` gaps.
   The formal counter is the number of transpositions in the generated trace.
   Each insertion at index `i` makes at most `i / gap` swaps; summing over the
