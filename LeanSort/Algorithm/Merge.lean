@@ -1,6 +1,11 @@
 import Cslib.Algorithms.Lean.MergeSort.MergeSort
 
-/-! Merge sort uses CSlib directly. The optional instrumentation records comparison choices. -/
+/-!
+Merge sort uses CSlib directly. Instrumentation records decisions when merging
+two runs: ties consume the left head, and exhausting either run appends the other
+without a comparison. `replayMerge?` checks these decisions. The verification
+layer supplies relational semantics and sorting certificates.
+-/
 
 namespace LeanSort.Merge
 
@@ -38,5 +43,19 @@ def sortTrace {α : Type} [LinearOrder α] (xs : List α) : List α × List Choi
 
 def mergeSortTrace {α : Type} [LinearOrder α] (xs : List α) : List Choice :=
   (sortTrace xs).2
+
+/-- Check a complete merge trace; reject missing, extra, or incorrect choices.
+The unconsumed suffix is copied without emitting comparison events. -/
+def replayMerge? {α : Type} [LinearOrder α] :
+    List Choice → List α → List α → Option (List α)
+  | [], [], ys => some ys
+  | [], xs, [] => some xs
+  | [], _ :: _, _ :: _ => none
+  | _ :: _, [], _ => none
+  | _ :: _, _ :: _, [] => none
+  | Choice.takeLeft :: trace, x :: xs, y :: ys =>
+      if x ≤ y then (replayMerge? trace xs (y :: ys)).map (x :: ·) else none
+  | Choice.takeRight :: trace, x :: xs, y :: ys =>
+      if x ≤ y then none else (replayMerge? trace (x :: xs) ys).map (y :: ·)
 
 end LeanSort.Merge

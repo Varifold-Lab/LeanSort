@@ -1,4 +1,5 @@
 import LeanSort.Verification.Insertion.Correctness
+import LeanSort.Verification.Insertion.Trace
 import LeanSort.Verification.Shared.InversionBounds
 
 /-! Exact adjacent-transposition cost of insertion sort. -/
@@ -58,5 +59,23 @@ def insertionSwapCost {α : Type*} [LinearOrder α] (xs : List α) : ℕ :=
     (xs : List α) :
     insertionSwapCost xs = inversions xs :=
   length_insertionSortTrace xs
+
+/-- Every adjacent-swap trace that sorts this input is at least as long as ours.
+This compares swaps, not comparisons or total runtime. -/
+theorem insertionSortTrace_minimal {α : Type*} [LinearOrder α]
+    (xs : List α) (trace : List Gen) (hs : (replay trace xs).Pairwise (· ≤ ·)) :
+    (insertionSortTrace xs).length ≤ trace.length := by
+  have h := inversions_le_replay_add_length trace xs
+  change inversions xs ≤ inversions (replay trace xs) + trace.length at h
+  simpa [inversions_eq_zero_of_pairwise hs, length_insertionSortTrace] using h
+
+/-- A sorted replay with minimal adjacent-swap length. -/
+theorem insertionSortTrace_optimal {α : Type*} [LinearOrder α] (xs : List α) :
+    IsSortingResult (· ≤ ·) xs (replay (insertionSortTrace xs) xs) ∧
+      ∀ trace : List Gen, (replay trace xs).Pairwise (· ≤ ·) →
+        (insertionSortTrace xs).length ≤ trace.length := by
+  refine ⟨?_, insertionSortTrace_minimal xs⟩
+  rw [replay_insertionSortTrace]
+  exact insertionSortResult_spec xs
 
 end LeanSort.Insertion

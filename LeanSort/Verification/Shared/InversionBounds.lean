@@ -1,4 +1,5 @@
 import LeanSort.Model.Inversions
+import LeanSort.Verification.Shared.RearrangementLemmas
 import Mathlib.Data.Nat.Choose.Basic
 
 /-! Shared inversion equations, extremal bounds, and a worst-case witness. -/
@@ -70,5 +71,58 @@ theorem inversions_eq_choose_two_of_pairwise_gt {α : Type*} [LinearOrder α]
     inversions (descendingRange n) = n.choose 2 := by
   simpa using
     inversions_eq_choose_two_of_pairwise_gt (descendingRange_pairwise_gt n)
+
+/-- Sorted lists have no inversions. -/
+theorem inversions_eq_zero_of_pairwise {α : Type*} [LinearOrder α]
+    {xs : List α} (hs : xs.Pairwise (· ≤ ·)) : inversions xs = 0 := by
+  induction xs with
+  | nil => rfl
+  | cons x xs ih =>
+    rw [inversions_cons, ih hs.of_cons, Nat.add_zero, List.countP_eq_zero]
+    intro y hy
+    simp only [decide_eq_true_eq]
+    exact not_lt_of_ge (List.rel_of_pairwise_cons hs hy)
+
+/-- One adjacent transposition can remove at most one inversion, including when
+the index is out of range and the transposition acts as the identity. -/
+theorem inversions_le_adjacent_add_one {α : Type*} [LinearOrder α]
+    (i : ℕ) (xs : List α) :
+    inversions xs ≤ inversions (Rearrangement.AdjacentTransposition.apply i xs) + 1 := by
+  induction i generalizing xs with
+  | zero =>
+    cases xs with
+    | nil => simp [inversions]
+    | cons x xs =>
+      cases xs with
+      | nil => simp [inversions]
+      | cons y ys =>
+        change inversions (x :: y :: ys) ≤ inversions (y :: x :: ys) + 1
+        simp only [inversions_cons, List.countP_cons]
+        split_ifs <;> omega
+  | succ i ih =>
+    cases xs with
+    | nil => simp [inversions]
+    | cons x xs =>
+      change inversions (x :: xs) ≤
+        inversions (x :: Rearrangement.AdjacentTransposition.apply i xs) + 1
+      simp only [inversions_cons]
+      have hc := (List.swap_perm xs i (i + 1)).countP_eq (fun y => decide (y < x))
+      change (Rearrangement.AdjacentTransposition.apply i xs).countP _ = xs.countP _ at hc
+      rw [hc]
+      have := ih xs
+      omega
+
+/-- Every adjacent-swap word pays for any inversions it removes. -/
+theorem inversions_le_replay_add_length {α : Type*} [LinearOrder α]
+    (trace : List Rearrangement.AdjacentTransposition.Gen) (xs : List α) :
+    inversions xs ≤ inversions (Rearrangement.replay
+      Rearrangement.AdjacentTransposition.apply trace xs) + trace.length := by
+  induction trace generalizing xs with
+  | nil => simp
+  | cons i trace ih =>
+    have hstep := inversions_le_adjacent_add_one i xs
+    have hrest := ih (Rearrangement.AdjacentTransposition.apply i xs)
+    simp only [Rearrangement.replay_cons, List.length_cons]
+    omega
 
 end LeanSort

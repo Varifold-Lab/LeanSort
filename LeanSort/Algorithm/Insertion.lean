@@ -1,4 +1,5 @@
 import LeanSort.Model.Rearrangement
+import Mathlib.Control.Monad.Writer
 
 /-!
 # Insertion sort, instrumented
@@ -12,6 +13,20 @@ namespace LeanSort.Insertion
 
 /-- A generator: `i` denotes the adjacent transposition of positions `i` and `i + 1`. -/
 abbrev Gen := Rearrangement.AdjacentTransposition.Gen
+
+universe u
+
+-- ULift lets a natural-number log accompany elements in any universe.
+private abbrev TraceM (α : Type u) := Writer (ULift.{u} (List Gen)) α
+
+private instance : Monad TraceM.{u} :=
+  WriterT.monad ⟨[]⟩ fun a b => ⟨a.down ++ b.down⟩
+
+private def recorded {α : Type u} (result : α × List Gen) : TraceM α :=
+  WriterT.mk (result.map id ULift.up)
+
+private def runTrace {α : Type u} (action : TraceM α) : α × List Gen :=
+  action.run.map id ULift.down
 
 /-- Insert `x`, sitting at position `off`, rightwards into the sorted block occupying
 positions `off + 1, off + 2, …`. Returns the new block and the generators applied. -/
@@ -28,9 +43,9 @@ from position `off`, so the tail's trace comes first. -/
 def sortTr {α : Type*} [LinearOrder α] (off : ℕ) : List α → List α × List Gen
   | [] => ([], [])
   | x :: l =>
-      let (s, t₁) := sortTr (off + 1) l
-      let (r, t₂) := insertTr off x s
-      (r, t₁ ++ t₂)
+      runTrace do
+        let sortedTail ← recorded (sortTr (off + 1) l)
+        recorded (insertTr off x sortedTail)
 
 /-- The word in the Coxeter generators emitted by insertion sort on `l`. -/
 def insertionSortTrace {α : Type*} [LinearOrder α] (l : List α) : List Gen :=
@@ -43,5 +58,12 @@ def insertionSortResult {α : Type*} [LinearOrder α] (l : List α) : List α :=
 /-- Apply a word of adjacent transpositions from left to right. -/
 def replay {α : Type*} (t : List Gen) (l : List α) : List α :=
   Rearrangement.replay Rearrangement.AdjacentTransposition.apply t l
+
+/-- A valid adjacent swap in a list of length `n`. -/
+abbrev SwapIndex (n : ℕ) := Fin (n - 1)
+
+/-- Replay a trace whose indices are certified for this input length. -/
+def replayBounded {α : Type*} (xs : List α) (trace : List (SwapIndex xs.length)) : List α :=
+  replay (trace.map Fin.val) xs
 
 end LeanSort.Insertion

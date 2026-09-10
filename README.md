@@ -21,14 +21,17 @@ comparison choices, which are not state-changing moves.
 
 ## Algorithms
 
-Ten implemented algorithms; the table distinguishes full and partial verification.
+All ten implemented algorithms have proofs that their output is sorted and is a
+permutation of the input. Trace verification and formal cost models have separate
+coverage, described below; quick sort has no trace instrumentation or formal cost
+model yet.
 
 | Algorithm | Sorting correctness | Trace |
 | --- | --- | --- |
-| Insertion sort | proved | adjacent transpositions |
+| Insertion sort | proved | shortest adjacent-swap trace; bounded indices |
 | Bubble sort | proved | adjacent transpositions |
 | Selection sort | proved | transpositions |
-| Merge sort | proved | comparison choices |
+| Merge sort | proved | comparison choices; single-merge derivations and checked replay |
 | Pancake sort | proved | prefix reversals |
 | Quick sort | proved | not instrumented |
 | Heap sort | proved | root extractions; checked replay |
@@ -36,7 +39,45 @@ Ten implemented algorithms; the table distinguishes full and partial verificatio
 | Counting sort | proved | histogram updates; checked replay |
 | Radix sort | proved | binary partition choices |
 
+Insertion sort sorts the tail first, then inserts the head, using `Writer` to
+accumulate the adjacent-swap trace. A single insertion scans the initial block of
+elements strictly smaller than the inserted value and emits exactly that interval
+of swaps. The `insertTr_spec` theorem combines agreement with `List.orderedInsert`,
+the exact trace, replay under any prefix, and preservation of sortedness.
+`insertionSortCertificate` packages the output, trace, replay equality, sortedness,
+and permutation proofs together. `insertionSortBoundedTrace` represents each swap
+index as `Fin (n - 1)`, proving both positions exist; erasing the bounds recovers
+the original trace, and bounded replay yields the same output.
+
+The trace length is proved equal to the input's inversion count.
+`insertionSortTrace_optimal` proves that replay sorts the input and that no
+adjacent-swap trace sorting the same input is shorter. This is an operation-count
+result; total runtime is outside this model. Exhaustive checks on all 364 lists of
+length at most five over `{0, 1, 2}` cover output agreement, ordinary and bounded
+replay, and the exact inversion cost. Minimality is established by a universal
+proof.
+
 Quick sort uses a deterministic first pivot and a single partition pass.
+
+Merge sort gives comparison choices a relational semantics through
+`MergeDerivation`: a left step requires `x ≤ y`, a right step requires `y < x`,
+and an exhausted run appends the other run without further comparisons.
+`replayMerge?_iff_derivation` proves that replay accepts exactly the legal
+derivations. Each derivation uniquely determines the instrumented result and
+trace; for sorted input runs, its contract gives a sorted permutation of their
+concatenation and the exact CSlib comparison count. Unsorted runs can also have
+legal traces, so replay acceptance alone does not imply sortedness.
+
+`mergeSortCertificate` binds the whole-sort output and flat trace to the
+instrumented execution, sortedness, permutation, and comparison count.
+The flat trace does not record recursive merge boundaries; the checked replay
+API applies to a single merge with its two input runs. Choosing the left head on
+ties is explicit, but no general key-based stability theorem is claimed.
+Regression checks cover all 1,600 pairs of runs of length at most three over
+`{0, 1, 2}`, and whole-sort certificates on all 364 lists of length at most five.
+See [Merge/Trace.lean](LeanSort/Verification/Merge/Trace.lean) for the semantics
+and certificate proofs.
+
 Heap sort reuses Batteries' array-backed binary heap, with a separate output
 array. Its permutation theorem proves preservation of elements and their
 multiplicities; length and membership preservation follow directly. The proof
@@ -94,7 +135,7 @@ results already proved in this repository.
 
 | Algorithm | Reference worst-case time | Formalized cost model | Proved result |
 | --- | --- | --- | --- |
-| Insertion sort | `O(n²)` | adjacent swaps, worst case | `Θ(n²)` |
+| Insertion sort | `O(n²)` | adjacent swaps | exactly the inversion count; minimal trace; worst case `Θ(n²)` |
 | Bubble sort | `O(n²)` | adjacent swaps, worst case | `Θ(n²)` |
 | Selection sort | `O(n²)` | arbitrary-position swaps | `O(n)` |
 | Merge sort | `O(n log n)` | comparisons | `O(n log n)` |
@@ -160,9 +201,22 @@ swaps do not include finding minima, and pancake's `O(n)` flips do not include
 finding maxima or moving the elements of a reversed prefix. Neither is a
 linear-time sorting claim.
 
-Quick sort still needs a formal cost definition,
-a connection to their executable algorithms, concrete bounds, and asymptotic
-proofs. No total-runtime or space-complexity theorem is currently claimed.
+Quick sort still needs a formal cost definition connected to its executable
+algorithm, concrete bounds, and asymptotic proofs. No total-runtime or
+space-complexity theorem is currently claimed.
+
+### Reading the Insertion trace proof
+
+- [Insertion/Equations.lean](LeanSort/Verification/Insertion/Equations.lean)
+  characterizes the single-insertion trace as a consecutive interval of swaps.
+- [Insertion/Trace.lean](LeanSort/Verification/Insertion/Trace.lean) proves replay,
+  certifies index bounds, and constructs the sorting certificate.
+- [Insertion/Cost.lean](LeanSort/Verification/Insertion/Cost.lean) proves the exact
+  inversion cost and minimality, using the shared
+  [inversion bounds](LeanSort/Verification/Shared/InversionBounds.lean).
+- [Insertion/Complexity.lean](LeanSort/Verification/Insertion/Complexity.lean)
+  proves the worst-case cost `n * (n - 1) / 2`, attained on descending inputs,
+  and its `Θ(n²)` asymptotic bound.
 
 ### Reading the Radix time-complexity proof
 
@@ -226,6 +280,14 @@ available verification categories, not mandatory empty placeholders.
 
 ## Build
 
+Install Lean through [elan](https://github.com/leanprover/elan). The repository's
+`lean-toolchain` selects Lean `v4.34.0-rc2`; dependency revisions are pinned in
+`lakefile.toml` and resolved in `lake-manifest.json`. From the repository root:
+
 ```sh
 lake build
 ```
+
+The default target is `LeanSort`. Its umbrella module imports all ten algorithms
+and their verification modules, including the executable `#guard` checks, so the
+build checks both proofs and regression examples.

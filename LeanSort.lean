@@ -1,5 +1,7 @@
 import LeanSort.Model.SortingResult
 import LeanSort.Model.Rearrangement
+
+-- Keep the umbrella module's import graph refreshable in the editor.
 import LeanSort.Model.Inversions
 
 import LeanSort.Algorithm.Insertion
