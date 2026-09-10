@@ -56,6 +56,11 @@ import LeanSort.Verification.Pancake.Complexity
 import LeanSort.Verification.Quick.Equations
 import LeanSort.Verification.Quick.Checks
 import LeanSort.Verification.Quick.Correctness
+import LeanSort.Verification.Quick.Trace
+import LeanSort.Verification.Quick.Semantics
+import LeanSort.Verification.Quick.Cost
+import LeanSort.Verification.Quick.Complexity
+import LeanSort.Verification.Quick.Tree
 
 import LeanSort.Verification.Heap.Checks
 import LeanSort.Verification.Heap.Equations

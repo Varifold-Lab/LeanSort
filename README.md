@@ -23,8 +23,7 @@ comparison choices, which are not state-changing moves.
 
 All ten implemented algorithms have proofs that their output is sorted and is a
 permutation of the input. Trace verification and formal cost models have separate
-coverage, described below; quick sort has no trace instrumentation or formal cost
-model yet.
+coverage, described below.
 
 | Algorithm | Sorting correctness | Trace |
 | --- | --- | --- |
@@ -33,7 +32,7 @@ model yet.
 | Selection sort | proved | transpositions |
 | Merge sort | proved | comparison choices; single-merge derivations and checked replay |
 | Pancake sort | proved | prefix reversals; active-prefix bounds and checked replay |
-| Quick sort | proved | not instrumented |
+| Quick sort | proved | comparison decision trees; checked recursive replay |
 | Heap sort | proved | root extractions; checked replay |
 | Shell sort | proved | gapped transpositions |
 | Counting sort | proved | histogram updates; checked replay |
@@ -57,7 +56,51 @@ length at most five over `{0, 1, 2}` cover output agreement, ordinary and bounde
 replay, and the exact inversion cost. Minimality is established by a universal
 proof.
 
-Quick sort uses a deterministic first pivot and a single partition pass.
+Quick sort uses a deterministic first pivot. `partitionTr` performs one scan,
+producing both partitions and their comparison decisions without re-comparing
+the input to construct the trace. `quickSortTr` is the single recursive execution
+core; `quickSortResult` projects its output.
+`PartitionSpec` identifies both sides with order-preserving filters, proves
+multiset conservation, and puts ties on the left and strictly greater keys on
+the right. This local order preservation is not a key-based stability theorem
+for the whole sort.
+
+`quickSortTr` records a tree with one node per pivot, the partition decisions in
+input order, and both recursive subtrees; empty calls have explicit leaves.
+Its output agrees with `quickSortResult` by definition. Checked replay validates every
+decision and recursive boundary while re-executing partitioning.
+`replayChecked?_iff` proves acceptance exactly when the supplied output and tree
+are the generated execution; any accepted tree therefore yields a sorted
+permutation. `quickSortCertificate` stores execution identity and derives replay
+and sorting correctness. This is a comparison trace, not a sequence of swaps.
+
+`PartitionDerivation` independently specifies legal left/right steps using order
+premises. `QuickDerivation` composes a partition derivation with both recursive
+derivations and pivot concatenation. Neither relation invokes the sorter.
+Both are proved equivalent to their executable counterparts;
+`replayChecked?_iff_derivation` connects checked replay to these rules.
+A derivation uniquely determines both output and trace, implies the sorting
+contract, and is provided by every execution certificate. See
+[Quick/Semantics.lean](LeanSort/Verification/Quick/Semantics.lean).
+
+The trace contains exactly one pivot per input occurrence. Its comparison count
+satisfies the exact partition recurrence and the universal bound `n*(n-1)/2`.
+Nonincreasing inputs (including duplicates) and strictly increasing inputs
+are proved to attain this bound; constant lists witness the maximum at every
+length. `worstComparisonCost_isTheta_quadratic` proves the resulting worst-case
+comparison cost is `Θ(n²)`.
+
+The structural depth sum ignores decision-list lengths. On generated trees it
+is proved equal to the comparison count: a pivot at depth `d` participated in
+`d` ancestor partitions. If `h` is the number of pivot levels on a longest
+branch, the proved bound is `comparisons + n ≤ n*h`. The worst-case input
+families above have height exactly `n`. See
+[Quick/Tree.lean](LeanSort/Verification/Quick/Tree.lean) and
+[Quick/Complexity.lean](LeanSort/Verification/Quick/Complexity.lean).
+Checks cover all 364 lists of length at most five over `{0, 1, 2}`, malformed
+comparison trees, and ascending, descending, all-equal, and balanced examples.
+See [Quick/Trace.lean](LeanSort/Verification/Quick/Trace.lean) and
+[Quick/Cost.lean](LeanSort/Verification/Quick/Cost.lean).
 
 Merge sort gives comparison choices a relational semantics through
 `MergeDerivation`: a left step requires `x ≤ y`, a right step requires `y < x`,
@@ -159,7 +202,7 @@ results already proved in this repository.
 | Selection sort | `O(n²)` | arbitrary-position swaps | `O(n)` |
 | Merge sort | `O(n log n)` | comparisons | `O(n log n)` |
 | Pancake sort | `O(n²)` | prefix reversals | `O(n)` |
-| Quick sort | `O(n²)` | pending | not yet proved |
+| Quick sort | `O(n²)` | partition key comparisons | exact worst case `n*(n-1)/2`; `Θ(n²)` |
 | Heap sort | `O(n log n)` | key comparisons; root extractions | comparisons `O(n log n)`; extractions exactly `n` |
 | Shell sort | `O(n²)` for halving gaps | gapped swaps | `≤ 2n²`; `O(n²)` |
 | Counting sort | `O(n + k)` | input visits, bucket initialization/enumeration, output entries | `Θ(n + k)` |
@@ -220,9 +263,9 @@ swaps do not include finding minima, and pancake's `O(n)` flips do not include
 finding maxima or moving the elements of a reversed prefix. Neither is a
 linear-time sorting claim.
 
-Quick sort still needs a formal cost definition connected to its executable
-algorithm, concrete bounds, and asymptotic proofs. No total-runtime or
-space-complexity theorem is currently claimed.
+Quick sort has an execution-linked comparison model, an attained exact worst-case
+bound, and a worst-case `Θ(n²)` theorem. Average-case and randomized-pivot
+theorems remain future work. No total-runtime or space-complexity theorem is claimed.
 
 ### Reading the Insertion trace proof
 
