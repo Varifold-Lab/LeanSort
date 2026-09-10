@@ -37,7 +37,10 @@ theorem round_eq {α : Type*} [LinearOrder α] (k : ℕ) (xs : List α) :
       let m := maxIdx (xs.take k)
       if m + 1 = k then (xs, [])
       else if m = 0 then (flip k xs, [k])
-      else (flip k (flip (m + 1) xs), [m + 1, k]) := rfl
+      else (flip k (flip (m + 1) xs), [m + 1, k]) := by
+  unfold round roundPlan
+  dsimp only
+  split_ifs <;> rfl
 
 theorem round_of_max_at_end {α : Type*} [LinearOrder α] (k : ℕ) (xs : List α)
     (h : maxIdx (xs.take k) + 1 = k) :

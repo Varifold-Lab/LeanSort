@@ -8,7 +8,7 @@ namespace LeanSort.Pancake
 theorem length_round_snd_le_two {α : Type*} [LinearOrder α]
     (k : ℕ) (xs : List α) :
     (round k xs).2.length ≤ 2 := by
-  unfold round
+  rw [round_eq]
   dsimp only
   split_ifs <;> simp
 
@@ -19,18 +19,9 @@ theorem length_sortAux_snd_le_two_mul {α : Type*} [LinearOrder α]
   induction k generalizing xs with
   | zero => simp [sortAux]
   | succ k ih =>
-      simp only [sortAux]
-      generalize hround : round (k + 1) xs = step
-      rcases step with ⟨afterRound, word⟩
-      generalize hsort : sortAux k afterRound = result
-      rcases result with ⟨sorted, rest⟩
-      simp only [List.length_append]
+      simp only [sortAux, List.length_append]
       have hr := length_round_snd_le_two (k + 1) xs
-      rw [hround] at hr
-      simp only at hr
-      have hs := ih afterRound
-      rw [hsort] at hs
-      simp only at hs
+      have hs := ih (round (k + 1) xs).1
       omega
 
 /-- The flip cost is the number of prefix reversals in the emitted trace. -/

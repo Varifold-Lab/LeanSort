@@ -1,4 +1,4 @@
-import LeanSort.Algorithm.Pancake
+import LeanSort.Verification.Pancake.Trace
 
 namespace LeanSort.Pancake
 
@@ -23,5 +23,35 @@ namespace LeanSort.Pancake
 
 #guard (pancakeSortTrace [4, 1, 5, 2, 3]).all (2 ≤ ·)
 #guard (pancakeSortTrace [4, 1, 5, 2, 3]).length ≤ 2 * 5 - 3
+
+-- All three round branches preserve the suffix; ties select the leftmost maximum.
+#guard round 3 [1, 2, 3, 0] = ([1, 2, 3, 0], [])
+#guard round 3 [3, 1, 2, 0] = ([2, 1, 3, 0], [3])
+#guard round 3 [1, 3, 2, 0] = ([2, 1, 3, 0], [2, 3])
+#guard maxIdx [2, 3, 3] = 1
+#guard round 3 [2, 3, 3, 0] = ([3, 2, 3, 0], [2, 3])
+
+-- Checked replay rejects degenerate and out-of-bounds moves.
+#guard replayChecked? [0] [3, 1, 2] = none
+#guard replayChecked? [1] [3, 1, 2] = none
+#guard replayChecked? [4] [3, 1, 2] = none
+#guard replayChecked? [3, 2] [3, 1, 2] = some [1, 2, 3]
+#guard replayChecked? [3, 4] [3, 1, 2] = none
+#guard replayChecked? [] ([] : List Nat) = some []
+-- Valid moves need not sort, and are not required to be the generated trace.
+#guard replayChecked? [2] [1, 2, 3] = some [2, 1, 3]
+
+-- All 364 lists of length at most five over {0, 1, 2}, and each active prefix.
+#guard (List.range 6).all fun n =>
+  ((List.replicate n [0, 1, 2]).sections).all fun xs =>
+    let cert := pancakeSortCertificate xs
+    cert.output == xs.mergeSort &&
+      replayChecked? cert.trace xs == some cert.output &&
+      cert.trace.length ≤ 2 * xs.length &&
+      (List.range (n + 1)).all fun k =>
+        let (result, trace) := sortAux k xs
+        result == (xs.take k).mergeSort ++ xs.drop k &&
+          replayChecked? trace xs == some result &&
+          trace.all (fun j => 2 ≤ j && j ≤ k)
 
 end LeanSort.Pancake

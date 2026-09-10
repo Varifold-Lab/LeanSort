@@ -32,7 +32,7 @@ model yet.
 | Bubble sort | proved | adjacent transpositions |
 | Selection sort | proved | transpositions |
 | Merge sort | proved | comparison choices; single-merge derivations and checked replay |
-| Pancake sort | proved | prefix reversals |
+| Pancake sort | proved | prefix reversals; active-prefix bounds and checked replay |
 | Quick sort | proved | not instrumented |
 | Heap sort | proved | root extractions; checked replay |
 | Shell sort | proved | gapped transpositions |
@@ -77,6 +77,25 @@ Regression checks cover all 1,600 pairs of runs of length at most three over
 `{0, 1, 2}`, and whole-sort certificates on all 364 lists of length at most five.
 See [Merge/Trace.lean](LeanSort/Verification/Merge/Trace.lean) for the semantics
 and certificate proofs.
+
+Pancake sort defines each round by selecting a maximum, constructing `roundPlan`,
+and replaying that plan. The plan is empty when the maximum is at the end, has one
+flip when it is at the head, and otherwise has two flips. Output and trace thus
+share one execution definition. `RoundSpec` states that replay reconstructs its
+output, the input multiset is preserved, at most two flips are emitted, and a
+maximum of the active prefix is fixed at its end while the suffix is untouched.
+Every emitted flip has length between two and the active-prefix length; later
+rounds stay within that range as the active prefix shrinks.
+
+`replayChecked?` rejects zero-length, single-element, and out-of-bounds flips.
+Its acceptance theorem characterizes exactly valid flip lengths and agreement
+with ordinary replay. A valid arbitrary trace need not sort the input.
+`pancakeSortCertificate` stores the output, trace, and their execution identity;
+sortedness, permutation, checked replay, and the `2*n` flip bound are derived
+from that identity. Exhaustive checks cover all
+364 lists of length at most five over `{0, 1, 2}` and every active-prefix length,
+including preservation of the suffix. See
+[Pancake/Trace.lean](LeanSort/Verification/Pancake/Trace.lean).
 
 Heap sort reuses Batteries' array-backed binary heap, with a separate output
 array. Its permutation theorem proves preservation of elements and their
