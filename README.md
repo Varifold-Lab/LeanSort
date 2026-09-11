@@ -29,7 +29,7 @@ coverage, described below.
 | --- | --- | --- |
 | Insertion sort | proved | shortest adjacent-swap trace; bounded indices |
 | Bubble sort | proved | adjacent transpositions |
-| Selection sort | proved | transpositions |
+| Selection sort | proved | bounded transpositions; checked replay and round contracts |
 | Merge sort | proved | comparison choices; single-merge derivations and checked replay |
 | Pancake sort | proved | prefix reversals; active-prefix bounds and checked replay |
 | Quick sort | proved | comparison decision trees; checked recursive replay |
@@ -55,6 +55,64 @@ result; total runtime is outside this model. Exhaustive checks on all 364 lists 
 length at most five over `{0, 1, 2}` cover output agreement, ordinary and bounded
 replay, and the exact inversion cost. Minimality is established by a universal
 proof.
+
+Selection sort exposes each minimum-selection round as a result paired with its
+zero-or-one swap plan. `MinimumSpec` independently characterizes the selected
+occurrence: it is a valid minimum and every earlier position is strictly larger.
+The contract is proved equivalent to `argmin?` and uniquely determines both
+index and value, establishing the leftmost tie policy.
+
+`RoundSpec` proves that replay fixes the minimum at the active head, preserves
+the input multiset and an arbitrary preceding prefix, retains the tail length,
+and emits at most one swap. Generated swaps satisfy `off ≤ i < j < off + n`;
+each round starts at its active head, so previously fixed positions remain intact.
+`replayChecked?` accepts exactly in-bounds swaps with `i < j` and agreement with
+ordinary replay. A valid arbitrary swap word need not sort. The execution-based
+`selectionSortCertificate` derives sorting correctness, checked replay, index
+bounds, and the swap budget. Choosing the first minimum does not claim whole-sort
+stability. Checks cover all 364 lists of length at most five over `{0, 1, 2}`,
+duplicate minima, prefix replay, and invalid swaps. See
+[Selection/Trace.lean](LeanSort/Verification/Selection/Trace.lean) and
+[Selection/Correctness.lean](LeanSort/Verification/Selection/Correctness.lean).
+
+Selection also certifies intermediate states: `SettledPrefix k` means the first
+`k` entries are ordered and no larger than any remaining entry.
+`selectionPartialCertificate` provides this invariant, exactly `min(k,n)` settled
+entries, permutation preservation, and checked replay under an arbitrary fixed
+prefix. Its swap budget is `min(k,n-1)` (natural subtraction gives zero on empty
+input); a complete run therefore uses at most `n-1` swaps. The final remaining
+element never requires a swap. Sufficient fuel gives the complete sorting
+contract. Regression checks exercise every small input at every fuel level from
+zero through two rounds beyond its length.
+
+`SelectionDerivation` independently describes every nonempty selection round,
+including rounds that emit no swap, using `MinimumSpec` and the primitive head
+swap. It is proved equivalent to `sortAuxTr`, and determines a unique output and
+trace for a fixed input, offset, and fuel budget. Its partial-prefix and swap-cost
+contracts follow from that equivalence.
+
+`replaySelectionAux?` and `replaySelection?` enforce the algorithm itself: they
+recompute each leftmost minimum and consume exactly its swap plan, rejecting
+missing, extra, or noncanonical swaps. Acceptance is proved equivalent to the
+generated execution and to a legal derivation. This checker re-executes minimum
+selection; it is not a cheaper independent sorting algorithm. It rejects a trace
+that sorts `[2,1,1]` by swapping with the later `1`, even though generic checked
+replay accepts that valid rearrangement. Both full and partial certificates now
+provide legal derivations and strict replay. See
+[Selection/Semantics.lean](LeanSort/Verification/Selection/Semantics.lean).
+
+Selection's comparison model is executable: `argminWithComparisons` charges one
+unit when comparing a head against an existing tail minimum, and is proved to
+return `argmin?`'s result with exactly `max(n-1,0)` comparisons.
+`sortAuxWithComparisons` uses those minimum scans and is proved to reproduce the
+entire original output/trace pair. After `k` rounds its cost is exactly
+`choose(n,2) - choose(n-k,2)`, with natural subtraction, including surplus fuel.
+A complete run therefore performs exactly `n*(n-1)/2` key comparisons on every
+input, including already sorted and all-equal lists. The comparison cost is
+formally `Θ(n²)` as input length grows, while swaps remain bounded by `n-1`.
+Full and partial certificates identify the counted execution as well. This model
+excludes index checks, swaps, list copying, and checker/instrumentation overhead.
+See [Selection/Comparisons.lean](LeanSort/Verification/Selection/Comparisons.lean).
 
 Quick sort uses a deterministic first pivot. `partitionTr` performs one scan,
 producing both partitions and their comparison decisions without re-comparing
@@ -218,7 +276,7 @@ results already proved in this repository.
 | --- | --- | --- | --- |
 | Insertion sort | `O(n²)` | adjacent swaps | exactly the inversion count; minimal trace; worst case `Θ(n²)` |
 | Bubble sort | `O(n²)` | adjacent swaps, worst case | `Θ(n²)` |
-| Selection sort | `O(n²)` | arbitrary-position swaps | `O(n)` |
+| Selection sort | `O(n²)` | key comparisons; arbitrary-position swaps | comparisons exactly `n*(n-1)/2`, `Θ(n²)`; swaps at most `n-1`, `O(n)` |
 | Merge sort | `O(n log n)` | comparisons | `O(n log n)` |
 | Pancake sort | `O(n²)` | prefix reversals | `O(n)` |
 | Quick sort | `O(n²)` | partition key comparisons | exact worst case `n*(n-1)/2`; `Θ(n²)` |

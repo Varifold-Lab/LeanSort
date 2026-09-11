@@ -48,6 +48,13 @@ def swapHeadAt {α : Type*} (i : ℕ) (x : α) (xs : List α) : α × List α :=
       | none => (x, xs)
       | some y => (y, xs.set j x)
 
+/-- One selection round fixes a minimum at the head of the active suffix.
+The same round supplies the new head/tail and its zero-or-one swap plan. -/
+def round {α : Type*} [LinearOrder α] (off : ℕ) (x : α) (xs : List α) :
+    (α × List α) × List Gen :=
+  let i := minIdx (x :: xs)
+  (swapHeadAt i x xs, if i = 0 then [] else [(off, off + i)])
+
 /-- Sort a suffix, using `fuel` remaining selection rounds.
 
 The suffix begins at the absolute position `off`, so emitted swap indices refer to the
@@ -56,11 +63,9 @@ def sortAuxTr {α : Type*} [LinearOrder α] : ℕ → ℕ → List α → List �
   | 0, _, xs => (xs, [])
   | _ + 1, _, [] => ([], [])
   | fuel + 1, off, x :: xs =>
-      let i := minIdx (x :: xs)
-      let (newHead, newTail) := swapHeadAt i x xs
-      let (result, trace) := sortAuxTr fuel (off + 1) newTail
-      if i = 0 then (newHead :: result, trace)
-      else (newHead :: result, (off, off + i) :: trace)
+      let step := round off x xs
+      let (result, trace) := sortAuxTr fuel (off + 1) step.1.2
+      (step.1.1 :: result, step.2 ++ trace)
 
 /-- Selection-sort result paired with the arbitrary-swap word produced by the algorithm. -/
 def sortTrace {α : Type*} [LinearOrder α] (xs : List α) : List α × List Gen :=
@@ -73,5 +78,38 @@ def selectionSortResult {α : Type*} [LinearOrder α] (xs : List α) : List α :
 /-- The word of arbitrary-position swaps emitted by selection sort. -/
 def selectionSortTrace {α : Type*} [LinearOrder α] (xs : List α) : List Gen :=
   (sortTrace xs).2
+
+/-- Checked transposition replay rejects reversed, trivial, and invalid indices.
+Acceptance alone describes a valid rearrangement; it does not imply sorting. -/
+def replayChecked? {α : Type*} : List Gen → List α → Option (List α)
+  | [], xs => some xs
+  | move :: rest, xs =>
+      if move.1 < move.2 ∧ move.2 < xs.length then
+        replayChecked? rest (apply move xs)
+      else none
+
+/-- Consume precisely one round's planned swaps, retaining the unconsumed trace. -/
+def consumePlan? : List Gen → List Gen → Option (List Gen)
+  | [], trace => some trace
+  | expected :: plan, actual :: trace =>
+      if expected = actual then consumePlan? plan trace else none
+  | _, _ => none
+
+/-- Check the selection algorithm itself, including rounds with no emitted swap.
+Each round recomputes the leftmost minimum and consumes exactly its swap plan.
+The returned list is the suffix result; indices use the ambient offset `off`. -/
+def replaySelectionAux? {α : Type*} [LinearOrder α] :
+    ℕ → ℕ → List α → List Gen → Option (List α)
+  | 0, _, xs, trace => if trace = [] then some xs else none
+  | _ + 1, _, [], trace => if trace = [] then some [] else none
+  | fuel + 1, off, x :: xs, trace =>
+      let step := round off x xs
+      (consumePlan? step.2 trace).bind fun rest =>
+        (replaySelectionAux? fuel (off + 1) step.1.2 rest).map (step.1.1 :: ·)
+
+/-- Strict full-sort verification. Unlike `replayChecked?`, this enforces the
+leftmost minimum choice and all implicit no-swap rounds. It re-executes selection. -/
+def replaySelection? {α : Type*} [LinearOrder α] (xs : List α) (trace : List Gen) :
+    Option (List α) := replaySelectionAux? xs.length 0 xs trace
 
 end LeanSort.Selection

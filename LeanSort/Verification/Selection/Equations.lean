@@ -36,6 +36,8 @@ theorem sortAuxTr_succ_cons {α : Type*} [LinearOrder α] (fuel off : ℕ)
       let (newHead, newTail) := swapHeadAt i x xs
       let (result, trace) := sortAuxTr fuel (off + 1) newTail
       if i = 0 then (newHead :: result, trace)
-      else (newHead :: result, (off, off + i) :: trace) := rfl
+      else (newHead :: result, (off, off + i) :: trace) := by
+  simp only [sortAuxTr, round]
+  split <;> simp
 
 end LeanSort.Selection

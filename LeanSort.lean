@@ -36,6 +36,8 @@ import LeanSort.Verification.Selection.Equations
 import LeanSort.Verification.Selection.Checks
 import LeanSort.Verification.Selection.Correctness
 import LeanSort.Verification.Selection.Trace
+import LeanSort.Verification.Selection.Semantics
+import LeanSort.Verification.Selection.Comparisons
 import LeanSort.Verification.Selection.Cost
 import LeanSort.Verification.Selection.Complexity
 

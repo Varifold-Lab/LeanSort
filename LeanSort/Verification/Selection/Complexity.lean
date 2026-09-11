@@ -1,11 +1,11 @@
-import LeanSort.Verification.Selection.Cost
-import Mathlib.Analysis.Asymptotics.Basic
+import LeanSort.Verification.Selection.Comparisons
+import Mathlib.Analysis.SpecialFunctions.Choose
 
 /-!
-# Asymptotic swap complexity of selection sort
+# Asymptotic swap and comparison complexity of selection sort
 
-This module measures only the arbitrary-position swaps recorded in the selection-sort
-trace. It does not state a bound on comparisons or on the total running time.
+Swaps are O(n), while minimum-scan comparisons are exactly n choose 2 and Θ(n²).
+Neither model counts list allocation, copying, or total elapsed running time.
 -/
 
 namespace LeanSort.Selection
@@ -23,5 +23,18 @@ theorem selectionSwapCost_isBigO_length {α : Type*} [LinearOrder α] :
   intro xs
   simp only [Real.norm_natCast]
   exact_mod_cast selectionSwapCost_le xs
+
+/-- Selection's key-comparison cost is Θ(n²) on all inputs as length grows. -/
+theorem selectionComparisonCost_isTheta_quadratic {α : Type*} [LinearOrder α] :
+    (fun xs : List α => (selectionComparisonCost xs : ℝ)) =Θ[
+      Filter.comap List.length Filter.atTop]
+      (fun xs : List α => (xs.length : ℝ) ^ 2) := by
+  have ht : Filter.Tendsto (List.length (α := α))
+      (Filter.comap List.length Filter.atTop) Filter.atTop := Filter.tendsto_comap
+  constructor
+  · simpa only [selectionComparisonCost_eq, Function.comp_def] using
+      ((isTheta_choose 2).1.comp_tendsto ht)
+  · simpa only [selectionComparisonCost_eq, Function.comp_def] using
+      ((isTheta_choose 2).2.comp_tendsto ht)
 
 end LeanSort.Selection
