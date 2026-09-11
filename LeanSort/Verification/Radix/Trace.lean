@@ -42,7 +42,7 @@ theorem replayDigit_eq (bit : ℕ) (xs : List ℕ) (step : DigitStep) :
   unfold replayDigit
   split
   · rename_i h
-    simp [h, partitionByChoices_map, digitPass]
+    simp [h, partitionByChoices_map, digitPass_eq_partition]
   · rfl
 
 theorem replayDigit_partitionTrace (bit : ℕ) (xs : List ℕ) :
@@ -62,7 +62,7 @@ theorem replayPasses_generated (bits : List ℕ) (xs : List ℕ) :
   | nil => rfl
   | cons bit bits ih =>
       simp only [passesTrace, replayPasses, replayDigit_partitionTrace, Option.bind_some]
-      simpa only [partitionTrace_parts, digitPass] using ih (digitPass bit xs)
+      simpa only [partitionTrace_parts, digitPass_eq_partition] using ih (digitPass bit xs)
 
 theorem replayPasses_sound (bits : List ℕ) (xs : List ℕ) (trace : List DigitStep)
     (ys : List ℕ) (h : replayPasses bits xs trace = some ys) :
@@ -86,14 +86,62 @@ theorem replayPasses_sound (bits : List ℕ) (xs : List ℕ) (trace : List Digit
 
 theorem replay_radixSortTrace (xs : List ℕ) :
     replay xs (radixSortTrace xs) = some (radixSortResult xs) := by
-  simpa only [replay, radixSortTrace, sortTrace, passesTrace_result, radixSortResult] using
+  simpa only [replay, radixSortTrace, sortTrace, passesTrace_result, radixSortResult_eq_passes] using
     replayPasses_generated (List.range (radixBits xs)) xs
 
 /-- Every accepted trace reconstructs a sorted permutation of the original input. -/
 theorem replay_sound (xs ys : List ℕ) (trace : List DigitStep)
     (h : replay xs trace = some ys) : LeanSort.IsSortingResult (· ≤ ·) xs ys := by
-  have hy : ys = radixSortResult xs := replayPasses_sound _ _ _ _ h
+  have hy : ys = radixSortResult xs := by
+    simpa only [radixSortResult_eq_passes] using replayPasses_sound _ _ _ _ h
   rw [hy]
   exact radixSortResult_spec xs
+
+/-- Acceptance fixes both the pass output and every field of its step. -/
+theorem replayDigit_iff (bit : ℕ) (xs ys : List ℕ) (step : DigitStep) :
+    replayDigit bit xs step = some ys ↔
+      ys = digitPass bit xs ∧ step = ⟨bit, (partitionTrace bit xs).2⟩ := by
+  rw [replayDigit_eq]
+  cases step with
+  | mk b choices =>
+      by_cases h : b = bit ∧ choices = xs.map (fun x => decide (x / 2 ^ bit % 2 = 0))
+      · obtain ⟨rfl, rfl⟩ := h
+        simp [partitionTrace_choices, eq_comm]
+      · simp_all [partitionTrace_choices]
+        aesop
+
+/-- Every accepted schedule has exactly the generated output and trace. -/
+theorem replayPasses_iff (bits : List ℕ) (xs ys : List ℕ) (trace : List DigitStep) :
+    replayPasses bits xs trace = some ys ↔ passesTrace bits xs = (ys, trace) := by
+  constructor
+  · intro h
+    induction bits generalizing xs trace with
+    | nil =>
+        cases trace with
+        | nil => simpa [replayPasses, passesTrace] using h
+        | cons step rest => simp [replayPasses] at h
+    | cons bit bits ih =>
+        cases trace with
+        | nil => simp [replayPasses] at h
+        | cons step rest =>
+            simp only [replayPasses] at h
+            cases hd : replayDigit bit xs step with
+            | none => simp [hd] at h
+            | some next =>
+                simp only [hd, Option.bind_some] at h
+                obtain ⟨hn, hs⟩ := (replayDigit_iff bit xs next step).mp hd
+                have ht := ih next rest h
+                rw [hn] at ht
+                simp only [passesTrace]
+                change ((passesTrace bits (digitPass bit xs)).1,
+                  ⟨bit, (partitionTrace bit xs).2⟩ ::
+                    (passesTrace bits (digitPass bit xs)).2) = (ys, step :: rest)
+                rw [ht, hs]
+  · intro h
+    simpa only [h] using replayPasses_generated bits xs
+
+theorem replay_iff (xs ys : List ℕ) (trace : List DigitStep) :
+    replay xs trace = some ys ↔ sortTrace xs = (ys, trace) :=
+  replayPasses_iff _ _ _ _
 
 end LeanSort.Radix

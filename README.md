@@ -181,11 +181,30 @@ replay checks the input order and counter updates before expanding the histogram
 Both generated-trace acceptance and arbitrary accepted-trace correctness are
 proved. These are histogram events, not position swaps.
 
-Radix sort proves that each pass orders the processed low bits, yielding a sorted
-permutation after all passes. Its instrumented implementation agrees with the
-original result; trace replay validates bit order and every bucket choice,
-rejecting missing, extra, or incorrect decisions and rounds. Every accepted trace
-reconstructs a sorted permutation of its input.
+Radix sort uses one partition implementation for the pass result and its bucket
+decisions; `radixSortResult` projects the same `sortTrace` execution that supplies
+the trace. Each pass orders the processed low bits, yielding a sorted permutation
+after the full least-significant-digit schedule.
+
+`PartitionDerivation` specifies zero/one digit rules independently of execution.
+Its contract identifies both buckets with order-preserving filters and proves
+multiset conservation and one decision per input occurrence. `DigitDerivation`
+joins the buckets; `PassesDerivation` composes the exact supplied bit schedule.
+Legal derivations, generated execution, and checked replay are proved equivalent,
+and the output and trace are unique for a fixed input and schedule.
+
+An arbitrary schedule preserves elements but need not sort. A pass advances
+`SortedBits bit` to `SortedBits (bit + 1)` when its input satisfies that invariant;
+the canonical prefix `[0, ..., b-1]` establishes `SortedBits b`. Complete-sort replay
+enforces its canonical schedule and rejects missing, extra, or incorrect decisions
+and rounds. Every accepted complete-sort trace reconstructs a sorted permutation.
+
+`radixSortCertificate` derives replay, a legal derivation, sortedness, permutation,
+the round count, and exactly `n*b` digit tests from its execution identity.
+Empty and all-zero inputs still have one round, including an empty decision list
+for an empty input. Checks include directly constructed derivations and a legal
+noncanonical schedule whose output is not sorted. See
+[Radix/Semantics.lean](LeanSort/Verification/Radix/Semantics.lean).
 
 ## Complexity
 

@@ -40,7 +40,7 @@ theorem passesTrace_cost (bits : List ℕ) (xs : List ℕ) :
       change (partitionTrace bit xs).2.length +
         traceCost (passesTrace bits _).2 = _
       rw [partitionTrace_choice_count, ih, partitionTrace_parts]
-      change xs.length + bits.length * (digitPass bit xs).length = _
+      rw [← digitPass_eq_partition]
       simp [Nat.add_mul, Nat.add_comm]
 
 theorem radixSortTrace_round_count (xs : List ℕ) :
@@ -85,12 +85,12 @@ theorem passesWithWork_result (bits : List ℕ) (xs : List ℕ) :
       bits.foldl (fun result bit => digitPass bit result) xs := by
   induction bits generalizing xs with
   | nil => rfl
-  | cons bit bits ih => simp [passesWithWork, ih, digitPass]
+  | cons bit bits ih => simp [passesWithWork, ih, digitPass_eq_partition]
 
 /-- The cost is attached to a run that returns the original algorithm's output. -/
 theorem sortWithWork_result (xs : List ℕ) :
     (sortWithWork xs).1 = radixSortResult xs :=
-  passesWithWork_result _ _
+  by rw [radixSortResult_eq_passes]; exact passesWithWork_result _ _
 
 /-- Each round visits all `n` elements and copies at most `n` zero-bucket nodes.
 Length preservation makes these per-round bounds accumulate over all rounds. -/
@@ -103,7 +103,9 @@ theorem passesWithWork_bounds (bits : List ℕ) (xs : List ℕ) :
       have rest := ih (digitPass bit xs)
       rw [digitPass_length] at rest
       have buckets := digitPass_length bit xs
-      simp only [digitPass, List.length_append] at buckets
+      simp only [digitPass_eq_partition, List.length_append] at buckets
+      simp only [passesWithWork, List.length_cons]
+      rw [← digitPass_eq_partition]
       change (bits.length + 1) * xs.length ≤
           xs.length + (xs.partition (fun x => decide (x / 2 ^ bit % 2 = 0))).1.length +
             (passesWithWork bits (digitPass bit xs)).2 ∧

@@ -1,8 +1,31 @@
 import LeanSort.Verification.Radix.Complexity
+import LeanSort.Verification.Radix.Semantics
 
 /-! Regression checks, including all lists of length at most five over {0, 1, 2}. -/
 
 namespace LeanSort.Radix
+
+-- Rules can derive a pass directly, including stable order inside each bucket.
+example : PartitionDerivation 0 [3, 2, 1, 0] [2, 0] [3, 1]
+    [false, true, false, true] :=
+  .one (by decide) (.zero (by decide) (.one (by decide) (.zero (by decide) .nil)))
+
+example : DigitDerivation 0 [2, 1] ⟨0, [true, false]⟩ [2, 1] :=
+  .join (.zero (by decide) (.one (by decide) .nil))
+
+-- A legal pass need not fully sort: the invariant refers to processed low bits.
+#guard replayDigit 0 [2, 1] ⟨0, [true, false]⟩ = some [2, 1]
+#guard passesTrace [1, 0] [3, 2, 1, 0] =
+  ([0, 2, 1, 3], [⟨1, [false, false, true, true]⟩, ⟨0, [false, true, false, true]⟩])
+#guard replayPasses [1, 0] [3, 2, 1, 0] (passesTrace [1, 0] [3, 2, 1, 0]).2 =
+  some [0, 2, 1, 3]
+#guard replay [3, 2, 1, 0] (passesTrace [1, 0] [3, 2, 1, 0]).2 = none
+#guard (radixSortCertificate []).trace = [⟨0, []⟩]
+#guard (radixSortCertificate [0, 0]).trace = [⟨0, [true, true]⟩]
+
+example (xs : List ℕ) :
+    LeanSort.IsSortingResult (· ≤ ·) xs (radixSortCertificate xs).output :=
+  (radixSortCertificate xs).spec
 
 #guard radixSortResult ([] : List Nat) = []
 #guard radixSortResult [7] = [7]
@@ -71,6 +94,7 @@ example (xs : List ℕ) :
       (sortTrace xs).1 == radixSortResult xs &&
       replay xs (radixSortTrace xs) == some (radixSortResult xs) &&
       digitTests xs == xs.length * radixBits xs &&
+      (radixSortCertificate xs).trace.map DigitStep.bit == List.range (radixBits xs) &&
       (sortWithWork xs).1 == radixSortResult xs &&
       decide (xs.length * radixBits xs ≤ radixWorkCost xs ∧
         radixWorkCost xs ≤ 3 * (xs.length * radixBits xs))

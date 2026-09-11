@@ -14,16 +14,6 @@ namespace LeanSort.Radix
 /-- Number of binary passes, including one pass for an empty or all-zero input. -/
 def radixBits (xs : List ℕ) : ℕ := (xs.foldl max 0).log2 + 1
 
-/-- Stable partition by one binary digit: zero-bit keys precede one-bit keys. -/
-def digitPass (bit : ℕ) (xs : List ℕ) : List ℕ :=
-  let parts := xs.partition (fun x => decide (x / 2 ^ bit % 2 = 0))
-  parts.1 ++ parts.2
-
-/-- Process all bits of the maximum key, from least to most significant. -/
-def radixSortResult (xs : List ℕ) : List ℕ :=
-  (List.range (radixBits xs)).foldl
-    (fun result bit => digitPass bit result) xs
-
 /-- The bit processed and its stable partition decisions (`true` means zero). -/
 structure DigitStep where
   bit : ℕ
@@ -39,6 +29,11 @@ def partitionTrace (bit : ℕ) : List ℕ → (List ℕ × List ℕ) × List Boo
       if zero then ((x :: parts.1, parts.2), true :: rest)
       else ((parts.1, x :: parts.2), false :: rest)
 
+/-- The same stable partition supplies both the pass result and its decisions. -/
+def digitPass (bit : ℕ) (xs : List ℕ) : List ℕ :=
+  let parts := (partitionTrace bit xs).1
+  parts.1 ++ parts.2
+
 def passesTrace : List ℕ → List ℕ → List ℕ × List DigitStep
   | [], xs => (xs, [])
   | bit :: bits, xs =>
@@ -48,6 +43,9 @@ def passesTrace : List ℕ → List ℕ → List ℕ × List DigitStep
 
 def sortTrace (xs : List ℕ) : List ℕ × List DigitStep :=
   passesTrace (List.range (radixBits xs)) xs
+
+/-- Output and trace are projections of a single least-significant-digit run. -/
+def radixSortResult (xs : List ℕ) : List ℕ := (sortTrace xs).1
 
 def radixSortTrace (xs : List ℕ) : List DigitStep := (sortTrace xs).2
 

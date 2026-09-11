@@ -4,7 +4,7 @@ import LeanSort.Model.SortingResult
 namespace LeanSort.Radix
 
 theorem digitPass_perm (bit : ℕ) (xs : List ℕ) : (digitPass bit xs).Perm xs := by
-  simpa [digitPass, Function.comp_def] using
+  simpa [digitPass_eq_partition, Function.comp_def] using
     List.filter_append_perm (fun x => decide (x / 2 ^ bit % 2 = 0)) xs
 
 theorem passes_perm (bits : List ℕ) (xs : List ℕ) :
@@ -14,7 +14,7 @@ theorem passes_perm (bits : List ℕ) (xs : List ℕ) :
   | cons bit rest ih => exact (ih (digitPass bit xs)).trans (digitPass_perm bit xs)
 
 theorem radixSortResult_perm (xs : List ℕ) : (radixSortResult xs).Perm xs :=
-  passes_perm _ xs
+  by rw [radixSortResult_eq_passes]; exact passes_perm _ xs
 
 @[simp] theorem digitPass_length (bit : ℕ) (xs : List ℕ) :
     (digitPass bit xs).length = xs.length := (digitPass_perm bit xs).length_eq
@@ -28,7 +28,8 @@ def SortedBits (bits : ℕ) (xs : List ℕ) : Prop :=
 
 theorem digitPass_sortedBits (bit : ℕ) (xs : List ℕ) (h : SortedBits bit xs) :
     SortedBits (bit + 1) (digitPass bit xs) := by
-  unfold SortedBits digitPass
+  unfold SortedBits
+  rw [digitPass_eq_partition]
   simp only [List.partition_eq_filter_filter]
   apply List.pairwise_append.mpr
   refine ⟨List.pairwise_filter.mpr (h.imp ?_),
@@ -80,6 +81,7 @@ theorem radixSortResult_sorted (xs : List ℕ) :
     have hp := Nat.lt_pow_succ_log_self (by decide : 1 < 2) (xs.foldl max 0)
     rw [← Nat.log2_eq_log_two] at hp
     exact hm.trans_lt hp
+  rw [radixSortResult_eq_passes] at bound ⊢
   exact (passes_sortedBits _ xs).imp_of_mem (fun ha hb hab => by
     simpa only [Nat.mod_eq_of_lt (bound _ ha), Nat.mod_eq_of_lt (bound _ hb)] using hab)
 

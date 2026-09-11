@@ -87,5 +87,6 @@ import LeanSort.Verification.Radix.Checks
 import LeanSort.Verification.Radix.Equations
 import LeanSort.Verification.Radix.Correctness
 import LeanSort.Verification.Radix.Trace
+import LeanSort.Verification.Radix.Semantics
 import LeanSort.Verification.Radix.Cost
 import LeanSort.Verification.Radix.Complexity
