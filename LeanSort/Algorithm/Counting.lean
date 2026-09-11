@@ -11,7 +11,7 @@ namespace LeanSort.Counting
 def keyRange (xs : List ℕ) : ℕ := xs.foldl max 0 + 1
 
 /-- Increment one bucket; out-of-range keys preserve the original array. -/
-def increment (counts : Array ℕ) (key : ℕ) : Array ℕ := counts.modify key (· + 1)
+abbrev increment (counts : Array ℕ) (key : ℕ) : Array ℕ := counts.modify key (· + 1)
 
 /-- A key that is guaranteed to index one of the allocated buckets. -/
 abbrev BucketIndex (width : ℕ) := Fin width
@@ -35,6 +35,15 @@ structure CountStep where
   key : ℕ
   value : ℕ
   deriving DecidableEq, Repr
+
+/-- An update event whose key is within a fixed bucket allocation. -/
+structure BoundedCountStep (width : ℕ) where
+  key : BucketIndex width
+  value : ℕ
+  deriving DecidableEq, Repr
+
+def BoundedCountStep.erase {width : ℕ} (step : BoundedCountStep width) : CountStep :=
+  ⟨step.key.val, step.value⟩
 
 /-- Update the histogram state and return the corresponding event. -/
 def countStep (key : ℕ) : StateM (Array ℕ) CountStep := do

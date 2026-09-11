@@ -1,5 +1,6 @@
 import LeanSort.Model.SortingResult
 import LeanSort.Verification.Bubble.Equations
+import Mathlib.Data.List.Induction
 
 namespace LeanSort.Bubble
 
@@ -135,45 +136,90 @@ theorem sortAuxTr_fst_append_maximum {α : Type*} [LinearOrder α]
 
 /-! ### Sortedness -/
 
+/-- A full pass preserves a sorted suffix that dominates the unfinished prefix. -/
+theorem passTr_fst_append_sorted_suffix {α : Type*} [LinearOrder α]
+    (off : ℕ) (front suffix : List α) (hs : suffix.Pairwise (· ≤ ·))
+    (hcross : ∀ a ∈ front, ∀ b ∈ suffix, a ≤ b) :
+    (passTr off (front ++ suffix)).1 = (passTr off front).1 ++ suffix := by
+  revert hs hcross
+  induction suffix using List.reverseRecOn with
+  | nil => simp
+  | append_singleton suffix maximum ih =>
+      intro hs hcross
+      obtain ⟨hs, _, hlast⟩ := List.pairwise_append.mp hs
+      have hmax : ∀ z ∈ front ++ suffix, z ≤ maximum := by
+        intro z hz
+        rcases List.mem_append.mp hz with hz | hz
+        · exact hcross z hz maximum (by simp)
+        · exact hlast z hz maximum (by simp)
+      rw [← List.append_assoc, passTr_fst_append_maximum off (front ++ suffix) maximum hmax,
+        ih hs (fun a ha b hb => hcross a ha b (by simp [hb])), List.append_assoc]
+
+/-- At most `remaining` entries are unfinished. The suffix is sorted and dominates
+every entry of the unfinished prefix. -/
+def SettledSuffix {α : Type*} [LinearOrder α] (xs : List α) (remaining : ℕ) : Prop :=
+  ∃ front suffix, xs = front ++ suffix ∧ front.length ≤ remaining ∧
+    suffix.Pairwise (· ≤ ·) ∧ ∀ a ∈ front, ∀ b ∈ suffix, a ≤ b
+
+theorem settledSuffix_initial {α : Type*} [LinearOrder α] (xs : List α) :
+    SettledSuffix xs xs.length :=
+  ⟨xs, [], by simp, le_rfl, by simp, by simp⟩
+
+theorem settledSuffix_zero {α : Type*} [LinearOrder α] {xs : List α}
+    (h : SettledSuffix xs 0) : xs.Pairwise (· ≤ ·) := by
+  obtain ⟨front, suffix, rfl, hfront, hs, _⟩ := h
+  have hempty : front = [] := List.length_eq_zero_iff.mp (Nat.eq_zero_of_le_zero hfront)
+  simpa [hempty] using hs
+
+/-- Each pass settles one more entry; an already settled list stays settled. -/
+theorem settledSuffix_passTr {α : Type*} [LinearOrder α] (off : ℕ) (xs : List α)
+    (remaining : ℕ) (h : SettledSuffix xs remaining) :
+    SettledSuffix (passTr off xs).1 (remaining - 1) := by
+  obtain ⟨front, suffix, rfl, hsize, hs, hcross⟩ := h
+  cases front with
+  | nil =>
+      refine ⟨[], suffix, ?_, by simp, hs, by simp⟩
+      simpa using passTr_fst_append_sorted_suffix off [] suffix hs hcross
+  | cons x front =>
+      obtain ⟨next, maximum, hout, hlength, hmax⟩ := passAuxTr_fst_decompose off x front
+      have hmem : ∀ a ∈ next, a ∈ x :: front := by
+        intro a ha
+        apply (passAuxTr_fst_perm off x front).mem_iff.mp
+        rw [hout]
+        exact List.mem_append_left _ ha
+      have hm : maximum ∈ x :: front := by
+        apply (passAuxTr_fst_perm off x front).mem_iff.mp
+        simp [hout]
+      refine ⟨next, maximum :: suffix, ?_, ?_, ?_, ?_⟩
+      · rw [passTr_fst_append_sorted_suffix off (x :: front) suffix hs hcross,
+          passTr_cons, hout]
+        simp
+      · simp only [List.length_cons] at hsize
+        omega
+      · exact List.pairwise_cons.mpr ⟨hcross maximum hm, hs⟩
+      · intro a ha b hb
+        rcases List.mem_cons.mp hb with rfl | hb
+        · exact hmax a (hmem a ha)
+        · exact hcross a (hmem a ha) b hb
+
+/-- Repeated passes reduce the unfinished-prefix bound by the number of passes. -/
+theorem settledSuffix_sortAuxTr {α : Type*} [LinearOrder α] (passes : ℕ)
+    (xs : List α) (remaining : ℕ) (h : SettledSuffix xs remaining) :
+    SettledSuffix (sortAuxTr passes xs).1 (remaining - passes) := by
+  induction passes generalizing xs remaining with
+  | zero => simpa using h
+  | succ passes ih =>
+      rw [sortAuxTr_succ]
+      simpa [Nat.sub_sub, Nat.add_comm] using
+        ih (passTr 0 xs).1 (remaining - 1) (settledSuffix_passTr 0 xs remaining h)
+
 theorem sorted_sortAuxTr_of_length_le {α : Type*} [LinearOrder α] :
     ∀ (passes : ℕ) (xs : List α), xs.length ≤ passes →
       (sortAuxTr passes xs).1.Pairwise (· ≤ ·) := by
-  intro passes
-  induction passes with
-  | zero =>
-      intro xs hlength
-      have : xs = [] := length_eq_zero_iff.mp (Nat.eq_zero_of_le_zero hlength)
-      subst xs
-      simp
-  | succ passes ih =>
-      intro xs hlength
-      cases xs with
-      | nil =>
-          rw [sortAuxTr_succ]
-          exact ih [] (Nat.zero_le passes)
-      | cons x xs =>
-          obtain ⟨front, maximum, hpass, hfrontLength, hmaximum⟩ :=
-            passAuxTr_fst_decompose 0 x xs
-          have hfrontMaximum : ∀ z ∈ front, z ≤ maximum := by
-            intro z hz
-            apply hmaximum z
-            apply (passAuxTr_fst_perm 0 x xs).mem_iff.mp
-            rw [hpass]
-            exact mem_append_left [maximum] hz
-          have hpLength : front.length ≤ passes := by
-            rw [hfrontLength]
-            exact Nat.le_of_succ_le_succ hlength
-          have hpSorted := ih front hpLength
-          have hpMaximum : ∀ z ∈ (sortAuxTr passes front).1, z ≤ maximum := by
-            intro z hz
-            exact hfrontMaximum z ((sortAuxTr_fst_perm passes front).mem_iff.mp hz)
-          rw [sortAuxTr_succ, passTr_cons, hpass,
-            sortAuxTr_fst_append_maximum passes front maximum hfrontMaximum]
-          exact pairwise_append.mpr ⟨hpSorted, pairwise_singleton _ maximum, by
-            intro a ha b hb
-            simp only [mem_singleton] at hb
-            subst b
-            exact hpMaximum a ha⟩
+  intro passes xs hlength
+  apply settledSuffix_zero
+  simpa [Nat.sub_eq_zero_of_le hlength] using
+    settledSuffix_sortAuxTr passes xs xs.length (settledSuffix_initial xs)
 
 theorem sorted_bubbleSortResult {α : Type*} [LinearOrder α] (xs : List α) :
     (bubbleSortResult xs).Pairwise (· ≤ ·) :=
