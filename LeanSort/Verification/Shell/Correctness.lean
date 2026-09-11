@@ -30,7 +30,7 @@ theorem passes_perm {α : Type*} [LinearOrder α]
 
 theorem shellSortResult_perm {α : Type*} [LinearOrder α] (xs : List α) :
     (shellSortResult xs).Perm xs := by
-  simpa [shellSortResult] using
+  simpa [shellSortResult_eq_passes] using
     Array.perm_iff_toList_perm.mp (passes_perm (gaps (xs.length / 2)) xs.toArray)
 
 @[simp] theorem gapInsert_size {α : Type*} [LinearOrder α] (gap : ℕ) (xs : Array α) (i : ℕ) :
@@ -168,12 +168,12 @@ theorem shellSortResult_sorted {α : Type*} [LinearOrder α] (xs : List α) :
     (shellSortResult xs).Pairwise (· ≤ ·) := by
   by_cases hn : xs.length / 2 = 0
   · have hl : xs.length ≤ 1 := by omega
-    simp only [shellSortResult, hn, gaps_zero, List.foldl_nil, List.toList_toArray]
+    simp only [shellSortResult_eq_passes, hn, gaps_zero, List.foldl_nil, List.toList_toArray]
     rw [List.pairwise_iff_getElem]
     intro a b ha hb hab
     omega
   · obtain ⟨initialGaps, hp⟩ := gaps_end_one (xs.length / 2) (by omega)
-    simpa [shellSortResult, hp, List.foldl_append] using
+    simpa [shellSortResult_eq_passes, hp, List.foldl_append] using
       gapPass_one_sorted (initialGaps.foldl (fun a gap => gapPass gap a) xs.toArray)
 
 theorem shellSortResult_spec {α : Type*} [LinearOrder α] (xs : List α) :

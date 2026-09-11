@@ -75,6 +75,7 @@ import LeanSort.Verification.Shell.Checks
 import LeanSort.Verification.Shell.Equations
 import LeanSort.Verification.Shell.Correctness
 import LeanSort.Verification.Shell.Trace
+import LeanSort.Verification.Shell.Semantics
 import LeanSort.Verification.Shell.Cost
 import LeanSort.Verification.Shell.Complexity
 

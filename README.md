@@ -225,11 +225,16 @@ Shell, Counting, and Radix have full sortedness and permutation proofs.
 Their exhaustive checks supplement these universal proofs and exercise trace
 behavior and cost bounds.
 
-Shell sort additionally proves that each positive-gap pass orders its columns,
-and that the final gap of one produces a sorted permutation. Its instrumented
-implementation agrees with the original result, and replaying its generated
-transpositions reconstructs that result. Exhaustive checks also cover trace
-agreement and the swap bound.
+Shell sort's public result projects the traced execution. Its `Semantics` module
+defines independent rules for strict-inversion swaps, insertion sequences, and
+gap schedules, and proves their equivalence with execution. Each positive-gap
+pass orders its columns; global sortedness follows from the final gap of one.
+Structured traces preserve gap labels and empty passes, and flatten exactly to
+the original transposition trace. The strict checker recomputes each expected
+pass and accepts exactly its execution, rejecting missing, reordered, or altered
+passes. Certificates provide sortedness, permutation, canonical gap schedules,
+checked replay, and the `2n²` swap bound. The bound counts swaps, not checker
+runtime or comparisons. Exhaustive checks cover structured replay and erasure.
 
 Counting's verification follows the same six-module layout as the established
 algorithms: `Equations`, `Correctness`, `Trace`, `Cost`, `Complexity`, and `Checks`.

@@ -42,7 +42,7 @@ theorem replay_passesTrace {α : Type*} [LinearOrder α] (steps : List ℕ) (xs 
 theorem replay_shellSortTrace {α : Type*} [LinearOrder α] (xs : List α) :
     replay (shellSortTrace xs) xs = shellSortResult xs := by
   simp [replay, shellSortTrace, sortTrace, replay_passesTrace,
-    passesTrace_result, shellSortResult]
+    passesTrace_result, shellSortResult_eq_passes]
 
 theorem replay_shellSortTrace_spec {α : Type*} [LinearOrder α] (xs : List α) :
     LeanSort.IsSortingResult (· ≤ ·) xs (replay (shellSortTrace xs) xs) := by

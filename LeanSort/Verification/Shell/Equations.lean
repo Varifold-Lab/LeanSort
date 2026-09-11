@@ -45,7 +45,11 @@ theorem passesTrace_result {α : Type*} [LinearOrder α] (steps : List ℕ) (xs 
   | cons gap steps ih => simp [passesTrace, ih, gapPassTrace_result]
 
 theorem sortTrace_result {α : Type*} [LinearOrder α] (xs : List α) :
-    (sortTrace xs).1 = shellSortResult xs := by
-  simp [sortTrace, shellSortResult, passesTrace_result]
+    (sortTrace xs).1 = shellSortResult xs := rfl
+
+theorem shellSortResult_eq_passes {α : Type*} [LinearOrder α] (xs : List α) :
+    shellSortResult xs =
+      ((gaps (xs.length / 2)).foldl (fun a gap => gapPass gap a) xs.toArray).toList := by
+  simp [shellSortResult, sortTrace, passesTrace_result]
 
 end LeanSort.Shell
