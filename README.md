@@ -14,7 +14,7 @@ It builds on mathlib, CSlib, and Batteries.
 Install [elan](https://github.com/leanprover/elan), then run:
 
 ```sh
-git clone https://github.com/MathNetwork/LeanSort.git
+git clone https://github.com/Varifold-Lab/LeanSort.git
 cd LeanSort
 lake build
 ```
@@ -63,6 +63,23 @@ linearly ordered types.
 
 See the [verification guide](docs/verification.md) for all cost bounds,
 trace-checker guarantees, assumptions, and theorem references.
+
+## Additional algorithm implementations
+
+Five more algorithms are available through `import LeanSort`. Their implementations
+have passed executable regression checks, but formal correctness, stability, and cost
+proofs have not yet been added; they are not part of the ten verified algorithms above.
+
+| Algorithm | Entry point | Implementation |
+| --- | --- | --- |
+| [Tree](LeanSort/Algorithm/Tree.lean) | `LeanSort.Tree.treeSortResult` | Unbalanced binary search tree |
+| [Bucket](LeanSort/Algorithm/Bucket.lean) | `LeanSort.Bucket.bucketSortResult` | Natural-number buckets with insertion sort |
+| [Bitonic](LeanSort/Algorithm/Bitonic.lean) | `LeanSort.Bitonic.bitonicSortResult` | Sorting network with padding for arbitrary lengths |
+| [Intro](LeanSort/Algorithm/Intro.lean) | `LeanSort.Intro.introSortResult` | Quicksort with insertion and heap-sort fallbacks |
+| [Power](LeanSort/Algorithm/Power.lean) | `LeanSort.Power.powerSortResult` | Natural runs with the Powersort merge policy |
+
+Powersort also exposes `LeanSort.Power.powerSortBy` for sorting records by a
+total-preorder comparator. These implementations do not claim in-place sorting.
 
 ## Explore the code
 

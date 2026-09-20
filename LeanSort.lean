@@ -14,6 +14,11 @@ import LeanSort.Algorithm.Heap
 import LeanSort.Algorithm.Shell
 import LeanSort.Algorithm.Counting
 import LeanSort.Algorithm.Radix
+import LeanSort.Algorithm.Tree
+import LeanSort.Algorithm.Bucket
+import LeanSort.Algorithm.Bitonic
+import LeanSort.Algorithm.Intro
+import LeanSort.Algorithm.Power
 
 import LeanSort.Verification.Shared.RearrangementLemmas
 import LeanSort.Verification.Shared.InversionBounds
