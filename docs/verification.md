@@ -39,7 +39,7 @@ Trace verification and formal cost models have separate coverage, described belo
 | Radix sort | proved | binary partition choices |
 | Tree sort | proved | insertion comparison paths; exact checked replay |
 | Bucket sort | proved | key-to-bucket placements; exact checked replay |
-| Bitonic sort | partial: permutation proved; sortedness pending | comparator schedule; exact checked replay |
+| Bitonic sort | proved | comparator schedule; exact checked replay |
 | Introsort | pending | not implemented |
 | Powersort | pending | not implemented |
 
@@ -47,21 +47,39 @@ Rows marked pending have executable algorithms, but no verification modules yet;
 correctness, trace verification, formal cost bounds, and applicable stability
 proofs remain to be written.
 
-### Bitonic verification in progress
+### Bitonic verification
 
 `bitonicSortResult_perm` proves preservation of every input occurrence for any
 linearly ordered key type, including after padding is removed. `paddedInput_size`
 proves the padded length is exactly `2 ^ networkDepth xs.length`.
 `compareExchange_ordered` proves local endpoint order after a valid comparator.
-**Global sortedness is not yet proved**: the remaining work is the bitonic-merge
-invariant and its preservation through the recursive array implementation.
+`sorted_bitonicSortResult` proves global sortedness and `bitonicSortResult_spec`
+combines it with permutation preservation for every linearly ordered key type.
+Empty inputs, duplicates, and lengths that are not powers of two are included.
+
+The proof is divided into reusable steps:
+
+- `Boolean.lean`: interval properties of bitonic zero-one sequences. Selected
+  lemmas are adapted from [girving/aks](https://github.com/girving/aks), with
+  attribution and Apache-2.0 license in [third_party/aks](../third_party/aks/).
+- `Functional.lean`: comparator execution on wire assignments, preservation of
+  block properties, and commutation with monotone maps.
+- `Network.lean`: recursive ascending and descending bitonic-merge correctness,
+  Boolean sorting, and the zero-one principle for arbitrary linear orders.
+- `Refinement.lean`: `wires_sortNetwork` identifies this mathematical execution
+  with the existing array algorithm, treating `none` as a greatest element.
+- `Correctness.lean`: the array block-order theorem, removal of sentinels, and
+  the final sorted-permutation specification.
+
+These are proof-layer modules; the executable sorting algorithm is unchanged.
 
 `mergeSchedule` and `sortSchedule` describe the actual comparator calls, including
 their direction and indices. `run_sortSchedule` identifies their execution with
 `sortNetwork`; `sortSchedule_valid` proves all calls are in bounds. `Executes`
 provides deterministic relational semantics. `replayChecked?_iff` accepts exactly
 the canonical schedule and returns exactly the algorithm's result. This is a
-schedule certificate, not a sortedness certificate or a log of actual swaps.
+schedule certificate rather than a log of actual swaps. `replayChecked?_spec`
+now also guarantees that every accepted result is a sorted permutation.
 
 `sortComparisons_exact` proves `4 * comparisons = 2^d * d * (d+1)`.
 All comparator calls are counted, including those involving sentinels.
@@ -70,7 +88,7 @@ All comparator calls are counted, including those involving sentinels.
 These are sequential comparator counts, not parallel depth or wall-clock time.
 Regression checks cover all 3,280 lists of length at most seven over `{0,1,2}`,
 larger padding boundaries, signed and large keys, and malformed schedules.
-They do not replace the missing general sortedness proof.
+These executable regressions accompany the universal correctness theorem.
 
 ### Tree and bucket verification
 

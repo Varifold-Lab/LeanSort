@@ -117,6 +117,7 @@ import LeanSort.Verification.Bucket.Checks
 
 import LeanSort.Verification.Bitonic.Equations
 import LeanSort.Verification.Bitonic.Comparator
+import LeanSort.Verification.Bitonic.Correctness
 import LeanSort.Verification.Bitonic.Trace
 import LeanSort.Verification.Bitonic.Semantics
 import LeanSort.Verification.Bitonic.Cost

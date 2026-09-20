@@ -1,14 +1,22 @@
 import LeanSort.Verification.Bitonic.Complexity
 import LeanSort.Verification.Bitonic.Semantics
 import LeanSort.Verification.Bitonic.Comparator
+import LeanSort.Verification.Bitonic.Correctness
 import Mathlib.Data.List.Sort
 
-/-! Executable regressions. These checks are not a universal sortedness proof. -/
+/-! Universal correctness checks and executable regressions. -/
 
 namespace LeanSort.Bitonic
 
 example {α : Type*} [LinearOrder α] (xs : List α) :
     (bitonicSortResult xs).Perm xs := bitonicSortResult_perm xs
+
+example {α : Type*} [LinearOrder α] (xs : List α) :
+    IsSortingResult (· ≤ ·) xs (bitonicSortResult xs) := bitonicSortResult_spec xs
+
+example {α : Type*} [LinearOrder α] (xs output : List α) (steps : List Comparator)
+    (h : replayChecked? xs steps = some output) : IsSortingResult (· ≤ ·) xs output :=
+  replayChecked?_spec xs output steps h
 
 #guard bitonicSortResult ([] : List Nat) = []
 #guard bitonicSortResult [7] = [7]
@@ -27,6 +35,10 @@ example {α : Type*} [LinearOrder α] (xs : List α) :
 #guard compareExchange true 0 9 #[some 3, some 2] = #[some 3, some 2]
 #guard compareExchange true 0 1 #[none, some 2] = #[some 2, none]
 #guard compareExchange false 0 1 #[some 2, none] = #[none, some 2]
+#guard sortNetwork 2 1 true #[some 99, some 3, none, some 1, some 2, some 88] =
+  #[some 99, some 1, some 2, some 3, none, some 88]
+#guard sortNetwork 2 1 false #[some 99, some 3, none, some 1, some 2, some 88] =
+  #[some 99, none, some 3, some 2, some 1, some 88]
 #guard replayChecked? [2, 1] [] = none
 #guard replayChecked? [2, 1] [⟨false, 0, 1⟩] = none
 #guard replayChecked? [2, 1] [⟨true, 0, 2⟩] = none
