@@ -21,9 +21,9 @@ comparison choices, which are not state-changing moves.
 
 ## Algorithms
 
-All ten implemented algorithms have proofs that their output is sorted and is a
-permutation of the input. Trace verification and formal cost models have separate
-coverage, described below.
+The table tracks correctness and trace coverage as algorithms are added.
+Sorting correctness means the output is sorted and is a permutation of the input.
+Trace verification and formal cost models have separate coverage, described below.
 
 | Algorithm | Sorting correctness | Trace |
 | --- | --- | --- |
@@ -37,6 +37,15 @@ coverage, described below.
 | Shell sort | proved | gapped transpositions |
 | Counting sort | proved | histogram updates; checked replay |
 | Radix sort | proved | binary partition choices |
+| Tree sort | pending | not implemented |
+| Bucket sort | pending | not implemented |
+| Bitonic sort | pending | not implemented |
+| Introsort | pending | not implemented |
+| Powersort | pending | not implemented |
+
+Rows marked pending have executable algorithms, but no verification modules yet;
+correctness, trace verification, formal cost bounds, and applicable stability
+proofs remain to be written.
 
 Insertion sort sorts the tail first, then inserts the head, using `Writer` to
 accumulate the adjacent-swap trace. A single insertion scans the initial block of
