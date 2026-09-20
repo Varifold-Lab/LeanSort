@@ -41,4 +41,51 @@ def inorder {α : Type*} (tree : SearchTree α) : List α :=
 def treeSortResult {α : Type*} [LinearOrder α] (xs : List α) : List α :=
   inorder (fromList xs)
 
+/-- Comparison decisions on an insertion path: `true` goes left, `false` right.
+There is one decision per occupied node, and no decision at the empty leaf. -/
+def insertionPath {α : Type*} [LinearOrder α] (x : α) : SearchTree α → List Bool
+  | .empty => []
+  | .node l v r =>
+      if x < v then true :: insertionPath x l else false :: insertionPath x r
+
+/-- Record one comparison path for each insertion, in input order. -/
+def buildTrace {α : Type*} [LinearOrder α] :
+    List α → SearchTree α → SearchTree α × List (List Bool)
+  | [], t => (t, [])
+  | x :: xs, t =>
+      let rest := buildTrace xs (insert x t)
+      (rest.1, insertionPath x t :: rest.2)
+
+/-- Optional tracing; the ordinary sorting entry point does not construct a log. -/
+def sortTrace {α : Type*} [LinearOrder α] (xs : List α) : List α × List (List Bool) :=
+  let run := buildTrace xs .empty
+  (inorder run.1, run.2)
+
+def treeSortTrace {α : Type*} [LinearOrder α] (xs : List α) : List (List Bool) :=
+  (sortTrace xs).2
+
+/-- Replay one insertion, checking each supplied direction against the key.
+Missing decisions, extra decisions, and incorrect branches are rejected. -/
+def replayInsert? {α : Type*} [LinearOrder α] (x : α) :
+    SearchTree α → List Bool → Option (SearchTree α)
+  | .empty, [] => some (.node .empty x .empty)
+  | .node l v r, true :: path =>
+      if x < v then (replayInsert? x l path).map (fun l' => .node l' v r) else none
+  | .node l v r, false :: path =>
+      if x < v then none else (replayInsert? x r path).map (fun r' => .node l v r')
+  | _, _ => none
+
+/-- Checked replay requires exactly one complete path per input occurrence. -/
+def replayBuild? {α : Type*} [LinearOrder α] :
+    List α → List (List Bool) → SearchTree α → Option (SearchTree α)
+  | [], [], t => some t
+  | x :: xs, path :: paths, t => do
+      let next ← replayInsert? x t path
+      replayBuild? xs paths next
+  | _, _, _ => none
+
+def replayChecked? {α : Type*} [LinearOrder α]
+    (paths : List (List Bool)) (xs : List α) : Option (List α) :=
+  (replayBuild? xs paths .empty).map inorder
+
 end LeanSort.Tree

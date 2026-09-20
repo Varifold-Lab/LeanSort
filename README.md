@@ -43,7 +43,7 @@ example (xs : List Nat) :
 All listed algorithms have executable implementations available through
 `import LeanSort`. **Proved** means both sortedness and preservation of every
 input occurrence have been established. **Pending** means the correctness proof
-has not yet been written.
+has not yet been written. **Partial** identifies the remaining correctness gap.
 
 | Algorithm | Correctness | Execution trace |
 | --- | --- | --- |
@@ -57,9 +57,9 @@ has not yet been written.
 | [Shell](LeanSort/Algorithm/Shell.lean) | [Proved](LeanSort/Verification/Shell/Correctness.lean) | Gap-labelled passes and swaps |
 | [Counting](LeanSort/Algorithm/Counting.lean) | [Proved](LeanSort/Verification/Counting/Correctness.lean) | Histogram updates |
 | [Radix](LeanSort/Algorithm/Radix.lean) | [Proved](LeanSort/Verification/Radix/Correctness.lean) | Binary partition decisions |
-| [Tree](LeanSort/Algorithm/Tree.lean) | Pending | Not implemented |
-| [Bucket](LeanSort/Algorithm/Bucket.lean) | Pending | Not implemented |
-| [Bitonic](LeanSort/Algorithm/Bitonic.lean) | Pending | Not implemented |
+| [Tree](LeanSort/Algorithm/Tree.lean) | [Proved](LeanSort/Verification/Tree/Correctness.lean) | Insertion comparison paths; checked replay |
+| [Bucket](LeanSort/Algorithm/Bucket.lean) | [Proved](LeanSort/Verification/Bucket/Correctness.lean) | Key-to-bucket placements; checked replay |
+| [Bitonic](LeanSort/Algorithm/Bitonic.lean) | Partial: permutation proved; sortedness pending | Comparator schedule; checked replay |
 | [Introsort](LeanSort/Algorithm/Intro.lean) | Pending | Not implemented |
 | [Powersort](LeanSort/Algorithm/Power.lean) | Pending | Not implemented |
 
@@ -67,8 +67,13 @@ For rows marked **Pending**, verification modules, including trace verification,
 formal cost bounds, and applicable stability proofs, have not yet been added.
 Executable regression checks have passed, but do not replace proofs.
 
+Bitonic additionally has verified comparator index bounds, exact schedule execution,
+and a comparator count of `p * d * (d + 1) / 4`, where `p = 2^d` is the padded
+length. Its general bitonic-merge sortedness proof is still missing.
+
 Formal cost results include insertion's exact inversion count, selection's
-exact `n(n−1)/2` comparisons, and merge's `O(n log n)` comparison bound.
+exact `n(n−1)/2` comparisons, tree's tight worst-case `n(n−1)/2` comparisons,
+and merge's `O(n log n)` comparison bound.
 These count specified operations; they do not measure wall-clock time or memory.
 Counting, radix, and bucket accept natural-number keys; the other algorithms accept
 linearly ordered types.

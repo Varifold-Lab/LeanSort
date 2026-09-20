@@ -37,15 +37,99 @@ Trace verification and formal cost models have separate coverage, described belo
 | Shell sort | proved | gapped transpositions |
 | Counting sort | proved | histogram updates; checked replay |
 | Radix sort | proved | binary partition choices |
-| Tree sort | pending | not implemented |
-| Bucket sort | pending | not implemented |
-| Bitonic sort | pending | not implemented |
+| Tree sort | proved | insertion comparison paths; exact checked replay |
+| Bucket sort | proved | key-to-bucket placements; exact checked replay |
+| Bitonic sort | partial: permutation proved; sortedness pending | comparator schedule; exact checked replay |
 | Introsort | pending | not implemented |
 | Powersort | pending | not implemented |
 
 Rows marked pending have executable algorithms, but no verification modules yet;
 correctness, trace verification, formal cost bounds, and applicable stability
 proofs remain to be written.
+
+### Bitonic verification in progress
+
+`bitonicSortResult_perm` proves preservation of every input occurrence for any
+linearly ordered key type, including after padding is removed. `paddedInput_size`
+proves the padded length is exactly `2 ^ networkDepth xs.length`.
+`compareExchange_ordered` proves local endpoint order after a valid comparator.
+**Global sortedness is not yet proved**: the remaining work is the bitonic-merge
+invariant and its preservation through the recursive array implementation.
+
+`mergeSchedule` and `sortSchedule` describe the actual comparator calls, including
+their direction and indices. `run_sortSchedule` identifies their execution with
+`sortNetwork`; `sortSchedule_valid` proves all calls are in bounds. `Executes`
+provides deterministic relational semantics. `replayChecked?_iff` accepts exactly
+the canonical schedule and returns exactly the algorithm's result. This is a
+schedule certificate, not a sortedness certificate or a log of actual swaps.
+
+`sortComparisons_exact` proves `4 * comparisons = 2^d * d * (d+1)`.
+All comparator calls are counted, including those involving sentinels.
+`paddedLength_lt_twice` bounds nonempty padding by less than twice input length;
+`comparisonCost_bound` gives the explicit bound `n * d * (d+1)`.
+These are sequential comparator counts, not parallel depth or wall-clock time.
+Regression checks cover all 3,280 lists of length at most seven over `{0,1,2}`,
+larger padding boundaries, signed and large keys, and malformed schedules.
+They do not replace the missing general sortedness proof.
+
+### Tree and bucket verification
+
+Tree sort uses an unbalanced binary search tree with strictly smaller keys on
+the left and greater-or-equal keys on the right. `ordered_insert` preserves this
+structural invariant, `sorted_inorder` proves that traversal is sorted, and
+`inorder_insert_perm` tracks every occurrence. `treeSortResult_spec` combines
+sortedness and permutation preservation; length, membership, and occurrence-count
+corollaries are also proved.
+
+`treeSortTrace` records one root-to-empty-leaf comparison path per insertion.
+`InsertionDerivation` gives these paths relational semantics, and
+`replayInsert?_derivation_iff` establishes checker soundness and completeness.
+`replayChecked?_iff` shows that a full log is accepted exactly when it is the
+canonical log and the output is the algorithm's result. Missing or extra paths,
+missing or extra decisions, incorrect comparisons, and left branches on equal
+keys are rejected. `treeSortCertificate` packages the output, log, and successful
+replay; every accepted certificate implies the sorting contract.
+
+`treeComparisonCost_eq_trace` identifies construction comparisons with the total
+path length. Each insertion uses at most the current tree height in comparisons.
+`treeComparisonCost_le` bounds the full cost by `n choose 2`, and
+`treeComparisonCost_replicate` proves that all-equal inputs attain this bound.
+`treeWorstComparisonCost_isTheta_quadratic` therefore establishes a tight
+worst-case `Θ(n²)` comparison count. The final traversal visits exactly `n`
+occupied nodes (`treeTraversalCost_eq_length`). These results do not assume
+balance or claim average-case, allocation, or wall-clock bounds. The Tree
+`Checks.lean` module checks malformed logs, exact costs on repeated inputs, and
+all 1,093 lists of length at most six over `{0, 1, 2}`.
+
+Bucket sort allocates `max 1 n` equal-width buckets for natural-number inputs.
+`bucketIndex_lt` proves that every input key indexes the allocation, so the
+array update cannot silently discard an occurrence. `distribute_get` identifies
+each bucket with the exact input subsequence selected by its interval; the fold's
+temporary reversal is undone. `DistributionSpec` expresses this contract
+independently of the fold, and any array satisfying it yields a sorted permutation.
+`bucketSortResult_spec` proves global sortedness and occurrence preservation,
+using the interval order between buckets and insertion sort within each bucket.
+
+The placement trace records input keys and their destination indices, preserving
+duplicates and input order. It does not record bucket-internal comparisons.
+`replayChecked?_iff` proves exact acceptance of the canonical placement log and
+output. Replay rejects missing or extra events, changed keys, wrong bucket labels,
+and out-of-range destinations. `bucketSortCertificate` packages the output, log,
+and checked replay, with a proved sorting contract.
+
+`bucketComparisonRun_result` connects a comparison-counted execution to the
+ordinary sorting result. `bucketComparisonCost` includes the `n` comparisons of
+the maximum-key scan plus each bucket's actual insertion-sort comparisons.
+`bucketComparisonCost_le_bucketSizes` bounds this by `n + ∑ᵢ choose(nᵢ, 2)`;
+`bucketComparisonCost_le` gives the unconditional bound `n + choose(n, 2)` and
+`bucketComparisonCost_isBigO_quadratic` establishes `O(n²)`. Placement events
+are exactly `n`, hence `Θ(n)`; bucket lengths sum to `n`, and the allocation is
+at most `n + 1` buckets. These bounds neither assume uniform keys nor claim
+expected linear time or a tight quadratic lower bound. They exclude tracing
+overhead, allocation time, and the bit complexity of unbounded-natural arithmetic.
+The Bucket `Checks.lean` module exercises malformed logs, sparse large keys,
+interval boundaries, exact sample costs, and all 5,461 lists of length at most
+six over `{0, 1, 2, 7}`.
 
 Insertion sort sorts the tail first, then inserts the head, using `Writer` to
 accumulate the adjacent-swap trace. A single insertion scans the initial block of
@@ -441,6 +525,6 @@ Install Lean through [elan](https://github.com/leanprover/elan). The repository'
 lake build
 ```
 
-The default target is `LeanSort`. Its umbrella module imports all ten algorithms
+The default target is `LeanSort`. Its umbrella module imports all listed algorithms
 and their verification modules, including the executable `#guard` checks, so the
 build checks both proofs and regression examples.

@@ -98,3 +98,27 @@ import LeanSort.Verification.Radix.Trace
 import LeanSort.Verification.Radix.Semantics
 import LeanSort.Verification.Radix.Cost
 import LeanSort.Verification.Radix.Complexity
+
+import LeanSort.Verification.Tree.Equations
+import LeanSort.Verification.Tree.Correctness
+import LeanSort.Verification.Tree.Trace
+import LeanSort.Verification.Tree.Semantics
+import LeanSort.Verification.Tree.Cost
+import LeanSort.Verification.Tree.Complexity
+import LeanSort.Verification.Tree.Checks
+
+import LeanSort.Verification.Bucket.Equations
+import LeanSort.Verification.Bucket.Correctness
+import LeanSort.Verification.Bucket.Trace
+import LeanSort.Verification.Bucket.Semantics
+import LeanSort.Verification.Bucket.Cost
+import LeanSort.Verification.Bucket.Complexity
+import LeanSort.Verification.Bucket.Checks
+
+import LeanSort.Verification.Bitonic.Equations
+import LeanSort.Verification.Bitonic.Comparator
+import LeanSort.Verification.Bitonic.Trace
+import LeanSort.Verification.Bitonic.Semantics
+import LeanSort.Verification.Bitonic.Cost
+import LeanSort.Verification.Bitonic.Complexity
+import LeanSort.Verification.Bitonic.Checks
