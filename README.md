@@ -101,3 +101,16 @@ specification and logarithmic merge-tree height are also proved.
 Where available, start with `Correctness.lean` in a verification directory for the sorting
 contract or `Checks.lean` for examples. Dependencies are pinned in
 [lakefile.toml](lakefile.toml) and [lake-manifest.json](lake-manifest.json).
+
+## Contributing
+
+Contributions to implementations, proofs, tests, and documentation are welcome.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the build and pull-request workflow.
+
+## License
+
+LeanSort's original code and documentation are licensed under the
+[Apache License 2.0](LICENSE). Copyright remains with the contributors.
+See [NOTICE](NOTICE) for attribution and the retained
+[AKS third-party notices](third_party/aks/NOTICE.md).
+External dependencies retain their own licenses.

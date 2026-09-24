@@ -1,0 +1,23 @@
+LeanSort
+Copyright 2026 LeanSort contributors
+
+LeanSort's original code and documentation are licensed under the Apache
+License, Version 2.0. See LICENSE. Individual contributors retain copyright
+in their contributions.
+
+Third-party material
+--------------------
+
+LeanSort/Verification/Bitonic/Boolean.lean adapts selected proofs from
+girving/aks, distributed under Apache-2.0:
+https://github.com/girving/aks
+
+Upstream revision: c7fb62ed80a4a610f87f34db0082cadbd7c00c9f
+Source files: AKS/Bitonic/Bitonic01.lean, CompareLayer.lean, Correctness.lean.
+Changes replace AKS dependencies with mathlib imports, introduce a LeanSort
+namespace, and retain selected Boolean interval and threshold lemmas.
+See third_party/aks/NOTICE.md and third_party/aks/LICENSE for the retained
+source attribution and license.
+
+External dependencies are fetched by Lake and retain their own licenses.
+Their source is not included in this repository's source distribution.
