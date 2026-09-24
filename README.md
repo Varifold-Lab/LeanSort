@@ -42,8 +42,8 @@ example (xs : List Nat) :
 
 All listed algorithms have executable implementations available through
 `import LeanSort`. **Proved** means both sortedness and preservation of every
-input occurrence have been established. **Pending** means the correctness proof
-has not yet been written.
+input occurrence have been established. **Pending** means verification has not
+yet been integrated into the library.
 
 | Algorithm | Correctness | Execution trace |
 | --- | --- | --- |
@@ -61,11 +61,10 @@ has not yet been written.
 | [Bucket](LeanSort/Algorithm/Bucket.lean) | [Proved](LeanSort/Verification/Bucket/Correctness.lean) | Key-to-bucket placements; checked replay |
 | [Bitonic](LeanSort/Algorithm/Bitonic.lean) | [Proved](LeanSort/Verification/Bitonic/Correctness.lean) | Comparator schedule; checked replay |
 | [Introsort](LeanSort/Algorithm/Intro.lean) | Pending | Not implemented |
-| [Powersort](LeanSort/Algorithm/Power.lean) | Pending | Not implemented |
+| [Powersort](LeanSort/Algorithm/Power.lean) | [Proved](LeanSort/Verification/Power/Correctness.lean) | Original-run boundaries and merges; checked replay |
 
-For rows marked **Pending**, verification modules, including trace verification,
-formal cost bounds, and applicable stability proofs, have not yet been added.
-Executable regression checks have passed, but do not replace proofs.
+Correctness, trace verification, cost bounds, and stability have separate coverage.
+Executable regression checks accompany the proofs but do not replace them.
 
 Bitonic has verified comparator index bounds, exact schedule execution,
 and a comparator count of `p * d * (d + 1) / 4`, where `p = 2^d` is the padded
@@ -74,7 +73,7 @@ between the mathematical network and the executable array implementation.
 
 Formal cost results include insertion's exact inversion count, selection's
 exact `n(n−1)/2` comparisons, tree's tight worst-case `n(n−1)/2` comparisons,
-and merge's `O(n log n)` comparison bound.
+and the `O(n log n)` comparison bounds for merge sort and Powersort.
 These count specified operations; they do not measure wall-clock time or memory.
 Counting, radix, and bucket accept natural-number keys; the other algorithms accept
 linearly ordered types.
@@ -83,7 +82,11 @@ See the [verification guide](docs/verification.md) for all cost bounds,
 trace-checker guarantees, assumptions, and theorem references.
 
 Powersort also exposes `LeanSort.Power.powerSortBy` for sorting records by a
-total-preorder comparator.
+total-preorder comparator, with proved correctness and key-based stability.
+Its scheduler performs exactly `max(r - 1, 0)` merges for `r` natural runs.
+Run detection and all merges together use at most `n * (log₂ n + 2)` key
+comparisons, with a formal worst-case `O(n log n)` bound. The dyadic node-power
+specification and logarithmic merge-tree height are also proved.
 
 ## Explore the code
 

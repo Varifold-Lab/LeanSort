@@ -41,11 +41,82 @@ Trace verification and formal cost models have separate coverage, described belo
 | Bucket sort | proved | key-to-bucket placements; exact checked replay |
 | Bitonic sort | proved | comparator schedule; exact checked replay |
 | Introsort | pending | not implemented |
-| Powersort | pending | not implemented |
+| Powersort | proved, including total-preorder comparators | original-run boundaries and merges; exact checked replay |
 
-Rows marked pending have executable algorithms, but no verification modules yet;
-correctness, trace verification, formal cost bounds, and applicable stability
-proofs remain to be written.
+Rows marked pending have executable algorithms whose verification is not yet
+integrated into the library. Correctness, trace verification, formal cost bounds,
+and stability are separate properties; the sections below specify their coverage.
+
+### Powersort verification
+
+`powerSortBy_spec` proves sortedness and permutation preservation for any Boolean
+comparator whose induced relation is total and transitive. Antisymmetry is not
+required, so records may be sorted by keys without comparing their payloads.
+`powerSortResult_spec` specializes this contract to a linear order. The proofs
+follow the actual natural-run scanner, higher-power stack collapse, and final
+drain; they do not replace the implementation with another sorting algorithm.
+`naturalRuns_nonempty` and `naturalRuns_perm` prove that detected runs are nonempty
+and jointly preserve every input occurrence.
+
+`powerSortBy_stable` proves exact equality of the input and output subsequences
+for every key value. This preserves payload order and repeated occurrences.
+Its proof uses strictly descending runs, whose reversal cannot exchange equal
+keys, and the left-first tie rule of each merge. The theorem accepts any key
+function into a linearly ordered type.
+
+`powerSortTr` instruments the existing scheduler. Its trace contains natural-run
+lengths, each boundary's original start/left length/right length/power, and the
+operand lengths of every collapse or drain merge. `powerSortTr_result` proves
+agreement with `powerSortBy`. Boundaries are computed from original runs before
+collapse, as in the executable algorithm. The log does not contain run-scan or
+merge-internal key comparisons.
+
+`replayChecked?_iff` accepts exactly the generated log and returns exactly the
+algorithm's output. It recomputes the full execution; it is not an independent
+or cheaper sorting algorithm. `Certificate.correct` guarantees a sorted
+permutation for every accepted certificate under the comparator assumptions.
+
+`powerSortTrace_mergeCount` proves exactly `max(r - 1, 0)` whole merges for `r`
+natural runs, and `powerSortTrace_eventCount` proves exactly twice that many
+boundary-plus-merge events. Since `r ≤ n`, there are at most `max(n - 1, 0)`
+merges. These counts treat each merge as one scheduler operation.
+
+`Equations.lean` exposes the run-scanning, power-loop, collapse, and final-drain
+equations. `nodePower_spec` proves the mathematical first-differing-bit contract:
+the integer dyadic buckets of the normalized run midpoints agree at every earlier
+level and differ at the computed level. Positive adjacent runs within the input
+give `1 ≤ power ≤ log₂ n + 1`. `midpointPower_outer` proves the minimum law for
+ordered midpoints, and `midpointPower_adjacent_ne` excludes equal powers on
+consecutive boundaries. The bounded computation therefore finds a genuine
+separation, rather than merely exhausting its fuel.
+
+`MergeTree.lean` refines the original scheduler to explicit merge trees.
+`scheduleTree_eval` identifies their evaluation with `mergeRuns`.
+The `StackValid` invariant carries original midpoint representatives, strictly
+increasing pending powers, and the height budget of each pending subtree.
+`collapseTree_valid` preserves this invariant when higher-power boundaries are
+merged, and `scheduleTree_height` bounds the final height by `log₂ n + 1`.
+No balanced-run or random-input assumption is used.
+
+`Comparisons.lean` counts actual key comparisons in run detection and every
+merge. `scanComparisonRun_cost` gives exactly `max(n - 1, 0)` comparisons for
+the initial scan; `mergeComparisonRun_result` and `powerComparisonRun_result`
+connect the counted execution to the original outputs. Each tree's merge
+comparisons are bounded by its size times its height. `powerComparisonCost_le`
+therefore gives the unconditional bound `n * (log₂ n + 2)`, and
+`powerComparisonCost_isBigO_length_mul_log` formalizes worst-case `O(n log n)`
+over the real logarithm. The comparison bound holds even for arbitrary Boolean
+comparators; sortedness still requires the total-preorder assumptions.
+This is a worst-case comparison theorem, not an entropy-optimality, total-runtime,
+or space bound. Dyadic integer arithmetic, allocation, list copying, and
+instrumentation/replay overhead are excluded from the comparison model.
+
+The Powersort checks cover all 3,280 lists of lengths zero through seven over
+`{0,1,2}`, tagged-record stability, larger sorted/reversed/equal/mixed inputs,
+signed and large keys, exact collapse schedules and comparison counts, and
+malformed logs. All valid adjacent-run geometries up to length 16 exercise the
+dyadic specification, including boundaries at powers of two. The verification
+modules are imported by `LeanSort` and checked by `lake build`.
 
 ### Bitonic verification
 
@@ -400,10 +471,12 @@ results already proved in this repository.
 | Shell sort | `O(n²)` for halving gaps | gapped swaps | `≤ 2n²`; `O(n²)` |
 | Counting sort | `O(n + k)` | input visits, bucket initialization/enumeration, output entries | `Θ(n + k)` |
 | Radix sort | `O(n b)` for binary passes | digit tests; scan/partition/append work | exact tests `n * b`; work `Θ(n b)` |
+| Powersort | `O(n log n)` | run-scan and merge key comparisons; whole merges | comparisons `≤ n*(log₂ n+2)`, `O(n log n)`; exactly `max(r-1,0)` merges |
 
 Parameters:
 
 - `n`: number of input elements.
+- `r`: number of natural runs detected by Powersort.
 - `k = max(input, default 0) + 1`: counting sort's allocated key range.
 - `b = Nat.log2(max(input, default 0)) + 1`: radix sort's number of binary passes.
   This implementation uses one pass even when all keys are zero.

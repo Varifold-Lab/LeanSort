@@ -8,7 +8,8 @@ https://www.wild-inter.net/publications/munro-wild-2018
 Detect natural runs, compute powers from adjacent ORIGINAL run midpoints, and
 merge pending runs with greater powers before pushing the new boundary. Runs
 are materialized before scheduling; this version omits minimum-run extension
-and galloping. Correctness, stability, and cost proofs are not included here.
+and galloping. Correctness, stability, dyadic-power, and comparison-complexity
+proofs are in `LeanSort.Verification.Power`.
 -/
 
 namespace LeanSort.Power
@@ -40,7 +41,7 @@ def naturalRuns {α : Type*} (le : α → α → Bool) (xs : List α) : List (Li
 
 /-- Count matching binary positions of two rational midpoints, bounded by fuel.
 Each step doubles the numerators, avoiding floating-point rounding. -/
-private def powerLoop (denominator : Nat) : Nat → Nat → Nat → Nat
+def powerLoop (denominator : Nat) : Nat → Nat → Nat → Nat
   | 0, _, _ => 0
   | fuel + 1, a, b =>
       if a / denominator ≠ b / denominator then 0
