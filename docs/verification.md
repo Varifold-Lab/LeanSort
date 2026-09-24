@@ -40,12 +40,53 @@ Trace verification and formal cost models have separate coverage, described belo
 | Tree sort | proved | insertion comparison paths; exact checked replay |
 | Bucket sort | proved | key-to-bucket placements; exact checked replay |
 | Bitonic sort | proved | comparator schedule; exact checked replay |
-| Introsort | pending | not implemented |
+| Introsort | proved for arbitrary cutoffs and depth budgets | partition decisions and insertion/heap leaves; exact checked replay |
 | Powersort | proved, including total-preorder comparators | original-run boundaries and merges; exact checked replay |
 
-Rows marked pending have executable algorithms whose verification is not yet
-integrated into the library. Correctness, trace verification, formal cost bounds,
-and stability are separate properties; the sections below specify their coverage.
+All listed algorithms have proved sorting correctness integrated into the library.
+Trace verification, formal cost bounds, and stability are separate properties;
+the sections below specify their coverage.
+
+### Introsort verification
+
+`introSortAux_spec` proves sortedness and permutation preservation for every
+linearly ordered input, insertion cutoff, and depth budget. `introSortResult_spec`
+specializes this to cutoff 16 and the initial budget `2 * log₂ n`. At zero budget
+the implementation delegates to heap sort, even for small or empty inputs.
+With positive budget, small partitions use insertion sort; larger partitions
+use the first pivot and pass the same decremented budget to both children.
+The equations and correctness proofs cover all three strategies and duplicates.
+
+`introSortTrace` records partition decisions and delegated leaf sizes.
+`replayChecked?_iff` accepts exactly the generated trace and returns the original
+algorithm's result. Replay recomputes partition decisions and reruns insertion
+or heap sorting at leaves; their internal comparisons are not recorded in this
+strategy tree. `traceAux_accounted` proves that pivots and leaf sizes account for
+every input occurrence, and `traceAux_partitionDepth_le` bounds the number of
+partition levels by the supplied budget.
+
+`Derivation` gives explicit evaluation rules for the three strategies.
+`replayAux?_derivation_iff` and `replayChecked?_derivation_iff` connect replay to
+these rules. Derivations are deterministic and imply the sorting contract.
+`introSortCertificate` packages the result and accepted trace; its methods
+recover execution identity, a legal derivation, and correctness.
+
+`comparisonRun_result` identifies the counted execution with `introSortAux`.
+Its cost includes every partition predicate, insertion-leaf comparison, and
+heap construction/extraction comparison. `comparisonRun_bound` gives
+`length(xs) * (depth + cutoff + 4 * (log₂ n + 1))` whenever `length(xs) ≤ n`.
+For the default parameters, `introComparisonCost_le` gives
+`n * (6 * log₂ n + 20)`, and `introComparisonCost_isBigO_length_mul_log` proves
+worst-case `O(n log n)`. No balanced partitions or random pivots are assumed.
+Length tests, allocation, concatenation, comparator bit costs, and tracing
+overhead are outside this key-comparison model. No stability, in-place storage,
+or total-runtime theorem is claimed for this list-based implementation.
+
+Checks enumerate all 3,280 inputs of lengths zero through seven over `{0,1,2}`,
+with four forced cutoff/depth configurations. They also exercise both children's
+decremented budgets, cutoff boundaries, zero-depth precedence, malformed traces,
+signed/large keys, and larger sorted, reversed, all-equal, and mixed inputs.
+All seven verification modules are imported by `LeanSort`.
 
 ### Powersort verification
 
@@ -472,6 +513,7 @@ results already proved in this repository.
 | Counting sort | `O(n + k)` | input visits, bucket initialization/enumeration, output entries | `Θ(n + k)` |
 | Radix sort | `O(n b)` for binary passes | digit tests; scan/partition/append work | exact tests `n * b`; work `Θ(n b)` |
 | Powersort | `O(n log n)` | run-scan and merge key comparisons; whole merges | comparisons `≤ n*(log₂ n+2)`, `O(n log n)`; exactly `max(r-1,0)` merges |
+| Introsort | `O(n log n)` | partition, insertion, and heap key comparisons | `≤ n*(6*log₂ n+20)`; `O(n log n)` |
 
 Parameters:
 

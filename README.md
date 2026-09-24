@@ -42,8 +42,8 @@ example (xs : List Nat) :
 
 All listed algorithms have executable implementations available through
 `import LeanSort`. **Proved** means both sortedness and preservation of every
-input occurrence have been established. **Pending** means verification has not
-yet been integrated into the library.
+input occurrence have been established. All 15 algorithms have this correctness
+contract proved and integrated into the library.
 
 | Algorithm | Correctness | Execution trace |
 | --- | --- | --- |
@@ -60,7 +60,7 @@ yet been integrated into the library.
 | [Tree](LeanSort/Algorithm/Tree.lean) | [Proved](LeanSort/Verification/Tree/Correctness.lean) | Insertion comparison paths; checked replay |
 | [Bucket](LeanSort/Algorithm/Bucket.lean) | [Proved](LeanSort/Verification/Bucket/Correctness.lean) | Key-to-bucket placements; checked replay |
 | [Bitonic](LeanSort/Algorithm/Bitonic.lean) | [Proved](LeanSort/Verification/Bitonic/Correctness.lean) | Comparator schedule; checked replay |
-| [Introsort](LeanSort/Algorithm/Intro.lean) | Pending | Not implemented |
+| [Introsort](LeanSort/Algorithm/Intro.lean) | [Proved](LeanSort/Verification/Intro/Correctness.lean) | Partition decisions and insertion/heap leaves; checked replay |
 | [Powersort](LeanSort/Algorithm/Power.lean) | [Proved](LeanSort/Verification/Power/Correctness.lean) | Original-run boundaries and merges; checked replay |
 
 Correctness, trace verification, cost bounds, and stability have separate coverage.
@@ -73,13 +73,17 @@ between the mathematical network and the executable array implementation.
 
 Formal cost results include insertion's exact inversion count, selection's
 exact `n(n−1)/2` comparisons, tree's tight worst-case `n(n−1)/2` comparisons,
-and the `O(n log n)` comparison bounds for merge sort and Powersort.
+and the `O(n log n)` comparison bounds for merge sort, Introsort, and Powersort.
 These count specified operations; they do not measure wall-clock time or memory.
 Counting, radix, and bucket accept natural-number keys; the other algorithms accept
 linearly ordered types.
 
 See the [verification guide](docs/verification.md) for all cost bounds,
 trace-checker guarantees, assumptions, and theorem references.
+
+Introsort's proof covers arbitrary insertion cutoffs and depth budgets, including
+heap fallback at zero depth. With its default parameters, the comparison bound
+is `n * (6 * log₂ n + 20)`, including partitioning, insertion leaves, and heap leaves.
 
 Powersort also exposes `LeanSort.Power.powerSortBy` for sorting records by a
 total-preorder comparator, with proved correctness and key-based stability.

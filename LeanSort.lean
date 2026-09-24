@@ -124,6 +124,14 @@ import LeanSort.Verification.Bitonic.Cost
 import LeanSort.Verification.Bitonic.Complexity
 import LeanSort.Verification.Bitonic.Checks
 
+import LeanSort.Verification.Intro.Equations
+import LeanSort.Verification.Intro.Correctness
+import LeanSort.Verification.Intro.Trace
+import LeanSort.Verification.Intro.Semantics
+import LeanSort.Verification.Intro.Cost
+import LeanSort.Verification.Intro.Complexity
+import LeanSort.Verification.Intro.Checks
+
 import LeanSort.Verification.Power.Equations
 import LeanSort.Verification.Power.NodePower
 import LeanSort.Verification.Power.Correctness
